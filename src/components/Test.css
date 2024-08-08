@@ -1,0 +1,19 @@
+/* styles.css */
+.overlay {
+  width: 300px;
+  height: 100px;
+  background-color: black;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+#screen {
+  position: relative;
+}
+
+#readMore {
+  pointer-events: auto; /* Ensure that pointer events are enabled */
+}

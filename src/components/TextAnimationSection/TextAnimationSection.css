@@ -1,0 +1,22 @@
+.text-animation-section {
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  /* background-color: #cc6161; */
+}
+
+.text-wrap {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  color: rgb(121, 121, 121);
+}
