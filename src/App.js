@@ -17,6 +17,7 @@ function App() {
   const skillRef = useRef(null);
   const spaceZero = useRef(null);
   const spaceReal = useRef(null);
+  const spaceOneRef = useRef(null);
 
   return (
     <div>
@@ -37,7 +38,7 @@ function App() {
 
       <div
         className="space-zero"
-        style={{ height: "200vh" }}
+        style={{ height: "150vh" }}
         ref={spaceZero}
       ></div>
 
@@ -51,13 +52,18 @@ function App() {
       />
       <div
         className="space-one"
-        // style={{ height: "200vh", backgroundColor: "red" }}
+        style={{ height: "100vh", backgroundColor: "purple" }}
+        ref={spaceOneRef}
       ></div>
-      {/* <ProjectSection circleRef={circleRef} skillRef={skillRef} /> */}
-      {/* <div
+      <ProjectSection
+        circleRef={circleRef}
+        skillRef={skillRef}
+        spaceOneRef={spaceOneRef}
+      />
+      <div
         className="space-two"
         style={{ height: "1000vh", backgroundColor: "blue" }}
-      ></div> */}
+      ></div>
 
       {/* <Test /> */}
     </div>

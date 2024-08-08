@@ -218,7 +218,7 @@ const SkillsSection = ({
 
       gsap.fromTo(
         contetnRight,
-        { opacity: 0 },
+        { opacity: 0, yPercent: 100 },
         {
           scrollTrigger: {
             trigger: space,
@@ -275,6 +275,7 @@ const SkillsSection = ({
             },
           },
 
+          yPercent: 0,
           opacity: 1,
           delay: 0.5,
         }

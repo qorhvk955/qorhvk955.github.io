@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from "react";
 import "./ProjectsSection.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import project from "../assets/images/project-presentation-svgrepo-com.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsSection = ({ circleRef, skillRef }) => {
+const ProjectsSection = ({ circleRef, skillRef, spaceOneRef }) => {
   console.log("skillRef.current", skillRef.current);
   const projectsRef = useRef(null);
   let num;
@@ -43,35 +44,80 @@ const ProjectsSection = ({ circleRef, skillRef }) => {
   // }, [projectsRef, skillRef]);
 
   useEffect(() => {
-    ScrollTrigger.create({
-      trigger: ".space-one",
-      start: "bottom bottom",
-      end: "bottom bottom",
+    const left = projectsRef.current.querySelector(".projects-section__left");
+    const right = projectsRef.current.querySelector(".projects-section__right");
 
-      snap: true,
-      onEnter: () => {
-        console.log("트리거 동작");
-        gsap.to(projectsRef.current, { position: "fixed", top: 0, left: 0 });
-        gsap.set(num, { text: "02" });
-        gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
-        gsap.set(total, { text: "03" });
-      },
-      onEnterBack: () => {
-        gsap.to(projectsRef.current, { position: "" });
-        gsap.set(num, { text: "01" });
-        gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
-        gsap.set(total, { text: "03" });
-      },
-      markers: true,
-    });
-  }, []);
+    if (spaceOneRef.current && projectsRef.current) {
+      const leftTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: spaceOneRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+        },
+      });
+
+      leftTl.to(projectsRef.current, { zIndex: 999 });
+
+      gsap.to(projectsRef.current, {
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: "top top",
+          end: "top top",
+          scrub: true,
+          markers: true,
+        },
+        position: "fixed",
+        top: 0,
+        left: 0,
+      });
+
+      // leftTl.to(skillRef.current, { opacity: 0 });
+      // leftTl.to(projectsRef.current, { position: "sticky", top: 0, left: 0 });
+      // gsap.fromTo(
+      //   left,
+      //   { yPercent: 100, opacity: 1 },
+      //   { yPercent: 0, duration: 1 }
+      // );
+    }
+  }, [spaceOneRef, projectsRef, skillRef]);
+
+  // useEffect(() => {
+  //   ScrollTrigger.create({
+  //     trigger: ".space-one",
+  //     start: "bottom bottom",
+  //     end: "bottom bottom",
+
+  //     snap: true,
+  //     onEnter: () => {
+  //       console.log("트리거 동작");
+  //       gsap.to(skillRef.current, { opacity: 0 });
+  //       gsap.to(projectsRef.current, { position: "fixed", top: 0, left: 0 });
+  //       gsap.set(num, { text: "02" });
+  //       gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
+  //       gsap.set(total, { text: "03" });
+  //     },
+  //     onLeaveBack: () => {
+  //       gsap.to(skillRef.current, { opacity: 1 });
+
+  //       gsap.to(projectsRef.current, { position: "" });
+  //       gsap.set(num, { text: "01" });
+  //       gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
+  //       gsap.set(total, { text: "03" });
+  //     },
+  //     markers: true,
+  //   });
+  // }, []);
 
   return (
     <>
       <section className="projects-section" ref={projectsRef}>
         <div className="projects-section__left">
           <div className="content-container">
-            <div className="icon"></div>
+            <div className="icon">
+              <img src={project} alt="project-icon" id="computer-icon" />
+            </div>
             <div className="title">Interactive Web Development</div>
             <div className="subtitle">
               애니메이션과 모션 디자인을 좋아하는 주니어 풀스택 개발자

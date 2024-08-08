@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #8f6969;
 
   .projects-section__left,
   .projects-section__right {
@@ -17,12 +18,11 @@
   }
 
   .projects-section__left {
-    /* background-color: aqua; */
+    background-color: #8f6969 !important; /* !important를 사용하여 우선순위를 높임 */
   }
 
   .projects-section__right {
     background-color: #d3d3d3;
-    position: relative;
   }
 
   .content-container {
@@ -35,6 +35,7 @@
     padding: 0 50px;
     text-align: center;
     font-size: 1rem;
+    background-color: #fff;
   }
 
   .icon > img {
@@ -74,7 +75,6 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative;
   }
 
   .original,
@@ -85,7 +85,6 @@
     flex-direction: row;
     justify-content: space-around;
     flex-shrink: 0;
-    position: absolute;
     top: 0;
     bottom: 0;
   }
