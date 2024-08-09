@@ -7,6 +7,7 @@ import Circle from "./components/Circle";
 import Test from "./components/FrontSkill";
 import ProjectSection from "./components/ProjectsSection";
 import CloneCircle from "./components/CloneCircle";
+import HistorySection from "./components/HistorySection";
 
 function App() {
   const heroRef = useRef(null);
@@ -22,7 +23,7 @@ function App() {
   return (
     <div>
       {/* <Header /> */}
-      <HeroSection heroRef={heroRef} textRef={textRef} />
+      {/* <HeroSection heroRef={heroRef} textRef={textRef} />
       <TextAnimationSection
         heroRef={heroRef}
         textRef={textRef}
@@ -64,9 +65,10 @@ function App() {
       <div
         className="space-two"
         style={{ height: "1000vh", backgroundColor: "green", zIndex: 9999 }}
-      ></div>
+      ></div> */}
 
       {/* <Test /> */}
+      <HistorySection />
     </div>
   );
 }
