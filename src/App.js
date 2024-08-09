@@ -38,7 +38,7 @@ function App() {
 
       <div
         className="space-zero"
-        style={{ height: "150vh" }}
+        style={{ height: "100vh", backgroundColor: "yellow", zIndex: 9999 }}
         ref={spaceZero}
       ></div>
 
@@ -52,17 +52,18 @@ function App() {
       />
       <div
         className="space-one"
-        style={{ height: "100vh", backgroundColor: "purple" }}
+        style={{ height: "100vh", backgroundColor: "blue", zIndex: 9999 }}
         ref={spaceOneRef}
       ></div>
       <ProjectSection
         circleRef={circleRef}
         skillRef={skillRef}
         spaceOneRef={spaceOneRef}
+        cloneCircleRef={cloneCircleRef}
       />
       <div
         className="space-two"
-        style={{ height: "1000vh", backgroundColor: "blue" }}
+        style={{ height: "1000vh", backgroundColor: "green", zIndex: 9999 }}
       ></div>
 
       {/* <Test /> */}

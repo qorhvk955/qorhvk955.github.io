@@ -5,16 +5,15 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #8f6969;
 
   .projects-section__left,
   .projects-section__right {
     width: 50%;
     height: 100%;
-    border: 1px solid white;
     opacity: 1;
     display: flex;
-    border: 3px solid green;
+    // border: 3px solid green;
+    opacity: 0;
   }
 
   .projects-section__left {

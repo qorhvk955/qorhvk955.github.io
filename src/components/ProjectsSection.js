@@ -3,12 +3,21 @@ import "./ProjectsSection.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import project from "../assets/images/project-presentation-svgrepo-com.svg";
+import VideoPlayer from "../components/VideoPlayer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsSection = ({ circleRef, skillRef, spaceOneRef }) => {
-  console.log("skillRef.current", skillRef.current);
+const ProjectsSection = ({
+  circleRef,
+  skillRef,
+  spaceOneRef,
+  cloneCircleRef,
+}) => {
   const projectsRef = useRef(null);
+  const videoPlayerRef = useRef(null);
+  const animationRef = useRef(null);
+  const fillRef = useRef(null);
+
   let num;
   let divider;
   let total;
@@ -19,132 +28,149 @@ const ProjectsSection = ({ circleRef, skillRef, spaceOneRef }) => {
       divider = circleRef.current.querySelector(".divider");
       total = circleRef.current.querySelector(".total");
     }
-  }, [circleRef.current]);
-
-  // useEffect(() => {
-  //   if (skillRef.current) {
-  //     if (projectsRef.current) {
-  //       const tl = gsap.timeline({
-  //         scrollTrigger: {
-  //           trigger: skillRef.current,
-  //           start: "bottom top",
-  //           end: "bottom top",
-  //           scrub: true,
-  //           // markers: true,
-  //           onEnter: () => {
-  //             console.log("@@@@");
-  //             gsap.set(num, { text: "02" });
-  //             gsap.to(divider, { duration: 0.5, opacity: 1, ease: "none" });
-  //             gsap.set(total, { text: "03" });
-  //           },
-  //         },
-  //       });
-  //     }
-  //   }
-  // }, [projectsRef, skillRef]);
+  }, [circleRef]);
 
   useEffect(() => {
-    const left = projectsRef.current.querySelector(".projects-section__left");
-    const right = projectsRef.current.querySelector(".projects-section__right");
+    if (!projectsRef.current || !spaceOneRef.current) return;
 
-    if (spaceOneRef.current && projectsRef.current) {
-      const leftTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: spaceOneRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-          // markers: true,
-        },
+    const projectsRight = projectsRef.current.querySelector(
+      ".projects-section__right"
+    );
+    const projectsLeft = projectsRef.current.querySelector(
+      ".projects-section__left"
+    );
+
+    const playAni = () => {
+      console.log("playAni");
+      if (animationRef.current) animationRef.current.kill();
+      const ani = gsap.timeline();
+      animationRef.current = ani;
+      ani
+        .to(projectsRef.current, { position: "fixed", top: 0, left: 0 })
+        .fromTo(
+          projectsRight,
+          {
+            yPercent: 100,
+            opacity: 1,
+          },
+          {
+            yPercent: 0,
+            duration: 0.2,
+            onComplete: () => {
+              if (videoPlayerRef.current) {
+                videoPlayerRef.current.play();
+              }
+            },
+          }
+        )
+        .fromTo(
+          projectsLeft,
+          {
+            yPercent: 100,
+            opacity: 1,
+          },
+          {
+            yPercent: 0,
+            duration: 0.2,
+          }
+        );
+    };
+
+    const resetAni = () => {
+      console.log("resetAni");
+      if (animationRef.current) animationRef.current.kill();
+      const ani = gsap.timeline();
+      animationRef.current = ani;
+
+      if (videoPlayerRef.current) {
+        videoPlayerRef.current.pause();
+        videoPlayerRef.current.currentTime = 0;
+      }
+
+      ani.set(projectsRight, { yPercent: 0 });
+      ani.set(projectsLeft, { yPercent: 0 });
+
+      ani.set(projectsRight, { opacity: 0 });
+      ani.set(projectsLeft, { opacity: 0 });
+
+      ani.to(projectsRef.current, {
+        position: "",
       });
+    };
 
-      leftTl.to(projectsRef.current, { zIndex: 999 });
+    const leftTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: spaceOneRef.current,
+        start: "top top",
+        markers: true,
+        // end: "bottom bottom",
+        // scrub: true,
+        onEnter: () => {
+          const fill = gsap.timeline();
+          const totalDegrees = 360;
 
-      gsap.to(projectsRef.current, {
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top top",
-          end: "top top",
-          scrub: true,
-          markers: true,
+          if (fillRef.current) fillRef.current.kill();
+          fillRef.current = fill;
+
+          fill.set(cloneCircleRef.current, { opacity: 1 });
+
+          fill.to(cloneCircleRef.current, {
+            duration: 0.5,
+
+            onUpdate: function () {
+              const progress = this.progress();
+              const degrees = progress * totalDegrees;
+              cloneCircleRef.current.style.background = `conic-gradient(black 0deg, black ${degrees}deg, transparent ${degrees}deg)`;
+            },
+            ease: "none",
+            onComplete: () => {
+              gsap.set(cloneCircleRef.current, { opacity: 0 });
+              gsap.set(num, { text: "02" });
+              gsap.set(divider, { opacity: 1 });
+              gsap.set(total, { text: "04" });
+              playAni();
+            },
+          });
         },
-        position: "fixed",
-        top: 0,
-        left: 0,
-      });
 
-      // leftTl.to(skillRef.current, { opacity: 0 });
-      // leftTl.to(projectsRef.current, { position: "sticky", top: 0, left: 0 });
-      // gsap.fromTo(
-      //   left,
-      //   { yPercent: 100, opacity: 1 },
-      //   { yPercent: 0, duration: 1 }
-      // );
-    }
-  }, [spaceOneRef, projectsRef, skillRef]);
-
-  // useEffect(() => {
-  //   ScrollTrigger.create({
-  //     trigger: ".space-one",
-  //     start: "bottom bottom",
-  //     end: "bottom bottom",
-
-  //     snap: true,
-  //     onEnter: () => {
-  //       console.log("트리거 동작");
-  //       gsap.to(skillRef.current, { opacity: 0 });
-  //       gsap.to(projectsRef.current, { position: "fixed", top: 0, left: 0 });
-  //       gsap.set(num, { text: "02" });
-  //       gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
-  //       gsap.set(total, { text: "03" });
-  //     },
-  //     onLeaveBack: () => {
-  //       gsap.to(skillRef.current, { opacity: 1 });
-
-  //       gsap.to(projectsRef.current, { position: "" });
-  //       gsap.set(num, { text: "01" });
-  //       gsap.set(divider, { duration: 0.5, opacity: 1, ease: "none" });
-  //       gsap.set(total, { text: "03" });
-  //     },
-  //     markers: true,
-  //   });
-  // }, []);
+        onLeaveBack: () => {
+          gsap.set(num, { text: "01" });
+          gsap.set(divider, { opacity: 1 });
+          gsap.set(total, { text: "04" });
+          resetAni();
+        },
+      },
+    });
+  }, [spaceOneRef, projectsRef]);
 
   return (
-    <>
-      <section className="projects-section" ref={projectsRef}>
-        <div className="projects-section__left">
-          <div className="content-container">
-            <div className="icon">
-              <img src={project} alt="project-icon" id="computer-icon" />
-            </div>
-            <div className="title">Interactive Web Development</div>
-            <div className="subtitle">
-              애니메이션과 모션 디자인을 좋아하는 주니어 풀스택 개발자
-            </div>
-            <div className="description">
-              <p>
-                저는{" "}
-                <span className="highlight">
-                  매력적이고 생동감이 넘치는 웹을 구현
-                </span>
-                하는데 열정을 가지고 있습니다.
-              </p>
-              <p>
-                <span className="highlight">디자인과 개발에 대한 이해</span>를
-                바탕으로, 프로젝트를 보다 입체적이고{" "}
-              </p>
-              <p>
-                <span className="highlight">다양한 관점에서 접근</span>하여{" "}
-                <span className="highlight">최상의 결과물</span>을 만들어내기
-                위해 노력하고 있습니다.
-              </p>
-            </div>
+    <section className="projects-section" ref={projectsRef}>
+      <div className="projects-section__left">
+        <div className="content-container">
+          <div className="icon">
+            <img src={project} alt="project-icon" id="computer-icon" />
+          </div>
+          <div className="title">Diverse Project Experience</div>
+          <div className="subtitle">
+            "팀원과의 소통과 협력을 중요시하고 아이디어를 현실로 만드는"
+          </div>
+          <div className="description">
+            <p>
+              퍼블리싱, 프론트엔드, 풀스택 프로젝트를 통해 다양한 기술 스택을
+              익혔으며,
+            </p>
+            <p>
+              어떤 환경에서도 팀과 원활하게 소통하며 협력하여 문제를 해결하고
+            </p>
+            <p>성공적인 성과를 창출할 수 있는 능력을 갖추고 있습니다.</p>
           </div>
         </div>
-        <div className="projects-section__right"></div>
-      </section>
-    </>
+      </div>
+      <div className="projects-section__right">
+        <VideoPlayer ref={videoPlayerRef} />
+      </div>
+    </section>
   );
 };
+
 export default ProjectsSection;

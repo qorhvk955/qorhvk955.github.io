@@ -189,7 +189,7 @@ const SkillsSection = ({
               onUpdate: function () {
                 const progress = this.progress();
                 const degrees = progress * totalDegrees;
-                cloneCircleRef.current.style.background = `conic-gradient(red 0deg, red ${degrees}deg, transparent ${degrees}deg)`;
+                cloneCircleRef.current.style.background = `conic-gradient(black 0deg, black ${degrees}deg, transparent ${degrees}deg)`;
               },
               ease: "none",
             });
@@ -216,70 +216,85 @@ const SkillsSection = ({
         left: 0,
       });
 
-      gsap.fromTo(
-        contetnRight,
-        { opacity: 0, yPercent: 100 },
-        {
-          scrollTrigger: {
-            trigger: space,
-            start: "top top",
-            onLeaveBack: () => {
-              if (tl2.current) tl2.current.kill();
+      gsap.to(contetnRight, {
+        scrollTrigger: {
+          trigger: space,
+          start: "top top",
+          onLeaveBack: () => {
+            if (tl2.current) tl2.current.kill();
 
-              gsap.set(
-                [
-                  "#o-box1",
-                  "#o-box2",
-                  "#o-box3",
-                  "#c-box1",
-                  "#c-box2",
-                  "#c-box3",
-                ],
-                {
-                  xPercent: 0,
-                  scale: 1,
-                }
-              );
-            },
-            onEnter: () => {
-              if (tl2.current) tl2.current.kill();
-              gsap.set(
-                [
-                  "#o-box1",
-                  "#o-box2",
-                  "#o-box3",
-                  "#c-box1",
-                  "#c-box2",
-                  "#c-box3",
-                ],
-                {
-                  xPercent: 0,
-                  scale: 1,
-                }
-              );
+            gsap.set(contetnRight, {
+              yPercent: 100,
+              // opacity: 0,
+            });
 
-              gsap.set("#o-box1", { xPercent: -50 });
-              gsap.set("#o-box2", { scale: 1.2 }, "<");
-              gsap.set("#o-box3", { xPercent: 50 }, "<");
-              move();
-              gsap.fromTo(
-                contetnLeft,
-                { yPercent: 100, opacity: 1 },
-                {
-                  yPercent: 0,
-                  onComplete: () => {
-                    tl2.current.play();
-                  },
-                }
-              );
-            },
+            gsap.set(contetnLeft, {
+              yPercent: 100,
+              opacity: 0,
+            });
+
+            gsap.set(
+              [
+                "#o-box1",
+                "#o-box2",
+                "#o-box3",
+                "#c-box1",
+                "#c-box2",
+                "#c-box3",
+              ],
+              {
+                xPercent: 0,
+                scale: 1,
+              }
+            );
           },
+          onEnter: () => {
+            if (tl2.current) tl2.current.kill();
+            gsap.set(
+              [
+                "#o-box1",
+                "#o-box2",
+                "#o-box3",
+                "#c-box1",
+                "#c-box2",
+                "#c-box3",
+              ],
+              {
+                xPercent: 0,
+                scale: 1,
+              },
+              gsap.to(contetnRight, { opacity: 1 })
+            );
 
-          yPercent: 0,
-          opacity: 1,
-          delay: 0.5,
-        }
-      );
+            gsap.set("#o-box1", { xPercent: -50 });
+            gsap.set("#o-box2", { scale: 1.2 }, "<");
+            gsap.set("#o-box3", { xPercent: 50 }, "<");
+            move();
+            gsap.fromTo(
+              contetnRight,
+              { yPercent: 100, opacity: 1 },
+              {
+                yPercent: 0,
+              }
+            );
+
+            gsap.fromTo(
+              contetnLeft,
+              { yPercent: 100, opacity: 1 },
+              {
+                delay: 0.5,
+                yPercent: 0,
+                onComplete: () => {
+                  tl2.current.play();
+                },
+              }
+            );
+          },
+        },
+
+        yPercent: 0,
+        delay: 0.5,
+      });
     }
   }, []);
 
