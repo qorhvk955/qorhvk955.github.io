@@ -18,10 +18,13 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HistorySection = () => {
-  const historyRef = useRef(null);
+const HistorySection = ({ historyRef }) => {
+  // const historyRef = useRef(null);
 
   useEffect(() => {
+    if (!historyRef) return;
+
+    console.log("@@@historyRef", historyRef);
     const container = historyRef.current.querySelectorAll(".container");
 
     console.log(container);
@@ -40,7 +43,7 @@ const HistorySection = () => {
         trigger: item,
         start: () => `-=${item.offsetHeight + item.offsetHeight / 3}`,
         end: () => `+=${item.offsetHeight + item.offsetHeight / 3}`,
-        markers: true,
+        // markers: true,
         scrub: 0.2,
         toggleActions: "play pause pause reset",
         onEnter: () => {
@@ -96,7 +99,7 @@ const HistorySection = () => {
         },
       });
     });
-  });
+  }, [historyRef]);
 
   return (
     <>
@@ -107,18 +110,10 @@ const HistorySection = () => {
               <img src={project} alt="project-icon" id="computer-icon" />
             </div>
             <div className="title">Diverse Project Experience</div>
-            <div className="subtitle">
-              "팀원과의 소통과 협력을 중요시하고 아이디어를 현실로 만드는"
-            </div>
+            <div className="subtitle">"3333333333333333333"</div>
             <div className="description">
-              <p>
-                퍼블리싱, 프론트엔드, 풀스택 프로젝트를 통해 다양한 기술 스택을
-                익혔으며,
-              </p>
-              <p>
-                어떤 환경에서도 팀과 원활하게 소통하며 협력하여 문제를 해결하고
-              </p>
-              <p>성공적인 성과를 창출할 수 있는 능력을 갖추고 있습니다.</p>
+              <p>33333333333333,</p>
+              <p>333333333333 </p>
             </div>
           </div>
         </section>

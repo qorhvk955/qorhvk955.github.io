@@ -12,6 +12,7 @@ const ProjectsSection = ({
   skillRef,
   spaceOneRef,
   cloneCircleRef,
+  historyRef,
 }) => {
   const projectsRef = useRef(null);
   const videoPlayerRef = useRef(null);
@@ -31,7 +32,8 @@ const ProjectsSection = ({
   }, [circleRef]);
 
   useEffect(() => {
-    if (!projectsRef.current || !spaceOneRef.current) return;
+    if (!projectsRef.current || !spaceOneRef.current || !historyRef.current)
+      return;
 
     const projectsRight = projectsRef.current.querySelector(
       ".projects-section__right"
@@ -42,6 +44,13 @@ const ProjectsSection = ({
 
     const playAni = () => {
       console.log("playAni");
+      console.log("histroyRef", historyRef);
+
+      if (!historyRef || !historyRef.current) {
+        console.error("histroyRef is undefined or null");
+        return;
+      }
+
       if (animationRef.current) animationRef.current.kill();
       const ani = gsap.timeline();
       animationRef.current = ani;
@@ -102,7 +111,7 @@ const ProjectsSection = ({
       scrollTrigger: {
         trigger: spaceOneRef.current,
         start: "top top",
-        markers: true,
+        // markers: true,
         // end: "bottom bottom",
         // scrub: true,
         onEnter: () => {
@@ -141,7 +150,52 @@ const ProjectsSection = ({
         },
       },
     });
-  }, [spaceOneRef, projectsRef]);
+  }, [spaceOneRef, projectsRef, historyRef]);
+
+  useEffect(() => {
+    if (!historyRef) return;
+    const historyLeft = historyRef.current.querySelector(".history-left");
+    const historyRight = historyRef.current.querySelector(".history");
+
+    const historyAni = () => {
+      console.log("historyAni");
+      if (animationRef.current) animationRef.current.kill();
+      const ani = gsap.timeline();
+      animationRef.current = ani;
+      ani.to(historyRef.current, { position: "fixed", top: 0, left: 0 });
+      // .fromTo(
+      //   historyRight,
+      //   {
+      //     yPercent: 100,
+      //     opacity: 1,
+      //   },
+      //   {
+      //     yPercent: 0,
+      //     duration: 0.2,
+      //   }
+      // )
+      // .fromTo(
+      //   historyLeft,
+      //   {
+      //     yPercent: 100,
+      //     opacity: 1,
+      //   },
+      //   {
+      //     yPercent: 0,
+      //     duration: 0.2,
+      //   }
+      // );
+    };
+
+    ScrollTrigger.create({
+      trigger: historyRef.current,
+      start: "top top",
+      onEnter: () => {
+        historyAni();
+      },
+      markers: true,
+    });
+  }, [historyRef]);
 
   return (
     <section className="projects-section" ref={projectsRef}>

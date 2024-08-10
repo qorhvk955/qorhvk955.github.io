@@ -19,11 +19,12 @@ function App() {
   const spaceZero = useRef(null);
   const spaceReal = useRef(null);
   const spaceOneRef = useRef(null);
+  const historyRef = useRef(null);
 
   return (
     <div>
       {/* <Header /> */}
-      {/* <HeroSection heroRef={heroRef} textRef={textRef} />
+      <HeroSection heroRef={heroRef} textRef={textRef} />
       <TextAnimationSection
         heroRef={heroRef}
         textRef={textRef}
@@ -61,14 +62,15 @@ function App() {
         skillRef={skillRef}
         spaceOneRef={spaceOneRef}
         cloneCircleRef={cloneCircleRef}
+        historyRef={historyRef}
       />
       <div
         className="space-two"
-        style={{ height: "1000vh", backgroundColor: "green", zIndex: 9999 }}
-      ></div> */}
+        style={{ height: "100vh", backgroundColor: "green", zIndex: 9999 }}
+      ></div>
 
       {/* <Test /> */}
-      <HistorySection />
+      <HistorySection historyRef={historyRef} />
     </div>
   );
 }
