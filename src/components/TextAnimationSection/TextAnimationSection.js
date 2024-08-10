@@ -14,22 +14,29 @@ const TextAnimationSection = ({ textRef, heroRef, circleRef }) => {
       {
         y: -500,
         scale: 0.2,
+        borderRadius: "10rem",
       },
       {
         y: 0,
         scale: 1,
+        borderRadius: "",
+
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top top",
           end: "bottom top",
           scrub: true,
-          // markers: true,
+          onEnterBack: () => {
+            gsap.to(heroRef.current, { opacity: 1 });
+          },
+          onLeave: () => {
+            gsap.to(heroRef.current, { opacity: 0 });
+          },
         },
       }
     );
 
     const chars = textRef.current.querySelectorAll("span");
-    console.log(chars);
 
     tl.fromTo(
       ".text-wrap > div",
@@ -57,6 +64,7 @@ const TextAnimationSection = ({ textRef, heroRef, circleRef }) => {
           trigger: textRef.current,
           start: "top top",
           end: "bottom bottom",
+          // markers: true,
           scrub: true,
           onStart: () => {
             gsap.set(textRef.current, { opacity: 1 });
@@ -73,19 +81,25 @@ const TextAnimationSection = ({ textRef, heroRef, circleRef }) => {
     <section ref={textRef} className="text-animation-section">
       <div className="text-wrap">
         <div>
-          {"모바일 마케팅 전문 회사로,".split("").map((char, index) => (
-            <span key={index}>{char}</span>
-          ))}
+          {"저는 애니메이션을 좋아하는 주니어 개발자입니다."
+            .split("")
+            .map((char, index) => (
+              <span key={index}>{char}</span>
+            ))}
         </div>
         <div>
-          {"2024년부터 1년간 어쩌구 저쩌구 ".split("").map((char, index) => (
-            <span key={`part2-${index}`}>{char}</span>
-          ))}
+          {"팀원과의 소통과 협력을 중요하게 여기며 "
+            .split("")
+            .map((char, index) => (
+              <span key={`part2-${index}`}>{char}</span>
+            ))}
         </div>
         <div>
-          {"세번째 1년간 어쩌구 저쩌구 ".split("").map((char, index) => (
-            <span key={`part3-${index}`}>{char}</span>
-          ))}
+          {"다양한 프로젝트를 통해 지속적으로 성장하고 있습니다. "
+            .split("")
+            .map((char, index) => (
+              <span key={`part3-${index}`}>{char}</span>
+            ))}
         </div>
       </div>
     </section>

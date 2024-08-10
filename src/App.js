@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection/HeroSection";
 import TextAnimationSection from "./components/TextAnimationSection/TextAnimationSection";
@@ -20,7 +20,8 @@ function App() {
   const spaceReal = useRef(null);
   const spaceOneRef = useRef(null);
   const historyRef = useRef(null);
-
+  const spaceTwo = useRef(null);
+  const projectRef = useRef(null);
   return (
     <div>
       {/* <Header /> */}
@@ -40,37 +41,49 @@ function App() {
 
       <div
         className="space-zero"
-        style={{ height: "100vh", backgroundColor: "yellow", zIndex: 9999 }}
+        style={{ height: "300vh", backgroundColor: "yellow", zIndex: 9999 }}
         ref={spaceZero}
-      ></div>
+      >
+        <SkillsSection
+          circleRef={circleRef}
+          textRef={textRef}
+          skillRef={skillRef}
+          spaceZero={spaceZero}
+          cloneCircleRef={cloneCircleRef}
+          spaceReal={spaceReal}
+          spaceOneRef={spaceOneRef}
+        />
+      </div>
 
-      <SkillsSection
-        circleRef={circleRef}
-        textRef={textRef}
-        skillRef={skillRef}
-        spaceZero={spaceZero}
-        cloneCircleRef={cloneCircleRef}
-        spaceReal={spaceReal}
-      />
       <div
         className="space-one"
-        style={{ height: "100vh", backgroundColor: "blue", zIndex: 9999 }}
+        style={{ height: "200vh", backgroundColor: "blue", zIndex: 9999 }}
         ref={spaceOneRef}
-      ></div>
-      <ProjectSection
-        circleRef={circleRef}
-        skillRef={skillRef}
-        spaceOneRef={spaceOneRef}
-        cloneCircleRef={cloneCircleRef}
-        historyRef={historyRef}
-      />
+      >
+        <ProjectSection
+          circleRef={circleRef}
+          skillRef={skillRef}
+          spaceOneRef={spaceOneRef}
+          cloneCircleRef={cloneCircleRef}
+          historyRef={historyRef}
+          spaceTwo={spaceTwo}
+          projectRef={projectRef}
+        />
+      </div>
       <div
         className="space-two"
-        style={{ height: "100vh", backgroundColor: "green", zIndex: 9999 }}
-      ></div>
+        style={{ height: "1000vh", backgroundColor: "green" }}
+        ref={spaceTwo}
+      >
+        {/* <Test /> */}
 
-      {/* <Test /> */}
-      <HistorySection historyRef={historyRef} />
+        <HistorySection
+          historyRef={historyRef}
+          spaceTwo={spaceTwo}
+          projectRef={projectRef}
+          spaceOneRef={spaceOneRef}
+        />
+      </div>
     </div>
   );
 }

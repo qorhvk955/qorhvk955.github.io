@@ -1,0 +1,46 @@
+// @import "../../styles/abstracts/variables";
+
+.hero-section {
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: clamp(1rem, 9vw + 1rem, 6rem);
+  position: relative;
+
+  &__stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+
+  &__rolling-text {
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+
+    .char {
+      display: inline-block;
+      position: relative;
+    }
+
+    .cloneText {
+      position: absolute;
+      left: 0;
+      top: 0;
+      white-space: nowrap;
+    }
+  }
+
+  &__description {
+    margin-top: 2rem;
+    font-size: clamp(1rem, 9vw + 1rem, 2rem);
+    position: fixed;
+  }
+}

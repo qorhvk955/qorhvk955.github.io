@@ -13,8 +13,9 @@ const ProjectsSection = ({
   spaceOneRef,
   cloneCircleRef,
   historyRef,
+  spaceTwo,
+  projectRef,
 }) => {
-  const projectsRef = useRef(null);
   const videoPlayerRef = useRef(null);
   const animationRef = useRef(null);
   const fillRef = useRef(null);
@@ -22,6 +23,19 @@ const ProjectsSection = ({
   let num;
   let divider;
   let total;
+
+  useEffect(() => {
+    if (!historyRef) return;
+    ScrollTrigger.create({
+      trigger: historyRef.current,
+      start: "top top",
+      onEnter: () => {
+        if (videoPlayerRef.current) {
+          videoPlayerRef.current.pause();
+        }
+      },
+    });
+  }, [historyRef]);
 
   useEffect(() => {
     if (circleRef.current) {
@@ -32,20 +46,17 @@ const ProjectsSection = ({
   }, [circleRef]);
 
   useEffect(() => {
-    if (!projectsRef.current || !spaceOneRef.current || !historyRef.current)
+    if (!projectRef.current || !spaceOneRef.current || !historyRef.current)
       return;
 
-    const projectsRight = projectsRef.current.querySelector(
+    const projectsRight = projectRef.current.querySelector(
       ".projects-section__right"
     );
-    const projectsLeft = projectsRef.current.querySelector(
+    const projectsLeft = projectRef.current.querySelector(
       ".projects-section__left"
     );
 
     const playAni = () => {
-      console.log("playAni");
-      console.log("histroyRef", historyRef);
-
       if (!historyRef || !historyRef.current) {
         console.error("histroyRef is undefined or null");
         return;
@@ -55,7 +66,7 @@ const ProjectsSection = ({
       const ani = gsap.timeline();
       animationRef.current = ani;
       ani
-        .to(projectsRef.current, { position: "fixed", top: 0, left: 0 })
+        // .to(projectRef.current, { position: "sticky", top: 0, left: 0 })
         .fromTo(
           projectsRight,
           {
@@ -86,7 +97,6 @@ const ProjectsSection = ({
     };
 
     const resetAni = () => {
-      console.log("resetAni");
       if (animationRef.current) animationRef.current.kill();
       const ani = gsap.timeline();
       animationRef.current = ani;
@@ -102,19 +112,20 @@ const ProjectsSection = ({
       ani.set(projectsRight, { opacity: 0 });
       ani.set(projectsLeft, { opacity: 0 });
 
-      ani.to(projectsRef.current, {
-        position: "",
-      });
+      // ani.to(projectRef.current, {
+      //   position: "",
+      // });
     };
 
     const leftTl = gsap.timeline({
       scrollTrigger: {
         trigger: spaceOneRef.current,
-        start: "top top",
+        start: "top bottom",
         // markers: true,
         // end: "bottom bottom",
         // scrub: true,
         onEnter: () => {
+          gsap.to(projectRef.current, { position: "fixed" });
           const fill = gsap.timeline();
           const totalDegrees = 360;
 
@@ -124,7 +135,7 @@ const ProjectsSection = ({
           fill.set(cloneCircleRef.current, { opacity: 1 });
 
           fill.to(cloneCircleRef.current, {
-            duration: 0.5,
+            duration: 0.7,
 
             onUpdate: function () {
               const progress = this.progress();
@@ -143,6 +154,8 @@ const ProjectsSection = ({
         },
 
         onLeaveBack: () => {
+          gsap.to(projectRef.current, { position: "" });
+
           gsap.set(num, { text: "01" });
           gsap.set(divider, { opacity: 1 });
           gsap.set(total, { text: "04" });
@@ -150,41 +163,75 @@ const ProjectsSection = ({
         },
       },
     });
-  }, [spaceOneRef, projectsRef, historyRef]);
+  }, [spaceOneRef, projectRef, historyRef]);
+
+  useEffect(() => {
+    if (!spaceTwo) return;
+
+    ScrollTrigger.create({
+      trigger: spaceTwo.current,
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: true,
+      onEnter: () => {
+        gsap.to(projectRef.current, { top: 0 });
+      },
+    });
+  }, [spaceTwo]);
 
   useEffect(() => {
     if (!historyRef) return;
     const historyLeft = historyRef.current.querySelector(".history-left");
     const historyRight = historyRef.current.querySelector(".history");
+    const historyFirst = historyRef.current.querySelector(".first-c");
 
     const historyAni = () => {
-      console.log("historyAni");
+      if (animationRef.current) animationRef.current.kill();
+      const ani = gsap.timeline({
+        onStart: () => {
+          console.log("gggggggggggggg");
+          document.body.style.overflow = "hidden";
+        },
+        onComplete: () => {
+          console.log("eeeeeeeeeeeeeeeeeeeeeeee");
+
+          document.body.style.overflow = "auto";
+        },
+      });
+      animationRef.current = ani;
+
+      ani
+        .fromTo(
+          historyRight,
+          {
+            opacity: 0,
+            yPercent: 200,
+          },
+          { opacity: 1, yPercent: 0 }
+        )
+        .fromTo(
+          historyLeft,
+          { opacity: 0, yPercent: 100 },
+          {
+            opacity: 1,
+            yPercent: 0,
+          }
+        );
+
+      // gsap.to(historyRef.current, {
+
+      //   height: "1000vh",
+      //   onComplete: () => {
+      //     gsap.to(historyRef.current, { position: "", height: "auto" });
+      //   },
+      // });
+    };
+
+    const historyAniReset = () => {
       if (animationRef.current) animationRef.current.kill();
       const ani = gsap.timeline();
       animationRef.current = ani;
-      ani.to(historyRef.current, { position: "fixed", top: 0, left: 0 });
-      // .fromTo(
-      //   historyRight,
-      //   {
-      //     yPercent: 100,
-      //     opacity: 1,
-      //   },
-      //   {
-      //     yPercent: 0,
-      //     duration: 0.2,
-      //   }
-      // )
-      // .fromTo(
-      //   historyLeft,
-      //   {
-      //     yPercent: 100,
-      //     opacity: 1,
-      //   },
-      //   {
-      //     yPercent: 0,
-      //     duration: 0.2,
-      //   }
-      // );
+      ani.set(historyLeft, { opacity: 0 });
     };
 
     ScrollTrigger.create({
@@ -193,12 +240,12 @@ const ProjectsSection = ({
       onEnter: () => {
         historyAni();
       },
-      markers: true,
+      onLeaveBack: historyAniReset,
     });
   }, [historyRef]);
 
   return (
-    <section className="projects-section" ref={projectsRef}>
+    <section className="projects-section" ref={projectRef}>
       <div className="projects-section__left">
         <div className="content-container">
           <div className="icon">

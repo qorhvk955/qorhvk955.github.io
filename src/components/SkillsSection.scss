@@ -7,7 +7,8 @@
   overflow: hidden;
   // border: 3px solid red;
   background-color: #fff;
-
+  position: sticky;
+  top: 0;
   .skills-section__left,
   .skills-section__right {
     width: 50%;

@@ -19,6 +19,7 @@ const SkillsSection = ({
   spaceZero,
   cloneCircleRef,
   spaceReal,
+  spaceOneRef,
 }) => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const fillRef = useRef(null);
@@ -184,7 +185,7 @@ const SkillsSection = ({
             fill.set(cloneCircleRef.current, { opacity: 1 });
 
             fill.to(cloneCircleRef.current, {
-              duration: 0.5,
+              duration: 0.7,
 
               onUpdate: function () {
                 const progress = this.progress();
@@ -212,8 +213,6 @@ const SkillsSection = ({
           scrub: true,
         },
         position: "fixed",
-        top: 0,
-        left: 0,
       });
 
       gsap.to(contetnRight, {
@@ -297,6 +296,20 @@ const SkillsSection = ({
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (!spaceOneRef) return;
+
+    ScrollTrigger.create({
+      trigger: spaceOneRef.current,
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: true,
+      onEnter: () => {
+        // gsap.to(skillRef.current, { position: "fixed" });
+      },
+    });
+  }, [spaceOneRef]);
 
   // useEffect(() => {
   //   if (textRef.current && skillRef.current) {
