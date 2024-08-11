@@ -17,14 +17,21 @@ import {
   faChalkboardTeacher,
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
+import CloneCircle from "./CloneCircle";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const HistorySection = ({ historyRef, spaceTwo, projectsRef, spaceOneRef }) => {
+const HistorySection = ({
+  historyRef,
+  contactRef,
+  circleRef,
+  projectRef,
+  spaceTwo,
+}) => {
   // const historyRef = useRef(null);
 
   useEffect(() => {
-    if (!historyRef) return;
+    if (!historyRef || !contactRef || !circleRef) return;
 
     const container = historyRef.current.querySelectorAll(".container");
 
@@ -35,8 +42,17 @@ const HistorySection = ({ historyRef, spaceTwo, projectsRef, spaceOneRef }) => {
       let line = item.querySelector(".line-fill");
       let historyIcon = item.querySelector(".history-icon");
 
-      gsap.set(left, { xPercent: -100, opacity: 0 });
-      gsap.set(right, { xPercent: 100, opacity: 0 });
+      // gsap.set(left, { xPercent: -100, opacity: 0 });
+      // gsap.set(right, { xPercent: 100, opacity: 0 });
+
+      ScrollTrigger.create({
+        trigger: spaceTwo.current,
+        start: "top top",
+        onLeaveBack: () => {
+          gsap.to(projectRef.current, { position: "fixed" });
+          gsap.set(historyRef.current, { opacity: 0 });
+        },
+      });
 
       ScrollTrigger.create({
         trigger: item,
@@ -74,6 +90,16 @@ const HistorySection = ({ historyRef, spaceTwo, projectsRef, spaceOneRef }) => {
           gsap.to(icon, { backgroundColor: "#576F8E" });
           gsap.to(line, { height: `100%`, opacity: 1 });
           gsap.to(historyIcon, { color: "#F2F2F2" });
+          // if (index === container.length - 1) {
+          //   console.log("@@@@@히스토리애니끝");
+          //   gsap.to(contactRef.current, {
+          //     position: "fixed",
+          //     top: 0,
+          //     delay: 1,
+          //   });
+          //   gsap.set(historyRef.current, { opacity: 0 });
+          //   gsap.set(circleRef.current, { opacity: 0 });
+          // }
         },
 
         onLeaveBack: () => {
@@ -99,41 +125,6 @@ const HistorySection = ({ historyRef, spaceTwo, projectsRef, spaceOneRef }) => {
       });
     });
   }, [historyRef]);
-
-  useEffect(() => {
-    if (!spaceTwo) return;
-
-    ScrollTrigger.create({
-      trigger: historyRef.current,
-      start: "top bottom",
-      // onEnter: () => {
-      //   document.body.style.overflow = "hidden";
-
-      //   gsap.to(window, {
-      //     scrollTo: { y: historyRef.current, autoKill: false },
-      //     onComplete: () => {
-      //       setTimeout(() => {
-      //         document.body.style.overflow = "auto";
-      //       }, 1000);
-      //     },
-      //   });
-      // },
-    });
-  }, [spaceTwo]);
-
-  useEffect(() => {
-    if (!projectsRef || !historyRef || !spaceOneRef) return;
-    ScrollTrigger.create({
-      trigger: historyRef.current,
-      start: "top top",
-      end: "top top",
-      markers: true,
-      onEnter: () => {
-        console.log("밀어제발");
-        gsap.set(historyRef.current, { yPercent: 200, opacity: 0 });
-      },
-    });
-  }, [projectsRef, historyRef, spaceOneRef]);
 
   useEffect(() => {
     if (!historyRef) return;
@@ -381,6 +372,7 @@ const HistorySection = ({ historyRef, spaceTwo, projectsRef, spaceOneRef }) => {
                 <div className="right"></div>
               </div>
             </div>
+            <div style={{ height: "100vh", backgroundColor: "red" }}></div>
           </section>
         </div>
       </div>

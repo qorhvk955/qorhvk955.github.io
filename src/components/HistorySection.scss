@@ -1,6 +1,7 @@
 .history-fixed {
   width: 100%;
   height: auto;
+  //  opacity: 0.2 !important;
 
   .history-wrap {
     width: 100%;
@@ -138,7 +139,7 @@
       }
 
       .container:nth-child(1) {
-        margin-top: 150px;
+        margin-top: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;

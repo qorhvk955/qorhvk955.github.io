@@ -78,6 +78,7 @@ const ProjectsSection = ({
             duration: 0.2,
             onComplete: () => {
               if (videoPlayerRef.current) {
+                videoPlayerRef.current.currentTime = 0;
                 videoPlayerRef.current.play();
               }
             },
@@ -165,19 +166,19 @@ const ProjectsSection = ({
     });
   }, [spaceOneRef, projectRef, historyRef]);
 
-  useEffect(() => {
-    if (!spaceTwo) return;
+  // useEffect(() => {
+  //   if (!spaceTwo) return;
 
-    ScrollTrigger.create({
-      trigger: spaceTwo.current,
-      start: "top bottom",
-      end: "bottom bottom",
-      scrub: true,
-      onEnter: () => {
-        gsap.to(projectRef.current, { top: 0 });
-      },
-    });
-  }, [spaceTwo]);
+  //   ScrollTrigger.create({
+  //     trigger: spaceTwo.current,
+  //     start: "top bottom",
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //     onEnter: () => {
+  //       gsap.to(projectRef.current, { top: 0 });
+  //     },
+  //   });
+  // }, [spaceTwo]);
 
   useEffect(() => {
     if (!historyRef) return;
@@ -185,20 +186,29 @@ const ProjectsSection = ({
     const historyRight = historyRef.current.querySelector(".history");
     const historyFirst = historyRef.current.querySelector(".first-c");
 
+    if (circleRef.current) {
+      num = circleRef.current.querySelector(".number");
+      divider = circleRef.current.querySelector(".divider");
+      total = circleRef.current.querySelector(".total");
+    }
+
     const historyAni = () => {
+      console.log("historyAni");
       if (animationRef.current) animationRef.current.kill();
+      gsap.set(projectRef.current, { position: "" });
+
       const ani = gsap.timeline({
         onStart: () => {
           console.log("gggggggggggggg");
-          document.body.style.overflow = "hidden";
-        },
-        onComplete: () => {
-          console.log("eeeeeeeeeeeeeeeeeeeeeeee");
 
-          document.body.style.overflow = "auto";
+          gsap.set(historyRef.current, { opacity: 1 });
         },
       });
       animationRef.current = ani;
+
+      gsap.set(num, { text: "03" });
+      gsap.set(divider, { opacity: 1 });
+      gsap.set(total, { text: "04" });
 
       ani
         .fromTo(
@@ -207,8 +217,12 @@ const ProjectsSection = ({
             opacity: 0,
             yPercent: 200,
           },
-          { opacity: 1, yPercent: 0 }
+          {
+            opacity: 1,
+            yPercent: 0,
+          }
         )
+
         .fromTo(
           historyLeft,
           { opacity: 0, yPercent: 100 },
@@ -217,14 +231,6 @@ const ProjectsSection = ({
             yPercent: 0,
           }
         );
-
-      // gsap.to(historyRef.current, {
-
-      //   height: "1000vh",
-      //   onComplete: () => {
-      //     gsap.to(historyRef.current, { position: "", height: "auto" });
-      //   },
-      // });
     };
 
     const historyAniReset = () => {
@@ -232,12 +238,22 @@ const ProjectsSection = ({
       const ani = gsap.timeline();
       animationRef.current = ani;
       ani.set(historyLeft, { opacity: 0 });
+      if (videoPlayerRef.current) {
+        videoPlayerRef.current.play();
+      }
+
+      gsap.set(num, { text: "02" });
+      gsap.set(divider, { opacity: 1 });
+      gsap.set(total, { text: "04" });
     };
 
     ScrollTrigger.create({
       trigger: historyRef.current,
       start: "top top",
       onEnter: () => {
+        gsap.set("body", { overflow: "hidden" });
+        gsap.set("body", { overflow: "auto", delay: 1 });
+
         historyAni();
       },
       onLeaveBack: historyAniReset,

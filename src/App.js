@@ -8,12 +8,14 @@ import Test from "./components/FrontSkill";
 import ProjectSection from "./components/ProjectsSection";
 import CloneCircle from "./components/CloneCircle";
 import HistorySection from "./components/HistorySection";
+import Contact from "./components/ContactSection";
 
 function App() {
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const circleRef = useRef(null);
   const cloneCircleRef = useRef(null);
+  const contactRef = useRef(null);
 
   const skillRef = useRef(null);
   const spaceZero = useRef(null);
@@ -22,6 +24,7 @@ function App() {
   const historyRef = useRef(null);
   const spaceTwo = useRef(null);
   const projectRef = useRef(null);
+  const spaceThree = useRef(null);
   return (
     <div>
       {/* <Header /> */}
@@ -72,16 +75,30 @@ function App() {
       </div>
       <div
         className="space-two"
-        style={{ height: "1000vh", backgroundColor: "green" }}
+        style={{ height: "4000px", backgroundColor: "green" }}
         ref={spaceTwo}
       >
-        {/* <Test /> */}
-
         <HistorySection
           historyRef={historyRef}
           spaceTwo={spaceTwo}
           projectRef={projectRef}
           spaceOneRef={spaceOneRef}
+          contactRef={contactRef}
+          circleRef={circleRef}
+        />
+      </div>
+
+      <div
+        className="space-three"
+        style={{ width: "100%", height: "300vh" }}
+        ref={spaceThree}
+      >
+        <Contact
+          historyRef={historyRef}
+          contactRef={contactRef}
+          spaceTwo={spaceTwo}
+          spaceThree={spaceThree}
+          circleRef={circleRef}
         />
       </div>
     </div>

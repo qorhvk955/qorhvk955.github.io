@@ -211,8 +211,16 @@ const SkillsSection = ({
           trigger: space,
           start: "top top",
           scrub: true,
+          onEnter: () => {
+            gsap.to(skillRef.current, { position: "fixed" });
+          },
+          onLeaveBack: () => {
+            gsap.to(skillRef.current, { position: "" });
+          },
+          onLeave: () => {
+            gsap.to(skillRef.current, { position: "" });
+          },
         },
-        position: "fixed",
       });
 
       gsap.to(contetnRight, {
