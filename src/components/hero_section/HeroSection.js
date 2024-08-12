@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./HeroSection.scss";
-import RollingText from "../RollingText";
+import RollingText from "./RollingText";
 
 gsap.registerPlugin(ScrollTrigger);
 

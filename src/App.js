@@ -1,17 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection/HeroSection";
-import TextAnimationSection from "./components/TextAnimationSection/TextAnimationSection";
-import SkillsSection from "./components/SkillsSection";
-import Circle from "./components/Circle";
-import Test from "./components/FrontSkill";
-import ProjectSection from "./components/ProjectsSection";
-import CloneCircle from "./components/CloneCircle";
-import HistorySection from "./components/HistorySection";
-import Contact from "./components/ContactSection";
+
+import Header from "./components/header_section/Header";
+import HeroSection from "./components/hero_section/HeroSection";
+import TextAnimationSection from "./components/textAnimation_section/TextAnimationSection";
+import SkillsSection from "./components/skill_section/SkillsSection";
+import ProjectSection from "./components/project_section/ProjectsSection";
+import HistorySection from "./components/history_section/HistorySection";
+import ContactSection from "./components/contact_section/ContactSection";
+
+import Circle from "./components/common/circle/Circle";
+import CloneCircle from "./components/common/circle/CloneCircle";
 import gsap from "gsap";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ContactSection from "./components/ContactSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,23 +41,23 @@ const App = () => {
   const timelineSectionRef = spaceTwo;
   const contactSectionRef = spaceThree;
 
-  useEffect(() => {
-    console.log("heroRef:", heroRef.current);
-    console.log("textRef:", textRef.current);
-    console.log("circleRef:", circleRef.current);
-    console.log("cloneCircleRef:", cloneCircleRef.current);
-    console.log("contactRef:", contactRef.current);
-    console.log("logoRef:", logoRef.current);
-    console.log("skillRef:", skillRef.current);
-    console.log("spaceZero:", spaceZero.current);
-    console.log("spaceReal:", spaceReal.current);
-    console.log("spaceOneRef:", spaceOneRef.current);
-    console.log("historyRef:", historyRef.current);
-    console.log("spaceTwo:", spaceTwo.current);
-    console.log("projectRef:", projectRef.current);
-    console.log("spaceThree:", spaceThree.current);
-    console.log("navRef:", navRef.current);
-  }, []);
+  // useEffect(() => {
+  //   console.log("heroRef:", heroRef.current);
+  //   console.log("textRef:", textRef.current);
+  //   console.log("circleRef:", circleRef.current);
+  //   console.log("cloneCircleRef:", cloneCircleRef.current);
+  //   console.log("contactRef:", contactRef.current);
+  //   console.log("logoRef:", logoRef.current);
+  //   console.log("skillRef:", skillRef.current);
+  //   console.log("spaceZero:", spaceZero.current);
+  //   console.log("spaceReal:", spaceReal.current);
+  //   console.log("spaceOneRef:", spaceOneRef.current);
+  //   console.log("historyRef:", historyRef.current);
+  //   console.log("spaceTwo:", spaceTwo.current);
+  //   console.log("projectRef:", projectRef.current);
+  //   console.log("spaceThree:", spaceThree.current);
+  //   console.log("navRef:", navRef.current);
+  // }, []);
 
   const scrollToSection = (section) => {
     switch (section) {
@@ -184,7 +185,7 @@ const App = () => {
         style={{ width: "100%", height: "150vh" }}
         ref={spaceThree}
       >
-        <Contact
+        <ContactSection
           historyRef={historyRef}
           contactRef={contactRef}
           spaceTwo={spaceTwo}

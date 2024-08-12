@@ -1,6 +1,6 @@
 import React from "react";
 import "./Modal.scss";
-import kakaoTalk from "../assets/images/KakaoTalk.png";
+import kakaoTalk from "../../../assets/images/KakaoTalk.png";
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 

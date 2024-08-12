@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./SkillsSection.scss";
-import FrontSkill from "./FrontSkill";
-import BackSkill from "./BackSkill";
-import CollaborationSkill from "./CollaborationSkill";
+import FrontSkill from "./skills/FrontSkill";
+import BackSkill from "./skills/BackSkill";
+import CollaborationSkill from "./skills/CollaborationSkill";
 
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import computer from "../assets/images/computer-svgrepo-com.svg";
+import computer from "../../assets/images/computer-svgrepo-com.svg";
 
 gsap.registerPlugin(TextPlugin);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.scss";
-import Logo from "../assets/images/logo_black.svg";
+import Logo from "../../assets/images/logo_black.svg";
 
 const Header = ({ navRef, logoRef, scrollToSection }) => {
   return (

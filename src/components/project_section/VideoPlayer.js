@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import video from "../assets/videos/project_video.mp4";
+import video from "../../assets/videos/project_video.mp4";
 
 const VideoPlayer = forwardRef((props, ref) => {
   return (

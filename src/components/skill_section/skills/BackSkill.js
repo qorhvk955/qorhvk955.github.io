@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { ReactComponent as Back } from ".././assets/images/back.svg";
+import { ReactComponent as Back } from "../../../assets/images/back.svg";
 import gsap from "gsap";
 
 const BackSkill = () => {

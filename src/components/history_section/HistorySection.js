@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import growth from "../assets/images/growth-report-graph-svgrepo-com.svg";
+import growth from "../../assets/images/growth-report-graph-svgrepo-com.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,7 +17,7 @@ import {
   faChalkboardTeacher,
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
-import CloneCircle from "./CloneCircle";
+// import CloneCircle from "./CloneCircle";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 

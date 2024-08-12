@@ -1,22 +1,25 @@
-import React, { useEffect, useRef } from "react";
-import { ReactComponent as Collaboration } from "../assets/images/collaboration.svg";
+import React, { useEffect, useRef, useState } from "react";
+import { ReactComponent as Front } from "../../../assets/images/front.svg";
 import gsap from "gsap";
+// import "./Test.css";
 
-const CollaborationSkill = () => {
-  const collaborationRef = useRef(null);
+const FrontSkill = () => {
+  const frontRef = useRef(null);
   const animationRef = useRef(null);
-  useEffect(() => {
-    const overlay = collaborationRef.current.querySelector("#overlay");
-    const btn = collaborationRef.current.querySelector("#readMore");
-    const btnStroke =
-      collaborationRef.current.querySelector("#readMore-stroke");
-    const btnText = collaborationRef.current.querySelector("#readMore-text");
 
-    const icons = collaborationRef.current.querySelectorAll(".icon");
+  // const [btnClick, setBtnClick] = useState(0);
+
+  useEffect(() => {
+    const overlay = frontRef.current.querySelector("#overlay");
+    const btn = frontRef.current.querySelector("#readMore");
+    const btnStroke = frontRef.current.querySelector("#readMore-stroke");
+    const btnText = frontRef.current.querySelector("#readMore-text");
+
+    const icons = frontRef.current.querySelectorAll(".icon");
 
     gsap.set(btn, { opacity: 0 });
 
-    if (collaborationRef.current) {
+    if (frontRef.current) {
       const onMouseEnter = () => {
         if (animationRef.current) {
           animationRef.current.kill();
@@ -70,15 +73,16 @@ const CollaborationSkill = () => {
         const height = viewportHeight;
         const left = 0;
         const top = 0;
-        const url = "https://www.notion.so/f162fcf78bbc44e19518e6eb6cc745a6";
+
+        const url = "https://www.notion.so/efe8e171fbf04f5687e69e9050f3960b";
         const features = `width=${width},height=${height},left=${left},top=${top}`;
         window.open(url, "_blank", features);
       };
 
-      collaborationRef.current.addEventListener("mouseenter", onMouseEnter);
-      collaborationRef.current.addEventListener("mouseleave", onMouseLeave);
+      frontRef.current.addEventListener("mouseenter", onMouseEnter);
+      frontRef.current.addEventListener("mouseleave", onMouseLeave);
 
-      collaborationRef.current.addEventListener("click", onClickBtn);
+      frontRef.current.addEventListener("click", onClickBtn);
 
       btn.addEventListener("mouseenter", () => {
         gsap.to(btnStroke, { stroke: "#fff", fill: "#fff" });
@@ -93,18 +97,13 @@ const CollaborationSkill = () => {
       });
 
       return () => {
-        collaborationRef.current.removeEventListener(
-          "mouseenter",
-          onMouseEnter
-        );
-        collaborationRef.current.removeEventListener(
-          "mouseleave",
-          onMouseLeave
-        );
+        frontRef.current.removeEventListener("mouseenter", onMouseEnter);
+        frontRef.current.removeEventListener("mouseleave", onMouseLeave);
       };
     }
-  }, [collaborationRef]);
-  return <Collaboration ref={collaborationRef} />;
+  }, [frontRef]);
+
+  return <Front ref={frontRef} />;
 };
 
-export default CollaborationSkill;
+export default FrontSkill;

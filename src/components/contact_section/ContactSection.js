@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ReactComponent as ContactSVG } from "../assets/images/contact.svg";
+import { ReactComponent as ContactSVG } from "../../assets/images/contact.svg";
 import gsap from "gsap";
 import "./ContactSection.scss";
-import Modal from "./Modal";
+import Modal from "../common/modal/Modal";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CloneCircle from "./CloneCircle";
+import CloneCircle from "../common/circle/CloneCircle";
 
 gsap.registerPlugin(ScrollTrigger);
 

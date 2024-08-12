@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import "./ProjectsSection.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import project from "../assets/images/project-presentation-svgrepo-com.svg";
-import VideoPlayer from "../components/VideoPlayer";
+import project from "../../assets/images/project-presentation-svgrepo-com.svg";
+import VideoPlayer from "./VideoPlayer";
 
 gsap.registerPlugin(ScrollTrigger);
 
