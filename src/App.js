@@ -41,24 +41,6 @@ const App = () => {
   const timelineSectionRef = spaceTwo;
   const contactSectionRef = spaceThree;
 
-  // useEffect(() => {
-  //   console.log("heroRef:", heroRef.current);
-  //   console.log("textRef:", textRef.current);
-  //   console.log("circleRef:", circleRef.current);
-  //   console.log("cloneCircleRef:", cloneCircleRef.current);
-  //   console.log("contactRef:", contactRef.current);
-  //   console.log("logoRef:", logoRef.current);
-  //   console.log("skillRef:", skillRef.current);
-  //   console.log("spaceZero:", spaceZero.current);
-  //   console.log("spaceReal:", spaceReal.current);
-  //   console.log("spaceOneRef:", spaceOneRef.current);
-  //   console.log("historyRef:", historyRef.current);
-  //   console.log("spaceTwo:", spaceTwo.current);
-  //   console.log("projectRef:", projectRef.current);
-  //   console.log("spaceThree:", spaceThree.current);
-  //   console.log("navRef:", navRef.current);
-  // }, []);
-
   const scrollToSection = (section) => {
     switch (section) {
       case "home":

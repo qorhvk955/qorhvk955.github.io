@@ -409,6 +409,23 @@ const SkillsSection = ({
                 을 만들어내기 위해 노력하고 있습니다.
               </p>
             </div>
+            <button
+              onClick={() => {
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                const width = viewportWidth;
+                const height = viewportHeight;
+                const left = 0;
+                const top = 0;
+                const url = "./skills_detail.html";
+                const features = `width=${width},height=${height},left=${left},top=${top}`;
+                window.open(url, "_blank", features);
+              }}
+            >
+              {" "}
+              버튼
+            </button>
           </div>
         </div>
         <div className="skills-section__right" ref={rightRef}>

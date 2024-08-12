@@ -16,7 +16,14 @@ const Header = ({ navRef, logoRef, scrollToSection }) => {
       <nav className="header__nav" ref={navRef}>
         <ul className="header__nav-list">
           <li className="header__nav-item">
-            <a onClick={() => scrollToSection("home")}>Home</a>
+            <a
+              onClick={() => {
+                scrollToSection("home");
+                document.querySelector(".circle").style.display = "none";
+              }}
+            >
+              Home
+            </a>
           </li>
           <li className="header__nav-item">
             <a onClick={() => scrollToSection("skill")}>Skill</a>

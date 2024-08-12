@@ -17,8 +17,7 @@ const ContactSection = ({
   cloneCircleRef,
 }) => {
   const animationRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for managing modal visibility
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     if (!contactRef || !historyRef || !spaceTwo || !spaceThree || !circleRef)
       return;
@@ -105,7 +104,6 @@ const ContactSection = ({
       <h1>지금 당장 시작할 수 있습니다!</h1>
       <ContactSVG />
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />{" "}
-      {/* Modal component */}
     </section>
   );
 };
