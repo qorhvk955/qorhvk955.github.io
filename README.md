@@ -1,7 +1,11 @@
 <a href="https://qorhvk955.github.io">Website</a> | <a href='https://github.com/qorhvk955/qorhvk955.github.io'>Github</a>
 <br/>
 
-<img src='/src/assets/images/svg-svgrepo-com.svg' width="200" />
+<img src='/src/assets/images/react_logo.svg' width="50" />
+<img src='/src/assets/images/gsap_logo.svg' width="50" />
+<img src='/src/assets/images/svg-svgrepo-com.svg' width="50" />
+<img src='/src/assets/images/sass_logo.svg' width="50" />
+<br/>
 
 ## 📂 Folder Structure
 
