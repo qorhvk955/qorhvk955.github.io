@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      section {
+        height: 100vh;
+        background-color: antiquewhite;
+        display: flex;
+        display: flex;
+        align-items: center;
+      }
+
+      .front-skill,
+      .back-skill {
+        height: 100vh;
+        background-color: #333;
+        display: flex;
+        align-items: center;
+      }
+
+      .card-wrap {
+        display: flex;
+        flex-direction: row;
+        padding: 100px 20px;
+      }
+
+      .card {
+        background-color: #fff;
+        box-shadow: 10px 10px 5px #222;
+        width: 250px;
+        height: 400px;
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 30px;
+        border-radius: 25px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .card > img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .stars {
+        margin: 20px 0;
+        display: flex;
+      }
+
+      .stars > img {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* .title {
+        } */
+
+      .btn {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card button {
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .text > p {
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: left;
+      }
+
+      .card > span {
+        font-size: 16px;
+      }
+
+      .first {
+        display: flex;
+      }
+
+      .text {
+        margin: 5px 0;
+      }
+
+      .title {
+        margin: 10px 0px;
+      }
+
+      .first > span {
+        border-radius: 20px;
+        margin: 3px 4px;
+        padding: 5px 0px;
+        flex: 1;
+        text-align: center;
+        font-size: 12px;
+        background-color: #fa4c1751;
+        color: #333333;
+        font-weight: bold;
+      }
+
+      .level {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #e44f26;
+        color: #fff;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 50px;
+        width: 30px;
+        height: 25px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <!-- <section class="skills-intro">
+      <div class="intro"></div>
+    </section> -->
+
+    <section class="front-skill">
+      <div class="card-wrap">
+        <div class="card">
+          <img src="./icons/front/html_logo.svg" alt="HTML Logo" />
+
+          <h2 class="title">HTML</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Semantic</span>
+              <span>#웹접근성</span>
+            </div>
+            <div class="first">
+              <span>#SEO</span>
+              <span>#meta</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button
+              onclick="location.href='https://www.notion.so/TypeScript-cc5e43e2cfce4ed9b0d5b1b3dbe1528b'"
+            >
+              Read More
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/front/css_logo.svg" alt="CSS Logo" />
+          <h2 class="title">CSS</h2>
+          <div class="text">
+            <div class="first">
+              <span>#MediaQuery</span>
+              <span>#Flexbox</span>
+            </div>
+            <div class="first">
+              <span>#Viewport</span>
+              <span>#Layout</span>
+            </div>
+          </div>
+
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./icons/front/js_logo.svg"
+            alt="JavaScript Logo"
+            style="transform: scale(0.9)"
+          />
+          <h2 class="title">JavaScript</h2>
+          <div class="text">
+            <div class="first">
+              <span>#DOM</span>
+              <span>#Consolelog</span>
+            </div>
+            <div class="first">
+              <span>#Callback </span>
+              <span>#Event</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/front/sass_logo.svg" alt="" />
+
+          <h2 class="title">SASS</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Nesting</span>
+              <span>#BEM</span>
+            </div>
+            <div class="first">
+              <span>#Variable</span>
+              <span>#Mixin</span>
+            </div>
+          </div>
+
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./icons/front/react_logo.svg" alt="" />
+
+          <h2 class="title">React</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Nesting</span>
+              <span>#BEM</span>
+            </div>
+            <div class="first">
+              <span>#Variable</span>
+              <span>#Mixin</span>
+            </div>
+          </div>
+
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./icons/front/gsap_logo.svg" alt="" />
+          <h2 class="title">GSAP</h2>
+          <div class="text">
+            <div class="first">
+              <span>#animation</span>
+              <span>#scrollTrigger</span>
+            </div>
+            <div class="first">
+              <span>#Timeline</span>
+              <span>#Observer</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./icons/front/bootstrap_logo.svg"
+            alt=""
+            style="transform: scale(0.9)"
+          />
+          <h2 class="title">Bootstrap</h2>
+          <div class="text">
+            <div class="first">
+              <span>#CDN</span>
+              <span>#Card</span>
+            </div>
+            <div class="first">
+              <span>#Carousel</span>
+              <span>#Modal</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/front/jquery_logo.svg" alt="" />
+          <h2 class="title">jQuery</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Selectors</span>
+              <span>#$()</span>
+            </div>
+            <div class="first">
+              <span>#.on()</span>
+              <span>#.off()</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./icons/front/ts.svg" alt="" style="scale: 1.4" />
+          <h2 class="title">TypeScript</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Type</span>
+              <span>#infer</span>
+            </div>
+            <div class="first">
+              <span>#typeof</span>
+              <span>#extends</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="icons/front/svg_logo.svg" alt="" />
+          <h2 class="title">SVG</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Type</span>
+              <span>#infer</span>
+            </div>
+            <div class="first">
+              <span>#typeof</span>
+              <span>#extends</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="back-skill">
+      <div class="card-wrap back-wrap">
+        <div class="card">
+          <img src="./icons/back/java_logo.svg" alt="" />
+          <h2 class="title">Java</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Object</span>
+              <span>#JVM</span>
+            </div>
+            <div class="first">
+              <span>#SYSOUT</span>
+              <span>#Class</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/spring_logo.svg" alt="" />
+          <h2 class="title">Spring</h2>
+          <div class="text">
+            <div class="first">
+              <span>#MVC</span>
+              <span>#JPA</span>
+            </div>
+            <div class="first">
+              <span>#Maven</span>
+              <span>#Controller</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/Postgresql_logo.svg" alt="" />
+          <h2 class="title">PostgreSQL</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL </span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DCL</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/postman_logo.svg" alt="" />
+          <h2 class="title">Postman</h2>
+          <div class="text">
+            <div class="first">
+              <span>#API-Test</span>
+              <span>#HTTP</span>
+            </div>
+            <div class="first">
+              <span>#Collab</span>
+              <span>#Request</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/MySQL_logo.svg" alt="" />
+          <h2 class="title">MySQL</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL</span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DMC</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/express_logo.svg" alt="" />
+          <h2 class="title">Express</h2>
+          <div class="text">
+            <div class="first">
+              <span>#MidWare</span>
+              <span>#Routing</span>
+            </div>
+            <div class="first">
+              <span>#JWT</span>
+              <span>#Rest API</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/Oracle_logo.svg" alt="" />
+          <h2 class="title">ORACLE</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL</span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DMC</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/aws.svg" alt="" />
+          <h2 class="title">AWS</h2>
+          <div class="text">
+            <div class="first">
+              <span>#EC2</span>
+              <span>#Ubuntu</span>
+            </div>
+            <div class="first">
+              <span>#Cloud</span>
+              <span>#Instance</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 
+    <section class="etc-skill">
+      <div class="card-wrap back-wrap">
+        <div class="card">
+          <img src="./icons/etc/github_logo.svg" alt="" />
+          <h2 class="title">Java</h2>
+          <div class="text">
+            <div class="first">
+              <span>#Object</span>
+              <span>#JVM</span>
+            </div>
+            <div class="first">
+              <span>#SYSOUT</span>
+              <span>#Class</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/spring_logo.svg" alt="" />
+          <h2 class="title">Spring</h2>
+          <div class="text">
+            <div class="first">
+              <span>#MVC</span>
+              <span>#JPA</span>
+            </div>
+            <div class="first">
+              <span>#Maven</span>
+              <span>#Controller</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/Postgresql_logo.svg" alt="" />
+          <h2 class="title">PostgreSQL</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL </span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DCL</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/postman_logo.svg" alt="" />
+          <h2 class="title">Postman</h2>
+          <div class="text">
+            <div class="first">
+              <span>#API-Test</span>
+              <span>#HTTP</span>
+            </div>
+            <div class="first">
+              <span>#Collab</span>
+              <span>#Request</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/MySQL_logo.svg" alt="" />
+          <h2 class="title">MySQL</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL</span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DMC</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/express_logo.svg" alt="" />
+          <h2 class="title">Express</h2>
+          <div class="text">
+            <div class="first">
+              <span>#MidWare</span>
+              <span>#Routing</span>
+            </div>
+            <div class="first">
+              <span>#JWT</span>
+              <span>#Rest API</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/Oracle_logo.svg" alt="" />
+          <h2 class="title">ORACLE</h2>
+          <div class="text">
+            <div class="first">
+              <span>#RDBMS</span>
+              <span>#DDL</span>
+            </div>
+            <div class="first">
+              <span>#DML</span>
+              <span>#DMC</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./icons/back/aws.svg" alt="" />
+          <h2 class="title">AWS</h2>
+          <div class="text">
+            <div class="first">
+              <span>#EC2</span>
+              <span>#Ubuntu</span>
+            </div>
+            <div class="first">
+              <span>#Cloud</span>
+              <span>#Instance</span>
+            </div>
+          </div>
+          <div class="btn">
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <script>
+      const btn = document.querySelectorAll("button");
+      const frontSpan = document.querySelectorAll(".first > span");
+      const backSpan = document.querySelectorAll(".back > span");
+
+      const color = [
+        "#E44F26",
+        "#1172B8",
+        "#F5DE19",
+        "#CD6799",
+        "#53C1DE",
+        "#8AC640",
+        "#563D7C",
+        "#0769AD",
+        "#2F74C0",
+        "#FFB13B",
+      ];
+      const spanColors = [
+        "#FFB199 ",
+        "#89CFF0 ",
+        "#FFEFD5 ",
+        "#FFC1E3 ",
+        "#D3F3FB",
+        "#E2F1DA ",
+
+        "#D1C4E9 ",
+        "#B3D9FF ",
+        "#A8D1FF",
+        "#FFC767",
+      ];
+
+      const backBtnColor = [
+        "#E76F00",
+        "#70AD51",
+        "#336791",
+        "#FF6C37",
+        "#00758F",
+        "#000",
+        "#C74634",
+        "#FF9900",
+      ];
+      const backSpanColor = [
+        "#FFD1A3",
+        "#D0EAC4",
+        "#99BBE6",
+        "#FFCCB3",
+        "#66CCD6",
+        "#B3B3B3",
+        "#F1A6A1",
+        "#FFE0B3",
+      ];
+
+      let count = 0;
+      let countIndex = 0;
+
+      frontSpan.forEach((span, index) => {
+        if (count >= 4) {
+          count = 0;
+          countIndex++;
+        }
+
+        countIndex <= color.length - 1
+          ? (span.style.backgroundColor = spanColors[countIndex])
+          : (span.style.backgroundColor =
+              backSpanColor[countIndex - color.length]);
+
+        count++;
+      });
+
+      btn.forEach((button, index) => {
+        index <= color.length - 1
+          ? (button.style.backgroundColor = color[index])
+          : (button.style.backgroundColor = backBtnColor[index - color.length]);
+      });
+
+      // 다크 차콜 그레이#383838: RGB(56, 56, 56)
+      // 제트 그레이 (#202020): RGB(32, 32, 32)
+      // 제트 블랙 (#101010): RGB(16, 16, 16)
+      // 블랙 (#000000): RGB(0, 0, 0)
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const cardWrap = document.querySelector(".front-skill > .card-wrap");
+
+      console.log(cardWrap.scrollWidth);
+
+      gsap.to(".front-skill > .card-wrap", {
+        x: () => -(cardWrap.scrollWidth - window.innerWidth),
+        scrollTrigger: {
+          trigger: ".front-skill > .card-wrap",
+          start: "center center",
+          end: () => `+=${cardWrap.scrollWidth}`,
+          // markers: true,
+          pin: ".front-skill",
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+
+            // 다크 차콜 그레이#383838: RGB(56, 56, 56)
+            // 제트 그레이 (#202020): RGB(32, 32, 32)
+            const startColor = { r: 56, g: 56, b: 56 };
+            const endColor = { r: 32, g: 32, b: 32 };
+
+            const newColor = {
+              r: Math.round(
+                startColor.r + (endColor.r - startColor.r) * progress
+              ),
+              g: Math.round(
+                startColor.g + (endColor.g - startColor.g) * progress
+              ),
+              b: Math.round(
+                startColor.b + (endColor.b - startColor.b) * progress
+              ),
+            };
+
+            const newColorString = `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`;
+            gsap.to(".front-skill", {
+              backgroundColor: newColorString,
+              duration: 0,
+            });
+          },
+        },
+      });
+
+      gsap.set(".back-skill", { backgroundColor: `rgb( 32, 32, 32)` });
+
+      const backCardWRAP = document.querySelector(".back-skill > .card-wrap");
+
+      gsap.to(".back-skill > .card-wrap", {
+        x: () => -(backCardWRAP.scrollWidth - window.innerWidth),
+        scrollTrigger: {
+          trigger: ".back-skill >.card-wrap",
+          start: "center center",
+          end: () => `+=${backCardWRAP.scrollWidth}`,
+          markers: true,
+          pin: ".back-skill",
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+
+            const startColor = { r: 32, g: 32, b: 32 };
+            const endColor = { r: 16, g: 16, b: 16 };
+
+            const newColor = {
+              r: Math.round(
+                startColor.r + (endColor.r - startColor.r) * progress
+              ),
+              g: Math.round(
+                startColor.g + (endColor.g - startColor.g) * progress
+              ),
+              b: Math.round(
+                startColor.b + (endColor.b - startColor.b) * progress
+              ),
+            };
+
+            const newColorString = `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`;
+            gsap.to(".back-skill", {
+              backgroundColor: newColorString,
+              duration: 0,
+            });
+          },
+        },
+      });
+
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card, index) => {
+        card.addEventListener("mouseenter", () => {
+          console.log("마ㅇ우스 오버");
+          gsap.to(card, { duration: 0.3, scale: 1.1 });
+        });
+
+        card.addEventListener("mouseleave", () => {
+          console.log("마우스 벗어남");
+          gsap.to(card, { duration: 0.3, scale: 1 });
+        });
+      });
+    </script>
+  </body>
+</html>

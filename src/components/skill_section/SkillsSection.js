@@ -158,8 +158,6 @@ const SkillsSection = ({
               yoyo: true,
             }
           );
-
-          // .from(".card1 > .subheader > img", { duration: 1.5, y: 50, force3D: true, ease: "elastic.out", stagger: 0.08, rotationY: -90 })
         },
         onEnterBack: () => {
           gsap.set(skillRef.current, { opacity: 1 });
@@ -410,6 +408,7 @@ const SkillsSection = ({
               </p>
             </div>
             <button
+              className="read-more-btn"
               onClick={() => {
                 const viewportWidth = window.innerWidth;
                 const viewportHeight = window.innerHeight;
@@ -423,8 +422,7 @@ const SkillsSection = ({
                 window.open(url, "_blank", features);
               }}
             >
-              {" "}
-              버튼
+              Read More
             </button>
           </div>
         </div>

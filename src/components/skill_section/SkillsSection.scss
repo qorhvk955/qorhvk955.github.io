@@ -20,10 +20,6 @@
     display: flex;
   }
 
-  .skills-section__left {
-    /* background-color: aqua; */
-  }
-
   .skills-section__right {
     background-color: #d3d3d3;
     position: relative;
@@ -99,7 +95,7 @@
   }
 
   .clone {
-    right: -100%; /* Moves the clone section completely out of view */
+    right: -100%;
   }
 
   .box {
@@ -119,5 +115,19 @@
     height: auto;
     width: auto;
     flex: 1;
+  }
+
+  .read-more-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .read-more-btn:hover {
+    background-color: #555;
   }
 }
