@@ -12,7 +12,7 @@ const HeroSection = ({ textRef, heroRef }) => {
       <div className="hero-section__stage">
         <RollingText />
       </div>
-      <div className="hero-section__description">포트폴리오입니다.</div>
+      <div className="hero-section__description">-PORTFOLIO-</div>
     </section>
   );
 };
