@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/qorhvk955.github.io/static/css/main.34c945dd.css",
-    "main.js": "/qorhvk955.github.io/static/js/main.16cfa5e8.js",
-    "static/js/453.bb828c5d.chunk.js": "/qorhvk955.github.io/static/js/453.bb828c5d.chunk.js",
-    "static/media/front.svg": "/qorhvk955.github.io/static/media/front.ca6befd3ea5141caa8909a73e98efbfa.svg",
-    "static/media/back.svg": "/qorhvk955.github.io/static/media/back.548cdd59b92e8f17c5c38c9485b1cafc.svg",
-    "static/media/collaboration.svg": "/qorhvk955.github.io/static/media/collaboration.2bb21ce447cdf8f0ca4c567256bef8ca.svg",
-    "static/media/project_video.mp4": "/qorhvk955.github.io/static/media/project_video.266d6cf2abc0ad9fa0d2.mp4",
-    "static/media/contact.svg": "/qorhvk955.github.io/static/media/contact.870d3eaa29251e030aa5e08f79bc6a85.svg",
-    "static/media/KakaoTalk.png": "/qorhvk955.github.io/static/media/KakaoTalk.8382a95a8ce92b9093fe.png",
-    "static/media/logo_black.svg": "/qorhvk955.github.io/static/media/logo_black.d5cb1564af7664185c553d380e8b0d96.svg",
-    "static/media/logo_white.svg": "/qorhvk955.github.io/static/media/logo_white.b16b1afc8a510c74d47670f0ea702019.svg",
-    "static/media/growth-report-graph-svgrepo-com.svg": "/qorhvk955.github.io/static/media/growth-report-graph-svgrepo-com.69e47b00117c2e4304ac2becb36fc441.svg",
-    "static/media/project-presentation-svgrepo-com.svg": "/qorhvk955.github.io/static/media/project-presentation-svgrepo-com.8680df1a65c895055da2f37cf9e0b3a6.svg",
-    "index.html": "/qorhvk955.github.io/index.html",
-    "static/media/computer-svgrepo-com.svg": "/qorhvk955.github.io/static/media/computer-svgrepo-com.139e9f38f75fb72ff7527734a76f84ba.svg",
-    "main.34c945dd.css.map": "/qorhvk955.github.io/static/css/main.34c945dd.css.map",
-    "main.16cfa5e8.js.map": "/qorhvk955.github.io/static/js/main.16cfa5e8.js.map",
-    "453.bb828c5d.chunk.js.map": "/qorhvk955.github.io/static/js/453.bb828c5d.chunk.js.map"
+    "main.css": "/static/css/main.34c945dd.css",
+    "main.js": "/static/js/main.7f4c99c9.js",
+    "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
+    "static/media/front.svg": "/static/media/front.ca6befd3ea5141caa8909a73e98efbfa.svg",
+    "static/media/back.svg": "/static/media/back.548cdd59b92e8f17c5c38c9485b1cafc.svg",
+    "static/media/collaboration.svg": "/static/media/collaboration.2bb21ce447cdf8f0ca4c567256bef8ca.svg",
+    "static/media/project_video.mp4": "/static/media/project_video.266d6cf2abc0ad9fa0d2.mp4",
+    "static/media/contact.svg": "/static/media/contact.870d3eaa29251e030aa5e08f79bc6a85.svg",
+    "static/media/KakaoTalk.png": "/static/media/KakaoTalk.8382a95a8ce92b9093fe.png",
+    "static/media/logo_black.svg": "/static/media/logo_black.d5cb1564af7664185c553d380e8b0d96.svg",
+    "static/media/logo_white.svg": "/static/media/logo_white.b16b1afc8a510c74d47670f0ea702019.svg",
+    "static/media/growth-report-graph-svgrepo-com.svg": "/static/media/growth-report-graph-svgrepo-com.69e47b00117c2e4304ac2becb36fc441.svg",
+    "static/media/project-presentation-svgrepo-com.svg": "/static/media/project-presentation-svgrepo-com.8680df1a65c895055da2f37cf9e0b3a6.svg",
+    "static/media/computer-svgrepo-com.svg": "/static/media/computer-svgrepo-com.139e9f38f75fb72ff7527734a76f84ba.svg",
+    "index.html": "/index.html",
+    "main.34c945dd.css.map": "/static/css/main.34c945dd.css.map",
+    "main.7f4c99c9.js.map": "/static/js/main.7f4c99c9.js.map",
+    "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.34c945dd.css",
-    "static/js/main.16cfa5e8.js"
+    "static/js/main.7f4c99c9.js"
   ]
 }
