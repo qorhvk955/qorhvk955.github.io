@@ -9,8 +9,13 @@ import ProjectSection from "./components/ProjectsSection";
 import CloneCircle from "./components/CloneCircle";
 import HistorySection from "./components/HistorySection";
 import Contact from "./components/ContactSection";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ContactSection from "./components/ContactSection";
 
-function App() {
+gsap.registerPlugin(ScrollTrigger);
+
+const App = () => {
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const circleRef = useRef(null);
@@ -29,9 +34,76 @@ function App() {
   const navRef = useRef(null);
 
   const tl2 = useRef(null);
+  const homeSectionRef = heroRef;
+  const skillSectionRef = spaceZero;
+  const projectSectionRef = spaceOneRef;
+  const timelineSectionRef = spaceTwo;
+  const contactSectionRef = spaceThree;
+
+  useEffect(() => {
+    console.log("heroRef:", heroRef.current);
+    console.log("textRef:", textRef.current);
+    console.log("circleRef:", circleRef.current);
+    console.log("cloneCircleRef:", cloneCircleRef.current);
+    console.log("contactRef:", contactRef.current);
+    console.log("logoRef:", logoRef.current);
+    console.log("skillRef:", skillRef.current);
+    console.log("spaceZero:", spaceZero.current);
+    console.log("spaceReal:", spaceReal.current);
+    console.log("spaceOneRef:", spaceOneRef.current);
+    console.log("historyRef:", historyRef.current);
+    console.log("spaceTwo:", spaceTwo.current);
+    console.log("projectRef:", projectRef.current);
+    console.log("spaceThree:", spaceThree.current);
+    console.log("navRef:", navRef.current);
+  }, []);
+
+  const scrollToSection = (section) => {
+    switch (section) {
+      case "home":
+        window.scrollTo({
+          top: homeSectionRef.current.offsetTop,
+          behavior: "smooth",
+        });
+
+        break;
+      case "skill":
+        window.scrollTo({
+          top: skillSectionRef.current.offsetTop + 10,
+          behavior: "smooth",
+        });
+
+        break;
+      case "project":
+        window.scrollTo({
+          top: projectSectionRef.current.offsetTop + 10,
+          behavior: "smooth",
+        });
+        break;
+      case "timeline":
+        window.scrollTo({
+          top: timelineSectionRef.current.offsetTop + 10,
+          behavior: "smooth",
+        });
+        break;
+      case "contact":
+        window.scrollTo({
+          top: contactSectionRef.current.offsetTop + 10,
+          behavior: "smooth",
+        });
+        break;
+      // default:
+      //   break;
+    }
+  };
+
   return (
-    <div>
-      <Header navRef={navRef} logoRef={logoRef} />
+    <div className="wrap">
+      <Header
+        navRef={navRef}
+        logoRef={logoRef}
+        scrollToSection={scrollToSection}
+      />
       <HeroSection heroRef={heroRef} textRef={textRef} />
       <TextAnimationSection
         heroRef={heroRef}
@@ -51,8 +123,8 @@ function App() {
       <div
         className="space-zero"
         style={{
-          height: "130vh",
-          backgroundColor: "rgba(255,0,0,0.2)",
+          height: "150vh",
+          // backgroundColor: "rgba(255,0,0,0.2)",
           zIndex: 9999,
         }}
         ref={spaceZero}
@@ -72,8 +144,8 @@ function App() {
       <div
         className="space-one"
         style={{
-          height: "130vh",
-          backgroundColor: "rgba(0,255,0,0.2)",
+          height: "150vh",
+          // backgroundColor: "rgba(0,255,0,0.2)",
           zIndex: 9999,
         }}
         ref={spaceOneRef}
@@ -91,7 +163,10 @@ function App() {
       </div>
       <div
         className="space-two"
-        style={{ height: "4000px", backgroundColor: "green" }}
+        style={{
+          height: "4000px",
+          // , backgroundColor: "green"
+        }}
         ref={spaceTwo}
       >
         <HistorySection
@@ -106,7 +181,7 @@ function App() {
 
       <div
         className="space-three"
-        style={{ width: "100%", height: "300vh" }}
+        style={{ width: "100%", height: "150vh" }}
         ref={spaceThree}
       >
         <Contact
@@ -115,10 +190,11 @@ function App() {
           spaceTwo={spaceTwo}
           spaceThree={spaceThree}
           circleRef={circleRef}
+          cloneCircleRef={cloneCircleRef}
         />
       </div>
     </div>
   );
-}
+};
 
 export default App;

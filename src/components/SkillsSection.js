@@ -116,9 +116,7 @@ const SkillsSection = ({
     gsap.to(divider, { duration: 0.5, opacity: 1, ease: "none" });
     gsap.set(total, { text: "03" });
   };
-  useEffect(() => {
-    console.log("@@@@@@@@@@@@", cloneCircleRef.current);
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const space = spaceZero.current;
@@ -128,6 +126,49 @@ const SkillsSection = ({
     );
 
     if (textRef.current && skillRef.current && cloneCircleRef.current) {
+      const highlight = skillRef.current.querySelectorAll(".highlight");
+
+      ScrollTrigger.create({
+        trigger: spaceZero.current,
+        start: "top top",
+        scrub: true,
+        onEnter: () => {
+          gsap.set(skillRef.current, { opacity: 1 });
+          gsap.set("body", {
+            overflow: "hidden",
+            onComplete: () => {
+              gsap.set("body", { overflow: "auto", delay: 1 });
+            },
+          });
+
+          gsap.fromTo(
+            document.querySelector("#computer-icon"),
+            {
+              y: 50,
+              rotationY: -90,
+            },
+            {
+              duration: 1.5,
+              y: 0,
+              force3D: true,
+              ease: "elastic.out",
+              stagger: 0.08,
+              rotationY: 0,
+              repeat: -1,
+              yoyo: true,
+            }
+          );
+
+          // .from(".card1 > .subheader > img", { duration: 1.5, y: 50, force3D: true, ease: "elastic.out", stagger: 0.08, rotationY: -90 })
+        },
+        onEnterBack: () => {
+          gsap.set(skillRef.current, { opacity: 1 });
+        },
+        onLeave: () => {
+          gsap.set(skillRef.current, { opacity: 0, delay: 1 });
+        },
+      });
+
       gsap.fromTo(
         circleRef.current,
         {
@@ -185,7 +226,7 @@ const SkillsSection = ({
             fill.set(cloneCircleRef.current, { opacity: 1 });
 
             fill.to(cloneCircleRef.current, {
-              duration: 0.7,
+              duration: 0.1,
 
               onUpdate: function () {
                 const progress = this.progress();
@@ -211,15 +252,13 @@ const SkillsSection = ({
           trigger: space,
           start: "top top",
           scrub: true,
+          // markers: true,
           onEnter: () => {
             gsap.to(skillRef.current, { position: "fixed" });
           },
           onLeaveBack: () => {
             gsap.to(skillRef.current, { position: "" });
           },
-          // onLeave: () => {
-          //   gsap.to(skillRef.current, { position: "" });
-          // },
         },
       });
 
@@ -334,19 +373,36 @@ const SkillsSection = ({
             <div className="description">
               <p>
                 저는{" "}
-                <span className="highlight">
-                  매력적이고 생동감이 넘치는 웹을 구현
-                </span>
+                {"매력적이고 생동감이 넘치는 웹을 구현"
+                  .split("")
+                  .map((char, index) => (
+                    <span key={index} className="highlight">
+                      {char}
+                    </span>
+                  ))}
                 하는데 열정을 가지고 있습니다.
               </p>
               <p>
-                <span className="highlight">디자인과 개발에 대한 이해</span>를
-                바탕으로, 프로젝트를 보다 입체적이고{" "}
+                {"디자인과 개발에 대한 이해".split("").map((char, index) => (
+                  <span key={index} className="highlight">
+                    {char}
+                  </span>
+                ))}
+                를 바탕으로, 프로젝트를 보다 입체적이고
               </p>
               <p>
-                <span className="highlight">다양한 관점에서 접근</span>하여{" "}
-                <span className="highlight">최상의 결과물</span>을 만들어내기
-                위해 노력하고 있습니다.
+                {"다양한 관점에서 접근".split("").map((char, index) => (
+                  <span key={index} className="highlight">
+                    {char}
+                  </span>
+                ))}
+                하여{" "}
+                {"최상의 결과물".split("").map((char, index) => (
+                  <span key={index} className="highlight">
+                    {char}
+                  </span>
+                ))}
+                을 만들어내기 위해 노력하고 있습니다.
               </p>
             </div>
           </div>

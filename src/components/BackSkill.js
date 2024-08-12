@@ -63,7 +63,16 @@ const BackSkill = () => {
     };
 
     const onClickBtn = () => {
-      alert("Button clicked");
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      const width = viewportWidth;
+      const height = viewportHeight;
+      const left = 0;
+      const top = 0;
+      const url = "https://www.notion.so/f162fcf78bbc44e19518e6eb6cc745a6";
+      const features = `width=${width},height=${height},left=${left},top=${top}`;
+      window.open(url, "_blank", features);
     };
 
     backRef.current.addEventListener("mouseenter", onMouseEnter);

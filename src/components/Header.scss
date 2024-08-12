@@ -12,6 +12,9 @@
   &__logo img {
     margin-left: 1rem;
     height: 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__nav {
@@ -36,7 +39,8 @@
         // color: #fff;
 
         &:hover {
-          border-bottom: 2px solid #fff;
+          border-bottom: 2px solid #333;
+          cursor: pointer;
         }
       }
     }

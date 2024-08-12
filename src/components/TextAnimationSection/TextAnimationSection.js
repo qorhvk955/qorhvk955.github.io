@@ -18,7 +18,17 @@ const TextAnimationSection = ({
     if (!textRef || !heroRef || !navRef || !logoRef) return;
     const links = navRef.current.querySelectorAll("a");
 
-    console.log(navRef);
+    const mouseEnterHandler = (event) => {
+      gsap.to(event.target, {
+        borderBottom: "2px solid #fff",
+      });
+    };
+
+    const mouseLeaveHandler = (event) => {
+      gsap.to(event.target, {
+        borderBottom: "2px solid #000",
+      });
+    };
 
     const tl = gsap.timeline();
 
@@ -81,29 +91,48 @@ const TextAnimationSection = ({
           scrub: true,
           onEnter: () => {
             gsap.set(textRef.current, { opacity: 1 });
-            console.log("시작");
             gsap.set(circleRef.current, { display: "none" });
             logoRef.current.src = logoWhite;
 
             gsap.set(links, { color: "#fff" });
+
+            // links.forEach((link) => {
+            //   link.addEventListener("mouseenter", mouseEnterHandler);
+            //   link.addEventListener("mouseleave", mouseLeaveHandler);
+            // });
           },
           onLeave: () => {
             gsap.set(textRef.current, { opacity: 1 });
-            gsap.set(links, { color: "#000" });
             logoRef.current.src = logoBlack;
+            // links.forEach((link) => {
+            //   link.removeEventListener("mouseenter", mouseEnterHandler);
+            //   link.removeEventListener("mouseleave", mouseLeaveHandler);
+            //   links.forEach((link) => {
+            //     link.removeEventListener("mouseenter", mouseEnterHandler);
+            //     link.removeEventListener("mouseleave", mouseLeaveHandler);
+            //   });
+            // });
+            gsap.set(links, { color: "#000", borderBottom: "" });
 
-            console.log("끝");
             gsap.set(circleRef.current, { display: "" });
           },
           onEnterBack: () => {
-            console.log("왜 안찍");
-            gsap.set(links, { color: "#fff" });
+            ("왜 안찍");
             logoRef.current.src = logoWhite;
+            links.forEach((link) => {
+              link.removeEventListener("mouseenter", mouseEnterHandler);
+              link.removeEventListener("mouseleave", mouseLeaveHandler);
+            });
+            gsap.set(links, { color: "#fff", borderBottom: "" });
           },
           onLeaveBack: () => {
-            console.log("왜 안찍");
-            gsap.set(links, { color: "#000" });
+            ("왜 안찍");
             logoRef.current.src = logoBlack;
+            links.forEach((link) => {
+              link.removeEventListener("mouseenter", mouseEnterHandler);
+              link.removeEventListener("mouseleave", mouseLeaveHandler);
+            });
+            gsap.set(links, { color: "#000", borderBottom: "" });
           },
         },
       }

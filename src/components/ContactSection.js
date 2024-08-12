@@ -4,6 +4,7 @@ import gsap from "gsap";
 import "./ContactSection.scss";
 import Modal from "./Modal";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CloneCircle from "./CloneCircle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ const ContactSection = ({
   spaceTwo,
   spaceThree,
   circleRef,
+  cloneCircleRef,
 }) => {
   const animationRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for managing modal visibility
@@ -28,13 +30,20 @@ const ContactSection = ({
       trigger: spaceTwo.current,
       start: "bottom-=50 bottom",
       onEnter: () => {
-        console.log("컨텍 나와야함");
         gsap.set(circleRef.current, { opacity: 0 });
+        gsap.set(cloneCircleRef.current, { opacity: 0 });
+
         gsap.set(historyRef.current, { opacity: 0 });
-        gsap.to(spaceThree.current, {
-          position: "fixed",
-          top: 0,
-        });
+
+        gsap.fromTo(
+          spaceThree.current,
+          { opacity: 0 },
+          {
+            position: "fixed",
+            top: 0,
+            opacity: 1,
+          }
+        );
       },
       onLeaveBack: () => {
         gsap.set(circleRef.current, { opacity: 1 });
@@ -45,16 +54,6 @@ const ContactSection = ({
         });
       },
     });
-
-    //   console.log("@@@@@히스토리애니끝");
-    //   gsap.to(contactRef.current, {
-    //     position: "fixed",
-    //     top: 0,
-    //     delay: 1,
-    //   });
-    //   gsap.set(historyRef.current, { opacity: 0 });
-    //   gsap.set(circleRef.current, { opacity: 0 });
-    // }
 
     gsap.set(textEllipse, {
       transformOrigin: "center center",

@@ -57,9 +57,39 @@ const ProjectsSection = ({
       ".projects-section__left"
     );
 
+    ScrollTrigger.create({
+      trigger: spaceOneRef.current,
+      start: "top top",
+      onEnter: () => {
+        gsap.set("body", {
+          overflow: "hidden",
+          onComplete: () => {
+            gsap.set("body", { overflow: "auto", delay: 1 });
+          },
+        });
+
+        gsap.fromTo(
+          document.querySelector("#project-icon"),
+          {
+            y: 50,
+            rotationY: -90,
+          },
+          {
+            duration: 1.5,
+            y: 0,
+            force3D: true,
+            ease: "elastic.out",
+            stagger: 0.08,
+            rotationY: 0,
+            repeat: -1,
+            yoyo: true,
+          }
+        );
+      },
+    });
+
     const playAni = () => {
       if (!historyRef || !historyRef.current) {
-        console.error("histroyRef is undefined or null");
         return;
       }
 
@@ -76,7 +106,6 @@ const ProjectsSection = ({
           },
           {
             yPercent: 0,
-            duration: 0.2,
             onComplete: () => {
               if (videoPlayerRef.current) {
                 videoPlayerRef.current.currentTime = 0;
@@ -94,7 +123,6 @@ const ProjectsSection = ({
           },
           {
             yPercent: 0,
-            duration: 0.2,
           }
         );
     };
@@ -135,7 +163,7 @@ const ProjectsSection = ({
           fill.set(cloneCircleRef.current, { opacity: 1 });
 
           fill.to(cloneCircleRef.current, {
-            duration: 0.7,
+            duration: 0.1,
 
             onUpdate: function () {
               const progress = this.progress();
@@ -178,14 +206,11 @@ const ProjectsSection = ({
     }
 
     const historyAni = () => {
-      console.log("historyAni");
       if (animationRef.current) animationRef.current.kill();
       gsap.set(projectRef.current, { position: "" });
 
       const ani = gsap.timeline({
         onStart: () => {
-          console.log("gggggggggggggg");
-
           gsap.set(historyRef.current, { opacity: 1 });
         },
       });
@@ -195,46 +220,23 @@ const ProjectsSection = ({
       gsap.set(divider, { opacity: 1 });
       gsap.set(total, { text: "04" });
 
-      ani
-        .fromTo(
-          historyRight,
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-          }
-        )
+      ani.fromTo(
+        historyRight,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      );
 
-        .fromTo(
-          historyLeft,
-          { opacity: 0 },
-          {
-            opacity: 1,
-          }
-        );
-
-      // ani
-      //   .fromTo(
-      //     historyRight,
-      //     {
-      //       opacity: 0,
-      //       yPercent: 200,
-      //     },
-      //     {
-      //       opacity: 1,
-      //       yPercent: 0,
-      //     }
-      //   )
-
-      //   .fromTo(
-      //     historyLeft,
-      //     { opacity: 0, yPercent: 100 },
-      //     {
-      //       opacity: 1,
-      //       yPercent: 0,
-      //     }
-      //   );
+      // .fromTo(
+      //   historyLeft,
+      //   { opacity: 0 },
+      //   {
+      //     opacity: 1,
+      //   }
+      // );
     };
 
     const historyAniReset = () => {
@@ -269,7 +271,7 @@ const ProjectsSection = ({
       <div className="projects-section__left">
         <div className="content-container">
           <div className="icon">
-            <img src={project} alt="project-icon" id="computer-icon" />
+            <img src={project} alt="project-icon" id="project-icon" />
           </div>
           <div className="title">Diverse Project Experience</div>
           <div className="subtitle">

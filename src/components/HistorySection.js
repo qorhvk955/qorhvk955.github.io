@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import project from "../assets/images/project-presentation-svgrepo-com.svg";
+import growth from "../assets/images/growth-report-graph-svgrepo-com.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,13 +27,86 @@ const HistorySection = ({
   circleRef,
   projectRef,
   spaceTwo,
+  spaceOneRef,
 }) => {
   // const historyRef = useRef(null);
 
   useEffect(() => {
-    if (!historyRef || !contactRef || !circleRef) return;
+    if (
+      !historyRef ||
+      !contactRef ||
+      !circleRef ||
+      !projectRef ||
+      !spaceTwo ||
+      !spaceOneRef
+    )
+      return;
+
+    let num;
+    let divider;
+    let total;
+
+    if (circleRef.current) {
+      num = circleRef.current.querySelector(".number");
+      divider = circleRef.current.querySelector(".divider");
+      total = circleRef.current.querySelector(".total");
+    }
+
+    gsap.set(num, { text: "03" });
+    gsap.set(divider, { opacity: 1 });
+    gsap.set(total, { text: "04" });
 
     const container = historyRef.current.querySelectorAll(".container");
+
+    ScrollTrigger.create({
+      trigger: spaceTwo.current,
+      start: "top top",
+      onEnter: () => {
+        gsap.set(projectRef.current, { opacity: 0 });
+        gsap.set(".history-left", { opacity: 1 });
+
+        gsap.set("body", {
+          overflow: "hidden",
+          onComplete: () => {
+            gsap.set("body", { overflow: "auto", delay: 1 });
+          },
+        });
+
+        gsap.fromTo(
+          document.querySelector("#growth-icon"),
+          {
+            y: 50,
+            rotationY: -90,
+          },
+          {
+            duration: 1.5,
+            y: 0,
+            force3D: true,
+            ease: "elastic.out",
+            stagger: 0.08,
+            rotationY: 0,
+            repeat: -1,
+            yoyo: true,
+          }
+        );
+      },
+      onLeaveBack: () => {
+        gsap.set(projectRef.current, { opacity: 1 });
+
+        const projectsRight = projectRef.current.querySelector(
+          ".projects-section__right"
+        );
+        const projectsLeft = projectRef.current.querySelector(
+          ".projects-section__left"
+        );
+
+        gsap.set(projectsRight, { yPercent: 0 });
+        gsap.set(projectsLeft, { yPercent: 0 });
+
+        gsap.to(projectRef.current, { position: "fixed" });
+        gsap.set(historyRef.current, { opacity: 0 });
+      },
+    });
 
     container.forEach((item, index) => {
       let icon = item.querySelector(".icon");
@@ -44,15 +117,6 @@ const HistorySection = ({
 
       gsap.set(left, { xPercent: -100, opacity: 0 });
       gsap.set(right, { xPercent: 100, opacity: 0 });
-
-      ScrollTrigger.create({
-        trigger: spaceTwo.current,
-        start: "top top",
-        onLeaveBack: () => {
-          gsap.to(projectRef.current, { position: "fixed" });
-          gsap.set(historyRef.current, { opacity: 0 });
-        },
-      });
 
       ScrollTrigger.create({
         trigger: item,
@@ -126,7 +190,7 @@ const HistorySection = ({
           <div className="history-left">
             <div className="content-container">
               <div className="left-icon">
-                <img src={project} alt="project-icon" id="computer-icon" />
+                <img src={growth} alt="growth-icon" id="growth-icon" />
               </div>
               <div className="title">Evolving And Improving</div>
               <div className="subtitle">
