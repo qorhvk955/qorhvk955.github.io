@@ -187,6 +187,10 @@ const SkillsSection = ({
               gsap.set(circleRef.current, { opacity: 0 });
             },
             onEnter: () => {
+              gsap.set(num, { text: "" });
+              gsap.set(divider, { opacity: 0 });
+              gsap.set(total, { text: "" });
+
               gsap.set(textRef.current, { opacity: 0 });
               gsap.set(circleRef.current, { opacity: 1 });
             },

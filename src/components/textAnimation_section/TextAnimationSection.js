@@ -95,43 +95,29 @@ const TextAnimationSection = ({
             logoRef.current.src = logoWhite;
 
             gsap.set(links, { color: "#fff" });
-
-            // links.forEach((link) => {
-            //   link.addEventListener("mouseenter", mouseEnterHandler);
-            //   link.addEventListener("mouseleave", mouseLeaveHandler);
-            // });
           },
           onLeave: () => {
             gsap.set(textRef.current, { opacity: 1 });
             logoRef.current.src = logoBlack;
-            // links.forEach((link) => {
-            //   link.removeEventListener("mouseenter", mouseEnterHandler);
-            //   link.removeEventListener("mouseleave", mouseLeaveHandler);
-            //   links.forEach((link) => {
-            //     link.removeEventListener("mouseenter", mouseEnterHandler);
-            //     link.removeEventListener("mouseleave", mouseLeaveHandler);
-            //   });
-            // });
+
             gsap.set(links, { color: "#000", borderBottom: "" });
 
             gsap.set(circleRef.current, { display: "" });
           },
           onEnterBack: () => {
-            ("왜 안찍");
             logoRef.current.src = logoWhite;
-            links.forEach((link) => {
-              link.removeEventListener("mouseenter", mouseEnterHandler);
-              link.removeEventListener("mouseleave", mouseLeaveHandler);
-            });
-            gsap.set(links, { color: "#fff", borderBottom: "" });
+            // links.forEach((link) => {
+            //   link.removeEventListener("mouseenter", mouseEnterHandler);
+            //   link.removeEventListener("mouseleave", mouseLeaveHandler);
+            // });
+            // gsap.set(links, { color: "#fff", borderBottom: "" });
           },
           onLeaveBack: () => {
-            ("왜 안찍");
             logoRef.current.src = logoBlack;
-            links.forEach((link) => {
-              link.removeEventListener("mouseenter", mouseEnterHandler);
-              link.removeEventListener("mouseleave", mouseLeaveHandler);
-            });
+            // links.forEach((link) => {
+            //   link.removeEventListener("mouseenter", mouseEnterHandler);
+            //   link.removeEventListener("mouseleave", mouseLeaveHandler);
+            // });
             gsap.set(links, { color: "#000", borderBottom: "" });
           },
         },
