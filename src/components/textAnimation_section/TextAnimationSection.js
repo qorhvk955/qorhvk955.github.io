@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./TextAnimationSection.css";
+import "./TextAnimationSection.scss";
 import logoWhite from "../../assets/images/logo_white.svg";
 import logoBlack from "../../assets/images/logo_black.svg";
 

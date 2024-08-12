@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
-import "./Circle.css";
+import "./Circle.scss";
 
 const Circle = ({ circleRef, textRef }) => {
   return (
