@@ -30,6 +30,7 @@ const ContactSection = ({
       onEnter: () => {
         console.log("컨텍 나와야함");
         gsap.set(circleRef.current, { opacity: 0 });
+        gsap.set(historyRef.current, { opacity: 0 });
         gsap.to(spaceThree.current, {
           position: "fixed",
           top: 0,
@@ -37,6 +38,7 @@ const ContactSection = ({
       },
       onLeaveBack: () => {
         gsap.set(circleRef.current, { opacity: 1 });
+        gsap.set(historyRef.current, { opacity: 1 });
 
         gsap.to(spaceThree.current, {
           position: "",

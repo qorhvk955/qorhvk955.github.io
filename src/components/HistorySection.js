@@ -42,8 +42,8 @@ const HistorySection = ({
       let line = item.querySelector(".line-fill");
       let historyIcon = item.querySelector(".history-icon");
 
-      // gsap.set(left, { xPercent: -100, opacity: 0 });
-      // gsap.set(right, { xPercent: 100, opacity: 0 });
+      gsap.set(left, { xPercent: -100, opacity: 0 });
+      gsap.set(right, { xPercent: 100, opacity: 0 });
 
       ScrollTrigger.create({
         trigger: spaceTwo.current,
@@ -90,16 +90,6 @@ const HistorySection = ({
           gsap.to(icon, { backgroundColor: "#576F8E" });
           gsap.to(line, { height: `100%`, opacity: 1 });
           gsap.to(historyIcon, { color: "#F2F2F2" });
-          // if (index === container.length - 1) {
-          //   console.log("@@@@@히스토리애니끝");
-          //   gsap.to(contactRef.current, {
-          //     position: "fixed",
-          //     top: 0,
-          //     delay: 1,
-          //   });
-          //   gsap.set(historyRef.current, { opacity: 0 });
-          //   gsap.set(circleRef.current, { opacity: 0 });
-          // }
         },
 
         onLeaveBack: () => {
@@ -116,7 +106,6 @@ const HistorySection = ({
               gsap.set(righttElement, { opacity: 1 });
             }
           }
-          // gsap.to(historyIcon, { color: "#fff" });
           gsap.to(left, { xPercent: -100, opacity: 0, duration: 0.5 });
           gsap.to(right, { xPercent: 100, opacity: 0, duration: 0.5 });
           gsap.to(line, { height: `0%`, opacity: 0 });
@@ -132,9 +121,9 @@ const HistorySection = ({
 
   return (
     <>
-      <div className="history-fixed" ref={historyRef}>
+      <section className="history-fixed" ref={historyRef}>
         <div className="history-wrap">
-          <section className="history-left">
+          <div className="history-left">
             <div className="content-container">
               <div className="left-icon">
                 <img src={project} alt="project-icon" id="computer-icon" />
@@ -150,14 +139,16 @@ const HistorySection = ({
                 </p>
                 <p>
                   빠르게 변화하는 기술 환경에 적응하며, 새로운 지식을 습득하고
+                </p>
+                <p>
                   새로운 지식을 쌓아가며 더 나은 웹을 구현하기 위해 끊임없이
                   노력하고 있습니다.
                 </p>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section className="history">
+          <div className="history">
             <div className="init">
               <div className="container first-c">
                 <h1>Developer</h1>
@@ -373,9 +364,9 @@ const HistorySection = ({
               </div>
             </div>
             <div style={{ height: "100vh", backgroundColor: "red" }}></div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

@@ -15,6 +15,7 @@ const ProjectsSection = ({
   historyRef,
   spaceTwo,
   projectRef,
+  tl2,
 }) => {
   const videoPlayerRef = useRef(null);
   const animationRef = useRef(null);
@@ -80,6 +81,7 @@ const ProjectsSection = ({
               if (videoPlayerRef.current) {
                 videoPlayerRef.current.currentTime = 0;
                 videoPlayerRef.current.play();
+                tl2.current.pause();
               }
             },
           }
@@ -104,6 +106,7 @@ const ProjectsSection = ({
 
       if (videoPlayerRef.current) {
         videoPlayerRef.current.pause();
+        tl2.current.play();
         videoPlayerRef.current.currentTime = 0;
       }
 
@@ -112,16 +115,12 @@ const ProjectsSection = ({
 
       ani.set(projectsRight, { opacity: 0 });
       ani.set(projectsLeft, { opacity: 0 });
-
-      // ani.to(projectRef.current, {
-      //   position: "",
-      // });
     };
 
     const leftTl = gsap.timeline({
       scrollTrigger: {
         trigger: spaceOneRef.current,
-        start: "top bottom",
+        start: "top top",
         // markers: true,
         // end: "bottom bottom",
         // scrub: true,
@@ -166,20 +165,6 @@ const ProjectsSection = ({
     });
   }, [spaceOneRef, projectRef, historyRef]);
 
-  // useEffect(() => {
-  //   if (!spaceTwo) return;
-
-  //   ScrollTrigger.create({
-  //     trigger: spaceTwo.current,
-  //     start: "top bottom",
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //     onEnter: () => {
-  //       gsap.to(projectRef.current, { top: 0 });
-  //     },
-  //   });
-  // }, [spaceTwo]);
-
   useEffect(() => {
     if (!historyRef) return;
     const historyLeft = historyRef.current.querySelector(".history-left");
@@ -215,22 +200,41 @@ const ProjectsSection = ({
           historyRight,
           {
             opacity: 0,
-            yPercent: 200,
           },
           {
             opacity: 1,
-            yPercent: 0,
           }
         )
 
         .fromTo(
           historyLeft,
-          { opacity: 0, yPercent: 100 },
+          { opacity: 0 },
           {
             opacity: 1,
-            yPercent: 0,
           }
         );
+
+      // ani
+      //   .fromTo(
+      //     historyRight,
+      //     {
+      //       opacity: 0,
+      //       yPercent: 200,
+      //     },
+      //     {
+      //       opacity: 1,
+      //       yPercent: 0,
+      //     }
+      //   )
+
+      //   .fromTo(
+      //     historyLeft,
+      //     { opacity: 0, yPercent: 100 },
+      //     {
+      //       opacity: 1,
+      //       yPercent: 0,
+      //     }
+      //   );
     };
 
     const historyAniReset = () => {
@@ -251,8 +255,8 @@ const ProjectsSection = ({
       trigger: historyRef.current,
       start: "top top",
       onEnter: () => {
-        gsap.set("body", { overflow: "hidden" });
-        gsap.set("body", { overflow: "auto", delay: 1 });
+        // gsap.set("body", { overflow: "hidden" });
+        // gsap.set("body", { overflow: "auto", delay: 1 });
 
         historyAni();
       },

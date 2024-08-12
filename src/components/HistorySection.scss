@@ -1,10 +1,13 @@
 .history-fixed {
   width: 100%;
+  display: flex;
+  flex-direction: row;
   height: auto;
-  //  opacity: 0.2 !important;
+  //opacity: 0.2 !important;
 
   .history-wrap {
     width: 100%;
+
     height: auto;
 
     display: flex;
@@ -13,7 +16,7 @@
 
     .history-left {
       flex: 1;
-      width: 100%;
+      width: 50%;
       height: 100vh;
       position: sticky;
       top: 0;
@@ -80,6 +83,7 @@
 
     .history {
       flex: 1;
+      width: 50%;
       height: auto;
       opacity: 0;
       .init {

@@ -2,11 +2,24 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./TextAnimationSection.css";
+import logoWhite from "../../assets/images/logo_white.svg";
+import logoBlack from "../../assets/images/logo_black.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextAnimationSection = ({ textRef, heroRef, circleRef }) => {
+const TextAnimationSection = ({
+  textRef,
+  heroRef,
+  circleRef,
+  navRef,
+  logoRef,
+}) => {
   useEffect(() => {
+    if (!textRef || !heroRef || !navRef || !logoRef) return;
+    const links = navRef.current.querySelectorAll("a");
+
+    console.log(navRef);
+
     const tl = gsap.timeline();
 
     tl.fromTo(
@@ -66,11 +79,31 @@ const TextAnimationSection = ({ textRef, heroRef, circleRef }) => {
           end: "bottom bottom",
           // markers: true,
           scrub: true,
-          onStart: () => {
+          onEnter: () => {
             gsap.set(textRef.current, { opacity: 1 });
+            console.log("시작");
+            gsap.set(circleRef.current, { display: "none" });
+            logoRef.current.src = logoWhite;
+
+            gsap.set(links, { color: "#fff" });
           },
           onLeave: () => {
             gsap.set(textRef.current, { opacity: 1 });
+            gsap.set(links, { color: "#000" });
+            logoRef.current.src = logoBlack;
+
+            console.log("끝");
+            gsap.set(circleRef.current, { display: "" });
+          },
+          onEnterBack: () => {
+            console.log("왜 안찍");
+            gsap.set(links, { color: "#fff" });
+            logoRef.current.src = logoWhite;
+          },
+          onLeaveBack: () => {
+            console.log("왜 안찍");
+            gsap.set(links, { color: "#000" });
+            logoRef.current.src = logoBlack;
           },
         },
       }

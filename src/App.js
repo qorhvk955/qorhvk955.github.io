@@ -16,6 +16,7 @@ function App() {
   const circleRef = useRef(null);
   const cloneCircleRef = useRef(null);
   const contactRef = useRef(null);
+  const logoRef = useRef(null);
 
   const skillRef = useRef(null);
   const spaceZero = useRef(null);
@@ -25,14 +26,19 @@ function App() {
   const spaceTwo = useRef(null);
   const projectRef = useRef(null);
   const spaceThree = useRef(null);
+  const navRef = useRef(null);
+
+  const tl2 = useRef(null);
   return (
     <div>
-      {/* <Header /> */}
+      <Header navRef={navRef} logoRef={logoRef} />
       <HeroSection heroRef={heroRef} textRef={textRef} />
       <TextAnimationSection
         heroRef={heroRef}
         textRef={textRef}
         circleRef={circleRef}
+        navRef={navRef}
+        logoRef={logoRef}
       />
       <div
         className="space-start-real"
@@ -44,7 +50,11 @@ function App() {
 
       <div
         className="space-zero"
-        style={{ height: "300vh", backgroundColor: "yellow", zIndex: 9999 }}
+        style={{
+          height: "130vh",
+          backgroundColor: "rgba(255,0,0,0.2)",
+          zIndex: 9999,
+        }}
         ref={spaceZero}
       >
         <SkillsSection
@@ -55,12 +65,17 @@ function App() {
           cloneCircleRef={cloneCircleRef}
           spaceReal={spaceReal}
           spaceOneRef={spaceOneRef}
+          tl2={tl2}
         />
       </div>
 
       <div
         className="space-one"
-        style={{ height: "200vh", backgroundColor: "blue", zIndex: 9999 }}
+        style={{
+          height: "130vh",
+          backgroundColor: "rgba(0,255,0,0.2)",
+          zIndex: 9999,
+        }}
         ref={spaceOneRef}
       >
         <ProjectSection
@@ -71,6 +86,7 @@ function App() {
           historyRef={historyRef}
           spaceTwo={spaceTwo}
           projectRef={projectRef}
+          tl2={tl2}
         />
       </div>
       <div

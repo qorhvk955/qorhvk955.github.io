@@ -20,11 +20,11 @@ const SkillsSection = ({
   cloneCircleRef,
   spaceReal,
   spaceOneRef,
+  tl2,
 }) => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const fillRef = useRef(null);
   const rightRef = useRef(null);
-  const tl2 = useRef(null);
 
   let num, divider, total;
 
@@ -217,9 +217,9 @@ const SkillsSection = ({
           onLeaveBack: () => {
             gsap.to(skillRef.current, { position: "" });
           },
-          onLeave: () => {
-            gsap.to(skillRef.current, { position: "" });
-          },
+          // onLeave: () => {
+          //   gsap.to(skillRef.current, { position: "" });
+          // },
         },
       });
 
@@ -318,108 +318,6 @@ const SkillsSection = ({
       },
     });
   }, [spaceOneRef]);
-
-  // useEffect(() => {
-  //   if (textRef.current && skillRef.current) {
-  //     ScrollTrigger.create({
-  //       trigger: textRef.current,
-  //       start: "bottom top",
-  //       end: "bottom top",
-  //       scrub: true,
-  //       onEnterBack: () => {
-  //         const tl = gsap.timeline();
-
-  //         tl.to(skillRef.current.querySelector(".skills-section__left"), {
-  //           yPercent: 100,
-  //         }).to(skillRef.current.querySelector(".skills-section__right"), {
-  //           yPercent: 100,
-  //         });
-  //       },
-
-  //       onEnter: () => {},
-  //       onLeave: () => {
-  //         const tl = gsap.timeline();
-  //         tl.to(skillRef.current.querySelector(".skills-section__left"), {
-  //           yPercent: 0,
-  //         }).to(skillRef.current.querySelector(".skills-section__right"), {
-  //           yPercent: 0,
-  //         });
-  //       },
-  //     });
-  //   }
-  // }, [textRef, skillRef]);
-
-  // useEffect(() => {
-  //   if (skillRef.current) {
-  //     const body = document.querySelector("body");
-
-  //     gsap.to(body, {
-  //       scrollTrigger: {
-  //         trigger: skillRef.current,
-  //         start: "top top",
-  //         end: "bottom bottom",
-  //         // markers: true,
-  //         onEnter: () => {
-  //           gsap.to(skillRef.current, { position: "fixed", top: 0, left: 0 });
-  //           // gsap.to(body, { overflow: "hidden" });
-  //         },
-  //       },
-  //     });
-  //   }
-  // }, [skillRef.current]);
-
-  // useEffect(() => {
-  //   const text = textRef.current.querySelector(".text-wrap");
-
-  //   const tt = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: textRef.current,
-  //       start: "bottom bottom",
-  //       end: "bottom bottom",
-  //       onEnterBack: () => {
-  //         gsap.set(textRef.current, { opacity: 1 });
-  //         gsap.set(text, { opacity: 1 });
-  //         gsap.set(circleRef.current, { scale: 20, opacity: 0 });
-  //       },
-  //       onLeave: () => {
-  //         gsap.set(textRef.current, { opacity: 0 });
-  //         gsap.set(text, { opacity: 0 });
-  //         gsap.set(circleRef.current, { scale: 20, opacity: 1 });
-  //         gsap.set(num, { text: "" });
-  //         gsap.set(divider, { opacity: 0 });
-  //         gsap.set(total, { text: "" });
-  //       },
-  //     },
-  //   });
-
-  //   if (textRef.current && circleRef.current) {
-  //     console.log("@@@@@@@@@@@");
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: textRef.current,
-  //         start: "bottom bottom",
-  //         end: "bottom top",
-  //         scrub: true,
-  //         // markers: true,
-  //         onEnterBack: () => {
-  //           gsap.set(num, { text: "" });
-  //           gsap.set(divider, { opacity: 0 });
-  //           gsap.set(total, { text: "" });
-  //         },
-  //       },
-  //     });
-
-  //     tl.fromTo(
-  //       circleRef.current,
-  //       { scale: 20 },
-  //       {
-  //         scale: 1,
-  //         opacity: 1,
-  //         onComplete: circleText,
-  //       }
-  //     );
-  //   }
-  // }, [circleRef, textRef]);
 
   return (
     <>

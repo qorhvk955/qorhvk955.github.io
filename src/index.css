@@ -23,6 +23,19 @@ body {
   background-color: #fff;
 }
 
+body::-webkit-scrollbar {
+  width: 4px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 4px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
