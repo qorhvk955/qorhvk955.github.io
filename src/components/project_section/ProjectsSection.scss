@@ -7,8 +7,7 @@
   overflow: hidden;
   position: sticky;
   top: 0;
-  //  opacity: 0.2 !important;
-
+  pointer-events: none;
   .projects-section__left,
   .projects-section__right {
     width: 50%;
@@ -96,7 +95,7 @@
   }
 
   .clone {
-    right: -100%; /* Moves the clone section completely out of view */
+    right: -100%;
   }
 
   .box {
