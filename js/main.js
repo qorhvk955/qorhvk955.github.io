@@ -34,12 +34,15 @@ $(function () {
     var text = '';
     if (index === 0) {
       text = 'TOMATO';
+      $('#main .text').css({color:"#EB9E8C", fontSize:320})
     } else if (index === 1) {
-      text = 'CHILI';
+      text = ' SWEETCHILI';
+      $('#main .text').css({color:"#FFCB47", fontSize:310})
     } else if (index === 2) {
       text = 'MUSTARD';
+      $('#main .text').css({color:"#ECAA53", fontSize:310})
     }
-    $('.text').text(text);
+    $('#main .text').text(text);
   }
 
   function slide() {
@@ -221,6 +224,7 @@ $(function () {
   });
 
   $(document).ready(function () {
+    $(window).scrollTop(0);
     resizeSectionHeight();
     boxResize();
     setTimeout(startSlideLoop, intervalTime);

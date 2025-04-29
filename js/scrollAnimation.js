@@ -151,14 +151,14 @@ new RGBELoader().load(
         let hasEnteredBrandAbout = false;
 
         ScrollTrigger.create({
-          trigger: "#bradAbout",
+          trigger: "#brandAbout",
           start: "top top",
           end: "bottom bottom",
           onEnter: (self) => {
             if (hasEnteredBrandAbout) return;
             hasEnteredBrandAbout = true;
 
-            console.log("bradAbout onEnter");
+            console.log("brandAbout onEnter");
 
             // const brandAboutTop =
             //   self.trigger.getBoundingClientRect().top + window.scrollY;
@@ -178,7 +178,7 @@ new RGBELoader().load(
           },
           onEnterBack: () => {
             hasEnteredBrandAbout = false;
-            console.log("bradAbout onEnterBack - 플래그 초기화");
+            console.log("brandAbout onEnterBack - 플래그 초기화");
           },
         });
       },

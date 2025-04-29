@@ -8,6 +8,7 @@
   top: 0;
   width: 100%;
   height: 100vh;
+  background: url(/file/brand_sample.png);
 }
 #brandAbout .mainbox .content{
   position: relative;
@@ -16,7 +17,7 @@
 }
 
 #brandAbout .bottle-outline {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
 }
@@ -28,6 +29,43 @@
   transform: translate(-50%,-50%);
   width: 100%;
   height: 100%;
-  object-position: center ,center;
   object-fit: contain;
+}
+#brandAbout .bottle-outline .bottleLine{
+  display: block
+}
+#brandAbout .bottle-outline .picture{
+  display: none
+}
+
+#brandAbout .title{
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+#brandAbout .title .top{
+  font-family: "DynaPuff", serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+#brandAbout .title .btm{
+  font-family: "GmarketSans", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#brandAbout .plan .stainBack, #brandAbout .plan .stainFront{
+  width: 400px;
+  height: 400px;
+}
+#brandAbout .plan1 .stainBack{
+  background: url(/file/stain1.png);
+}
+
+#brandAbout .backStain{
+  position: absolute;
+  top: -100%;
 }
