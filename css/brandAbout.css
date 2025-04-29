@@ -1,18 +1,28 @@
-#bradAbout {
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@charset "utf-8";
+#brandAbout {
+  height: 200vh;
+  background-color: rebeccapurple;
+}
+#brandAbout .mainbox{
+  position: sticky;
+  background: white;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+#brandAbout .mainbox .content{
+  width: 100%;
+  height: 100%;
 }
 
-.bottle-outline {
+/* #brandAbout .bottle-outline {
   width: 156px;
   height: 100vh;
 }
 
-.bottle-outline img {
+#brandAbout .bottle-outline img {
   width: 100%;
   height: 100%;
 
   object-fit: contain;
-}
+} */

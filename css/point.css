@@ -1,3 +1,5 @@
 #point {
-  height: 300vh !important;
+  height: 300vh;
+  /* 테스트용 */
+  background: red;
 }

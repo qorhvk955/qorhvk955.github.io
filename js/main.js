@@ -1,8 +1,14 @@
 $(function () {
   function resizeSectionHeight() {
-    $("section").css({
-      height: "100vh",
+    $("section").not("#point, #brandAbout").css({
+      height: "100vh"
     });
+    $("#point").css({
+      height: "300vh"
+    })
+    $("#brandAbout").css({
+      height: "200vh"
+    })
   }
 
   function boxResize() {
