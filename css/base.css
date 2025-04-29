@@ -1,0 +1,81 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+.test{
+    border: 1px solid red;
+}
+.flex{
+    display: flex;
+}
+.hide{
+    display: none;
+}
+
+body{
+    -ms-overflow-style: none;
+    width: 100vw;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+#all{
+    width: 100%;
+    overflow-x: hidden;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.center{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#intro{
+    position: absolute;
+    background-color: #FFF5E9;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    display: block;
+}
+#intro .mainbox, #intro .content{
+    height: 100%;
+}
+#intro .intro{
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 임시 */
+/* #main{
+    background: red;
+}
+#point{
+    background: orangered;
+} */
+#product{
+    background: yellow;
+}
+#recipe{
+    background: green;
+}
+#sns{
+    background: blue;
+}

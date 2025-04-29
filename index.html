@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIVID KITCHEN</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/point.css" />
+    <link rel="stylesheet" href="css/brandAbout.css" />
+
+    <!-- <script src="js/intro.js"></script> -->
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js",
+          "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/GLTFLoader.js",
+          "three/examples/jsm/loaders/RGBELoader.js": "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/RGBELoader.js",
+          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm",
+          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.2/ScrollTrigger.min.js"
+        }
+      }
+    </script>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/scrollAnimation.js"></script>
+  </head>
+  <body>
+    <div id="all">
+      <div id="top">
+        <div class="mainbox">
+          <img class="logo" src="file/logo_w.png" alt="로고" />
+          <ul class="menu">
+            <li>ABOUT</li>
+            <li>PRODUCTS</li>
+            <li>RECIPE</li>
+            <li>SNS</li>
+          </ul>
+          <div class="account">
+            <span class="login">LOGIN</span>
+            <div class="block">|</div>
+            <span class="login">CART ( 0 )</span>
+          </div>
+        </div>
+      </div>
+      <!-- <section id="intro">
+                <div class="mainbox">
+                    <div class="content">
+                        <video class="intro" autoplay muted>
+                            <source src="file/VIVID KITCHEN-opacity-non.webm" type="video/webm">
+                            브라우저가 비디오를 지원하지 않습니다.
+                        </video>
+                    </div>
+                </div>
+            </section> -->
+      <section id="main">
+        <canvas id="three-canvas"></canvas>
+
+        <div class="mainbox">
+          <div class="content">
+            <img class="sImg" src="file/bottle_midle.png" alt="샘플" />
+            <div class="mask">
+              <div class="box flex">
+                <div class="boxs box1">
+                  <img
+                    class="vivid_sauce"
+                    src="file/ketchup_sample.png"
+                    alt="토마토케첩"
+                  />
+                </div>
+                <div class="boxs box2">
+                  <img
+                    class="vivid_sauce"
+                    src="file/chili_sample.png"
+                    alt="칠리소스"
+                  />
+                </div>
+                <div class="boxs box3">
+                  <img
+                    class="vivid_sauce"
+                    src="file/mustard_sample.png"
+                    alt="머스터드"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="shadow"></div>
+            <div class="back flex">
+              <div class="backs back1">
+                <div class="sauce">
+                  <img
+                    class="mid"
+                    src="file/ketchup_mark.png"
+                    alt="케첩 자국"
+                  />
+                  <div class="dish">
+                    <img
+                      class="dishs dish1"
+                      src="/file/ketchup_dish.png"
+                      alt="케첩 그릇"
+                    />
+                    <img
+                      class="dishs dish2"
+                      src="/file/ketchup_dish.png"
+                      alt="케첩 그릇"
+                    />
+                    <img
+                      class="dishs dish3"
+                      src="/file/ketchup_dish.png"
+                      alt="케첩 그릇"
+                    />
+                    <img
+                      class="dishs dish4"
+                      src="/file/ketchup_dish.png"
+                      alt="케첩 그릇"
+                    />
+                    <img
+                      class="dishs dish5"
+                      src="/file/ketchup_dish.png"
+                      alt="케첩 그릇"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="backs back2">
+                <div class="sauce">
+                  <img class="mid" src="file/chili_mark.png" alt="칠리 자국" />
+                  <div class="dish">
+                    <img
+                      class="dishs dish1"
+                      src="/file/chili_dish.png"
+                      alt="칠리 그릇"
+                    />
+                    <img
+                      class="dishs dish2"
+                      src="/file/chili_dish.png"
+                      alt="칠리 그릇"
+                    />
+                    <img
+                      class="dishs dish3"
+                      src="/file/chili_dish.png"
+                      alt="칠리 그릇"
+                    />
+                    <img
+                      class="dishs dish4"
+                      src="/file/chili_dish.png"
+                      alt="칠리 그릇"
+                    />
+                    <img
+                      class="dishs dish5"
+                      src="/file/chili_dish.png"
+                      alt="칠리 그릇"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="backs back3">
+                <div class="sauce">
+                  <img
+                    class="mid"
+                    src="file/mustard_mark.png"
+                    alt="머스터드 자국"
+                  />
+                  <div class="dish">
+                    <img
+                      class="dishs dish1"
+                      src="/file/mustard_dish.png"
+                      alt="머스터드 그릇"
+                    />
+                    <img
+                      class="dishs dish2"
+                      src="/file/mustard_dish.png"
+                      alt="머스터드 그릇"
+                    />
+                    <img
+                      class="dishs dish3"
+                      src="/file/mustard_dish.png"
+                      alt="머스터드 그릇"
+                    />
+                    <img
+                      class="dishs dish4"
+                      src="/file/mustard_dish.png"
+                      alt="머스터드 그릇"
+                    />
+                    <img
+                      class="dishs dish5"
+                      src="/file/mustard_dish.png"
+                      alt="머스터드 그릇"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text">TOMATO</div>
+            <div class="list flex">
+              <div class="lists bar list1">
+                <div class="circle"></div>
+              </div>
+              <div class="lists bar list2">
+                <div class="circle"></div>
+              </div>
+              <div class="lists bar list3">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="point"></section>
+      <section id="bradAbout">
+        <div class="bottle-outline">
+          <img src="file/dotted_sauce_outline.png" alt="" />
+        </div>
+      </section>
+      <section id="product"></section>
+      <section id="recipe"></section>
+      <section id="sns"></section>
+      <div id="btm"></div>
+    </div>
+  </body>
+</html>

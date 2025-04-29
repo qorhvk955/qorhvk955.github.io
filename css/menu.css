@@ -1,0 +1,38 @@
+@charset "utf-8";
+#top{
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+}
+#top .mainbox{
+    position: absolute;
+    pointer-events: auto;
+    padding: 0px 120px;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    color: #162A14;
+}
+#top .mainbox .logo{
+    width: 106px;
+}
+
+#top .mainbox .menu{
+    display: flex;
+}
+#top .mainbox .menu li{
+    margin: 0px 60px;
+}
+
+#top .mainbox .account{
+    display: flex;
+}
+#top .mainbox .account .block{
+    margin: 0 10px;
+}
