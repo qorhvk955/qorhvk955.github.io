@@ -1,0 +1,166 @@
+#sns {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 타이틀, 서브타이틀 */
+.sns-header {
+  text-align: center;
+  padding-top: 52px;
+
+  margin-bottom: 40px;
+}
+
+.sns-title {
+  font-size: 36px;
+  color: #3c4d2f;
+  font-family: "DynaPuff", cursive;
+
+  /* font-weight: bold; */
+  margin: 0;
+}
+
+.sns-subtitle {
+  font-size: 20px;
+  color: #6c7a5d;
+  font-family: "GmarketSans", cursive;
+  font-weight: 500;
+  margin: 8px 0 0 0;
+}
+
+/* 갤러리 */
+.sns-gallery {
+  /* padding: 0 118px; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 421px);
+  /* gap: 12px; */
+  justify-content: center;
+  align-items: center;
+}
+/* ========== SNS 영역 끝 ========== */
+
+/* ========== 찰칵 안내 문구 영역 ========== */
+.sound-prompt {
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 999;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sound-prompt.hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+/* ========== 찰칵 안내 문구 영역 끝 ========== */
+
+/* ========== 이미지 박스 영역========== */
+.image-box {
+  width: 421px;
+  height: 421px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* hover할 때 살짝 찰칵 모션 */
+.image-box.hovering .image-inner {
+  animation: cameraSnap 0.4s ease-in-out;
+}
+
+@keyframes cameraSnap {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 플래시 레이어 */
+.hover-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.image-box.hovering .hover-layer {
+  animation: flash 0.25s ease-in;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 기본 이미지들 */
+.image-box img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+/* hover-img 기본 상태 */
+.image-box img.hover-img {
+  opacity: 0;
+  filter: blur(0px);
+  z-index: 1;
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+/* hovering 상태일 때 */
+.image-box.hovering img.hover-img {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* hovering이 빠질 때 (hover 해제) */
+.image-box:not(.hovering) img.hover-img {
+  opacity: 0;
+  filter: blur(3px);
+}
+
+/* ========== 이미지 박스 영역 끝 ========== */

@@ -2,46 +2,166 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Center with Flex</title>
+    <title>Vivid Kitchen SNS</title>
     <style>
+      @font-face {
+        font-family: "DynaPuff";
+        src: url("/font/DynaPuff-VariableFont_wdth,wght.ttf");
+      }
+      @font-face {
+        font-family: "GmarketSans";
+        src: url("/font/GmarketSansTTFMedium.ttf");
+        font-weight: 500;
+      }
+
       body {
         margin: 0;
-        padding: 0;
-        background: #ffffff;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        background: #fdf6e7;
+        font-family: "GmarketSans", sans-serif;
       }
 
       .container {
-        width: 600px;
-        height: 600px;
-        background: #f8f8f8;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
+        gap: 40px;
+        padding: 80px 20px;
+      }
+
+      .item {
+        width: 421px;
+        height: 421px;
+        background: white;
         position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       }
 
-      .bottle-outline {
-        width: 120px;
-        height: 360px;
+      .item:first-child {
+        background: #f24313;
       }
 
-      .bottle-outline img {
+      .item img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .text-box {
+        position: absolute;
+        left: 40px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 228px;
+      }
+
+      .title {
+        font-family: "DynaPuff", cursive;
+        font-size: 25px;
+        font-weight: 400;
+        color: #305c2b;
+      }
+
+      .desc {
+        font-family: "GmarketSans", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .header {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 40px;
+      }
+
+      .header .title {
+        font-size: 36px;
+        font-weight: 500;
+        color: #162a14;
+      }
+
+      .header .desc {
+        font-size: 24px;
+        color: #244521;
       }
     </style>
   </head>
-
   <body>
+    <div class="header">
+      <div class="title">SNS</div>
+      <div class="desc">먹어 본 사람만 아는 비비드 키친!</div>
+    </div>
+
     <div class="container">
-      <div class="bottle-outline">
-        <img src="file/dotted_sauce_outline.png" alt="소스병 점선" />
+      <!-- 8개 예시 -->
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="sauce" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">당을 줄인 새콤한 토마토 케찹</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="vegan mayo" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">동물성 원료 NO! 진짜 식물성 비건 마요네즈</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="sauce again" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">당을 줄인 새콤한 토마토 케찹</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="dressing" />
+        <div class="text-box">
+          <div class="title">Dressing</div>
+          <div class="desc">당을 줄이고 짭쪼롬한 맛은 그대로</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="jjajang" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">만능 짜장 소스</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="burrito" />
+        <div class="text-box">
+          <div class="title">Food</div>
+          <div class="desc">맛있지만 부담없게 가벼운 브리또</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="ssamjang" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">고기부터 야채까지 감칠맛 폭발 쌈장</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://placehold.co/421x421" alt="mustard" />
+        <div class="text-box">
+          <div class="title">Sauce</div>
+          <div class="desc">새콤하고 묵직한 맛 그대로 머스타드</div>
+        </div>
       </div>
     </div>
   </body>
