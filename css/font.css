@@ -1,5 +1,37 @@
 @charset "utf-8";
+
+/* MYArirang */
 @font-face {
-    font-family: "MYArirang";  
-    src: url(/font/MYArirang.ttf);
-  }
+  font-family: "MYArirang";
+  src: url("/font/MYArirang.ttf");
+}
+
+/* DynaPuff */
+@font-face {
+  font-family: "DynaPuff";
+  src: url("/font/DynaPuff-VariableFont_wdth,wght.ttf");
+}
+
+/* GmarketSans Light */
+@font-face {
+  font-family: "GmarketSans";
+  src: url("/font/GmarketSansTTFLight.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* GmarketSans Medium */
+@font-face {
+  font-family: "GmarketSans";
+  src: url("/font/GmarketSansTTFMedium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* GmarketSans Bold */
+@font-face {
+  font-family: "GmarketSans";
+  src: url("/font/GmarketSansTTFBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
