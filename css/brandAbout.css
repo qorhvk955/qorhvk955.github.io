@@ -8,7 +8,7 @@
   top: 0;
   width: 100%;
   height: 100vh;
-  background: url(/file/brand_sample.png);
+  /* background: url(/file/brand_sample2.png); */
 }
 #brandAbout .mainbox .content{
   position: relative;
@@ -18,6 +18,8 @@
 
 #brandAbout .bottle-outline {
   position: absolute;
+  pointer-events: none;
+  z-index: 10;
   width: 100%;
   height: 100vh;
 }
@@ -41,7 +43,7 @@
 #brandAbout .title{
   position: absolute;
   left: 50%;
-  top: 12%;
+  top: 11.7%;
   transform: translateX(-50%);
   text-align: center;
 }
@@ -49,7 +51,7 @@
   font-family: "DynaPuff", serif;
   font-size: 40px;
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 #brandAbout .title .btm{
   font-family: "GmarketSans", serif;
@@ -57,15 +59,54 @@
   font-weight: 500;
 }
 
+#brandAbout .plan{
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#brandAbout .plan .plans{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 #brandAbout .plan .stainBack, #brandAbout .plan .stainFront{
+  position: absolute;
   width: 400px;
   height: 400px;
+}
+#brandAbout .plan .stainFront{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "GmarketSans", serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: white;
+}
+#brandAbout .plan .plans *{
+  pointer-events: auto;
+}
+#brandAbout .plan1 .stainBack, #brandAbout .plan1 .stainFront{
+  top: 36.3%;
+  left: 26.35%;
+  transform: translate(-50%,-50%);
 }
 #brandAbout .plan1 .stainBack{
   background: url(/file/stain1.png);
 }
+#brandAbout .plan1 .stainFront{
+  background: url(/file/stain_front1.png);
+}
+#brandAbout .plan1 .line{
+  position: absolute;
+  left: 38.5%;
+  top: 53%;
+  transform: translate(-50%,-50%);
+}
 
 #brandAbout .backStain{
   position: absolute;
+  z-index: -1;
   top: -100%;
 }
