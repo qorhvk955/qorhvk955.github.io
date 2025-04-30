@@ -1,7 +1,7 @@
 #point {
   height: 300vh;
-  /* 테스트용 */
-  background: red;
+  z-index: 10;
+  background: #FFFAEF;
 }
 
 #point .point-box {
