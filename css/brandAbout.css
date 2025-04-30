@@ -8,7 +8,6 @@
   top: 0;
   width: 100%;
   height: 100vh;
-  /* background: url(/file/brand_sample2.png); */
 }
 #brandAbout .mainbox .content{
   position: relative;
@@ -75,7 +74,9 @@
   height: 400px;
 }
 #brandAbout .plan .stainFront{
+  /* display: none; */
   display: flex;
+  transform: translate(-50%,-50%) rotateY(270deg);
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -83,14 +84,23 @@
   font-size: 40px;
   font-weight: 500;
   color: white;
+  transition: transform 0.7s ease-out
+}
+#brandAbout .plan .stainBack{
+  display: block;
+  transform: translate(-50%,-50%) rotateY(0deg);
+  transition: transform 0.5s linear
 }
 #brandAbout .plan .plans *{
   pointer-events: auto;
 }
+#brandAbout .plan .line, #brandAbout .plan .arrow{
+  transform: translate(-50%,-50%);
+}
+
 #brandAbout .plan1 .stainBack, #brandAbout .plan1 .stainFront{
   top: 36.3%;
   left: 26.35%;
-  transform: translate(-50%,-50%);
 }
 #brandAbout .plan1 .stainBack{
   background: url(/file/stain1.png);
@@ -102,7 +112,78 @@
   position: absolute;
   left: 38.5%;
   top: 53%;
-  transform: translate(-50%,-50%);
+}
+#brandAbout .plan1 .arrow{
+  position: absolute;
+  display: none;
+  left: 42.4%;
+  top: 56.5%;
+}
+
+#brandAbout .plan2 .stainBack, #brandAbout .plan2 .stainFront{
+  top: 36.3%;
+  left: 73.55%;
+}
+#brandAbout .plan2 .stainBack{
+  background: url(/file/stain2.png);
+}
+#brandAbout .plan2 .stainFront{
+  background: url(/file/stain_front2.png);
+}
+#brandAbout .plan2 .line{
+  position: absolute;
+  left: 61%;
+  top: 53%;
+}
+#brandAbout .plan2 .arrow{
+  position: absolute;
+  display: none;
+  left: 57.1%;
+  top: 56.5%;
+}
+
+#brandAbout .plan3 .stainBack, #brandAbout .plan3 .stainFront{
+  top: 76.3%;
+  left: 26.35%;
+}
+#brandAbout .plan3 .stainBack{
+  background: url(/file/stain3.png);
+}
+#brandAbout .plan3 .stainFront{
+  background: url(/file/stain_front3.png);
+}
+#brandAbout .plan3 .line{
+  position: absolute;
+  left: 39.6%;
+  top: 80%;
+}
+#brandAbout .plan3 .arrow{
+  position: absolute;
+  display: none;
+  left: 43.1%;
+  top: 77.5%;
+}
+
+#brandAbout .plan4 .stainBack, #brandAbout .plan4 .stainFront{
+  top: 76.3%;
+  left: 73.55%;
+}
+#brandAbout .plan4 .stainBack{
+  background: url(/file/stain4.png);
+}
+#brandAbout .plan4 .stainFront{
+  background: url(/file/stain_front4.png);
+}
+#brandAbout .plan4 .line{
+  position: absolute;
+  left: 60.3%;
+  top: 79%;
+}
+#brandAbout .plan4 .arrow{
+  position: absolute;
+  display: none;
+  left: 57%;
+  top: 77.5%;
 }
 
 #brandAbout .backStain{
