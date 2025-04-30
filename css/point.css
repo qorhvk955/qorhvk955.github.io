@@ -3,3 +3,24 @@
   z-index: 10;
   background: #FFFAEF;
 }
+
+#point .point-box {
+  width: 100%;
+  height: 100vh;
+  background-color: yellow;
+  position: sticky;
+  top: 0;
+}
+
+.point-box span {
+  font-size: 180px;
+  color: #70a98e;
+}
+
+.point-box .deco-school {
+  font-family: "Cafe24Decoschool", serif;
+}
+
+.point-box .deco-line {
+  font-family: "Cafe24Decoline", serif;
+}

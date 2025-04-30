@@ -35,3 +35,15 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/* Cafe24Decoschool */
+@font-face {
+  font-family: "Cafe24Decoschool";
+  src: url("/font/Cafe24Decoschool.ttf");
+}
+
+/* Cafe24Decoline */
+@font-face {
+  font-family: "Cafe24Decoline";
+  src: url("/font/Cafe24Decoline.ttf");
+}
