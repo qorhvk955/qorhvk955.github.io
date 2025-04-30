@@ -9,32 +9,49 @@ $(function () {
     var brandAboutTop = brandAbout.offset().top;
     var brandAboutHeight = brandAbout.outerHeight();
 
-    // 기존 로직: 화면 상단에 #brandAbout이 닿으면 병 이미지 교체
+    // #brandAbout이 닿으면 병 이미지 교체
     if (scrollTop >= brandAboutTop) {
       $("#brandAbout .bottle-outline .bottleLine").css("display", "none");
       $("#brandAbout .bottle-outline .picture").css("display", "block");
+      // 브랜드 자국 애니메이션
       stainSpin1(function(){
-        // 병 이미지 전환 후 선 애니메이션 실행
         lineAnime1($line1[0]);
+        setTimeout(function() {
+          stainSpin2(function() {
+            lineAnime2($line2[0]);
+            setTimeout(function() {
+              stainSpin3(function() {
+                lineAnime3($line3[0]);
+                setTimeout(function() {
+                  stainSpin4(function() {
+                    lineAnime4($line4[0]);
+                  });
+                }, 100);
+              });
+            }, 100);
+          });
+        }, 100);
       });
     } else {
       $("#brandAbout .bottle-outline .bottleLine").css("display", "block");
       $("#brandAbout .bottle-outline .picture").css("display", "none");
     }
 
-    // 새로운 로직: 화면 중간에 #brandAbout이 절반쯤 보이면 backStain 내려오기
+    // #brandAbout이 절반쯤 보이면 backStain 내려오기
     var triggerPoint = brandAboutTop - brandAboutHeight / 2;
     var scrollMiddle = scrollTop - windowHeight / 2;
 
     if (scrollMiddle >= triggerPoint) {
       if (!hasShownBackStain) {
         hasShownBackStain = true;
-        $("#brandAbout .backStain").stop().animate({ top: "0%" }, 2000);
+        $("#brandAbout .backStain").stop().animate({ top: "40%" }, 3000);
+        $("#brandAbout .overlay").stop().animate({ height: "100%" }, 4500);
       }
     } else {
       if (hasShownBackStain) {
         hasShownBackStain = false;
         $("#brandAbout .backStain").stop().animate({ top: "-100%" }, 500);
+        $("#brandAbout .overlay").stop().animate({ height: "0%" }, 500);
       }
     }
   }
@@ -47,7 +64,7 @@ $(function () {
 
   function stainSpin1(callback){
     $('#brandAbout .plan1 .stainBack').css({
-      transform: "translate(-50%,-50%) rotateY(270deg)"
+      transform: "translate(-50%,-50%) rotateY(90deg)"
     })
     setTimeout(function(){
       $('#brandAbout .plan1 .stainBack').css({display: "none"})
@@ -61,7 +78,7 @@ $(function () {
   }
   function stainSpin2(callback){
     $('#brandAbout .plan2 .stainBack').css({
-      transform: "translate(-50%,-50%) rotateY(270deg)"
+      transform: "translate(-50%,-50%) rotateY(90deg)"
     })
     setTimeout(function(){
       $('#brandAbout .plan2 .stainBack').css({display: "none"})
@@ -75,7 +92,7 @@ $(function () {
   }
   function stainSpin3(callback){
     $('#brandAbout .plan3 .stainBack').css({
-      transform: "translate(-50%,-50%) rotateY(270deg)"
+      transform: "translate(-50%,-50%) rotateY(90deg)"
     })
     setTimeout(function(){
       $('#brandAbout .plan3 .stainBack').css({display: "none"})
@@ -89,7 +106,7 @@ $(function () {
   }
   function stainSpin4(callback){
     $('#brandAbout .plan4 .stainBack').css({
-      transform: "translate(-50%,-50%) rotateY(270deg)"
+      transform: "translate(-50%,-50%) rotateY(90deg)"
     })
     setTimeout(function(){
       $('#brandAbout .plan4 .stainBack').css({display: "none"})
@@ -103,7 +120,6 @@ $(function () {
   }
 
 
-  // 테스트
   const $line1 = $('#brandAbout .plan1 .line');
   const $arrow1 = $('#brandAbout .plan1 .arrow');
   const $line2 = $('#brandAbout .plan2 .line');
@@ -122,7 +138,7 @@ $(function () {
     const $path = $(svgDoc).find('path');
     $path.css({
       'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
-      'stroke-dashoffset': 185
+      // 'stroke-dashoffset': 185
     });
 
     $path.animate({
@@ -140,7 +156,7 @@ $(function () {
     const $path = $(svgDoc).find('path');
     $path.css({
       'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
-      'stroke-dashoffset': 185
+      // 'stroke-dashoffset': 185
     });
 
     $path.animate({
@@ -158,7 +174,7 @@ $(function () {
     const $path = $(svgDoc).find('path');
     $path.css({
       'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
-      'stroke-dashoffset': 185
+      // 'stroke-dashoffset': 185
     });
 
     $path.animate({
@@ -176,7 +192,7 @@ $(function () {
     const $path = $(svgDoc).find('path');
     $path.css({
       'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
-      'stroke-dashoffset': 185
+      // 'stroke-dashoffset': 185
     });
 
     $path.animate({
@@ -190,16 +206,27 @@ $(function () {
 
   const $line = $("#brandAbout .plans .line");
 
-  $line.on('load', function () {
-    const svgDoc = this.contentDocument;
-    if (svgDoc) {
-      const $path = $(svgDoc).find("path");
-      $path.css({
-        'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
-        'stroke-dashoffset': 185
-      });
+  $line.each(function () {
+    const line = this;
+  
+    function applyPathStyle() {
+      const svgDoc = line.contentDocument;
+      if (svgDoc) {
+        const $path = $(svgDoc).find("path");
+        $path.css({
+          'stroke-dasharray': "8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 8px, 200px",
+          'stroke-dashoffset': 185
+        });
+      }
+    }
+  
+    if (line.contentDocument && line.contentDocument.readyState === 'complete') {
+      // 이미 로드된 경우
+      applyPathStyle();
+    } else {
+      // 아직 로드되지 않은 경우 load 이벤트 바인딩
+      $(line).on('load', applyPathStyle);
     }
   });
-
 
 });
