@@ -7,7 +7,7 @@ $(function () {
       height: "300vh"
     })
     $("#brandAbout").css({
-      height: "200vh"
+      height: "300vh"
     })
   }
 

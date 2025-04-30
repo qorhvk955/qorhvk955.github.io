@@ -9,6 +9,14 @@ $(function () {
   
   const lineSpeed = 1000;
 
+  var stainTimeouts = []; // setTimeout ID를 저장할 배열
+
+  // stain 관련 timeout들을 모두 클리어하는 함수
+  function clearStainTimeouts() {
+    stainTimeouts.forEach(clearTimeout);
+    stainTimeouts = [];
+  }
+
   function checkScrollForBrandAbout() {
     var scrollTop = $(window).scrollTop();
     var windowHeight = $(window).height();
@@ -27,42 +35,42 @@ $(function () {
         $("#brandAbout .bottle-outline .bottleLine").css("display", "none");
         $("#brandAbout .bottle-outline .picture").css("display", "block");
 
-        if (scrollDown){
+        if (scrollDown) {
           stainSpin(1, function () {
-            if (scrollDown){
+            if (scrollDown) {
               lineAnime(1);
               if (scrollDown) {
-                setTimeout(function () {
-                  if (scrollDown){
+                stainTimeouts.push(setTimeout(function () {
+                  if (scrollDown) {
                     stainSpin(2, function () {
-                      if (scrollDown){
+                      if (scrollDown) {
                         lineAnime(2);
                         if (scrollDown) {
-                          setTimeout(function () {
-                            if (scrollDown){
+                          stainTimeouts.push(setTimeout(function () {
+                            if (scrollDown) {
                               stainSpin(3, function () {
-                                if (scrollDown){
+                                if (scrollDown) {
                                   lineAnime(3);
                                   if (scrollDown) {
-                                    setTimeout(function () {
-                                      if (scrollDown){
+                                    stainTimeouts.push(setTimeout(function () {
+                                      if (scrollDown) {
                                         stainSpin(4, function () {
-                                          if (scrollDown){
+                                          if (scrollDown) {
                                             lineAnime(4);
                                           }
                                         });
                                       }
-                                    }, 100);
+                                    }, 100));
                                   }
                                 }
                               });
                             }
-                          }, 100);
+                          }, 100));
                         }
                       }
                     });
                   }
-                }, 100);
+                }, 100));
               }
             }
           });
@@ -73,6 +81,8 @@ $(function () {
         scrollup = true;
         scrollDown = false;
         console.log("올림");
+
+        clearStainTimeouts(); // 스크롤 업 시 이전의 timeout 클리어
 
         $("#brandAbout .bottle-outline .bottleLine").css("display", "block");
         $("#brandAbout .bottle-outline .picture").css("display", "none");
@@ -87,16 +97,29 @@ $(function () {
           resetLineAndArrow(this, $($arrows[index]));
         });
 
-        if(scrollup){
+        if (scrollup) {
           setTimeout(function () {
-            $('#brandAbout .plans .stainBack').css({
-              transform: "translate(-50%,-50%) rotateY(0deg)"
-            });
             // 무지성 그냥 반복 으아아악 버그다 버그야 안고쳐져
-            $('#brandAbout .plans .stainFront').css({
-              transform: "translate(-50%,-50%) rotateY(90deg)"
-            });
-          }, 1000);
+            if (scrollup) {
+              $('#brandAbout .plans .stainFront').css({
+                transform: "translate(-50%,-50%) rotateY(90deg)"
+              });
+              $('#brandAbout .plans .stainBack').css({
+                transform: "translate(-50%,-50%) rotateY(0deg)"
+              });
+              if (scrollup) {
+                setTimeout(function(){
+                  // 무지성 그냥 반복 으아아악 버그다 버그야 안고쳐져
+                  $('#brandAbout .plans .stainFront').css({
+                    transform: "translate(-50%,-50%) rotateY(90deg)"
+                  });
+                  $('#brandAbout .plans .stainBack').css({
+                    transform: "translate(-50%,-50%) rotateY(0deg)"
+                  });
+                },100)
+              }
+            }
+          }, 100);
         }
       }
     }
