@@ -35,27 +35,27 @@ $(function () {
         $("#brandAbout .bottle-outline .bottleLine").css("display", "none");
         $("#brandAbout .bottle-outline .picture").css("display", "block");
 
-        if (scrollDown) {
+        if (!scrollup) {
           stainSpin(1, function () {
-            if (scrollDown) {
+            if (!scrollup) {
               lineAnime(1);
-              if (scrollDown) {
+              if (!scrollup) {
                 stainTimeouts.push(setTimeout(function () {
-                  if (scrollDown) {
+                  if (!scrollup) {
                     stainSpin(2, function () {
-                      if (scrollDown) {
+                      if (!scrollup) {
                         lineAnime(2);
-                        if (scrollDown) {
+                        if (!scrollup) {
                           stainTimeouts.push(setTimeout(function () {
-                            if (scrollDown) {
+                            if (!scrollup) {
                               stainSpin(3, function () {
-                                if (scrollDown) {
+                                if (!scrollup) {
                                   lineAnime(3);
-                                  if (scrollDown) {
+                                  if (!scrollup) {
                                     stainTimeouts.push(setTimeout(function () {
-                                      if (scrollDown) {
+                                      if (!scrollup) {
                                         stainSpin(4, function () {
-                                          if (scrollDown) {
+                                          if (!scrollup) {
                                             lineAnime(4);
                                           }
                                         });
@@ -98,6 +98,9 @@ $(function () {
         });
 
         if (scrollup) {
+          $('#brandAbout .plans .stainFront').css({
+            transform: "translate(-50%,-50%) rotateY(90deg)"
+          });
           setTimeout(function () {
             // 무지성 그냥 반복 으아아악 버그다 버그야 안고쳐져
             if (scrollup) {
@@ -116,10 +119,10 @@ $(function () {
                   $('#brandAbout .plans .stainBack').css({
                     transform: "translate(-50%,-50%) rotateY(0deg)"
                   });
-                },100)
+                },700)
               }
             }
-          }, 100);
+          }, 700);
         }
       }
     }
