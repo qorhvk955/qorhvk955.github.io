@@ -50,8 +50,8 @@ $(function () {
     updateBackground();
 
     if (isMobile) {
-      // 모바일에서는 스크롤 내리면 보이고, 올리면 숨기기
-      if (currentScrollTop > lastScrollTop) {
+      // 모바일에서는 스크롤 올리면 보이고, 내리면 숨기기
+      if (currentScrollTop < lastScrollTop) {
         showHeader();  // 아래로 스크롤 → 보이기
       } else {
         if (isAtTop) {
