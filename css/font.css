@@ -47,3 +47,75 @@
   font-family: "Cafe24Decoline";
   src: url("/font/Cafe24Decoline.ttf");
 }
+
+/* Pretendard Thin */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Thin.otf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Pretendard ExtraLight */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-ExtraLight.otf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Pretendard Light */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Pretendard Regular */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Pretendard Medium */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Pretendard SemiBold */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-SemiBold.otf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Pretendard Bold */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Pretendard ExtraBold */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-ExtraBold.otf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Pretendard Black */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Black.otf");
+  font-weight: 900;
+  font-style: normal;
+}
