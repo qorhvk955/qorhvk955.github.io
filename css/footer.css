@@ -78,7 +78,7 @@
   top: 39px;
   right: 48px;
 }
-#btm .sns object:not(:last-of-type){
+#btm .sns a:not(:last-of-type){
   margin-right: 24px;
 }
 
