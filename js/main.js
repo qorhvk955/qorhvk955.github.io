@@ -31,18 +31,20 @@ $(function () {
 
   // 텍스트 변경 함수 추가
   function updateText(index) {
-    var text = '';
+    var html = '';
     if (index === 0) {
-      text = 'TOMATO';
-      $('#main .text').css({color:"#EB9E8C", fontSize:320})
+      html = 'TOMATO';
+      $('#main .text').css({color:"#EB9E8C", fontSize:"clamp(100px, 16.667vw, 320px)"});
+      $('#main .text').text(html); // 텍스트만 있으므로 text() 사용
     } else if (index === 1) {
-      text = ' SWEETCHILI';
-      $('#main .text').css({color:"#FFCB47", fontSize:310})
+      html = '<span>SWEET</span><span>CHILI</span>';
+      $('#main .text').css({color:"#FFCB47", fontSize:"clamp(95px, 16.146vw, 310px)"});
+      $('#main .text').html(html); // HTML 태그 포함되므로 html() 사용
     } else if (index === 2) {
-      text = 'MUSTARD';
-      $('#main .text').css({color:"#ECAA53", fontSize:310})
+      html = 'MUSTARD';
+      $('#main .text').css({color:"#ECAA53", fontSize:"clamp(95px, 16.146vw, 310px)"});
+      $('#main .text').text(html); // 텍스트만 있으므로 text() 사용
     }
-    $('#main .text').text(text);
   }
 
   function slide() {
