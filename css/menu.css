@@ -6,7 +6,7 @@
   z-index: 100;
   width: 100vw;
   height: 130px;
-  background: #fefaebd5;
+  /* background: #fefaebd5; */
   transition: top 0.5s ease;
   /* box-shadow: 0px 2px 10px 2px #0000002b; */
   box-shadow: none;
