@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
   var drinkTop = 50
   var drinkLeft = 0
 
-  var productS = "clamp(15vh, 17vh, 158px)"
-  var productSS = "clamp(30vh, 38vh, 324px)"
-  var productD = "clamp(12vh, 14vh, 140px)"
-  var productF = "clamp(32vh, 40vh, 400px)"
-  var productFS = "clamp(18vh, 29vh, 252px)"
-  var productDr = "clamp(17vh, 30vh, 270px)"
+  var productS = "clamp(15vh, 16vh, 158px)"
+  var productSS = "clamp(30vh, 33vh, 324px)"
+  var productD = "clamp(12vh, 13vh, 140px)"
+  var productF = "clamp(32vh, 35vh, 400px)"
+  var productFS = "clamp(18vh, 26vh, 252px)"
+  var productDr = "clamp(17vh, 28vh, 270px)"
 
   const productData = {
     sauce: [

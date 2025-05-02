@@ -121,7 +121,7 @@
 
 #product .box {
   position: relative;
-  width: clamp(43vh, 25vw, 474px);
+  width: clamp(43vh, 27vw, 474px);
   height: clamp(38vh, 42vh, 428px);
   aspect-ratio: 4 / 3;
   background-color: #fff;
@@ -186,13 +186,12 @@
 }
 
 #product .link-button {
-  position: relative;
-  /* bottom: 64px;
-  left: 36px; */
+  position: absolute;
+  bottom: 13%;
+  left: 7.5%;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 5%;
   padding: 8px 16px;
   border: 1px solid #808080;
   border-radius: 500px;
