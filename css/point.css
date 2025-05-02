@@ -1,20 +1,29 @@
 #point {
-  height: 300vh;
+  height: 500vh !important;
   z-index: 10;
-  background: #FFFAEF;
+  background: #fffaef;
+  padding-bottom: 100px;
 }
 
 #point .point-box {
   width: 100%;
   height: 100vh;
-  background-color: yellow;
   position: sticky;
   top: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.point-box span {
-  font-size: 180px;
+#point .point-box .test {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.point-box .test span {
+  font-size: 50px;
   color: #70a98e;
+  padding: 0 9px;
 }
 
 .point-box .deco-school {
@@ -23,4 +32,156 @@
 
 .point-box .deco-line {
   font-family: "Cafe24Decoline", serif;
+}
+
+.scroll-text {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fffaef;
+  padding: 20px 0;
+}
+
+.test {
+  flex: 1;
+}
+
+.track-left,
+.track-right {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.track-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.track-right {
+  animation: scroll-right 20s linear infinite;
+}
+
+.track-left span,
+.track-right span {
+  display: inline-block;
+  font-size: 50px;
+  color: #70a98e;
+  padding: 0 30px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.test {
+  position: relative;
+}
+
+.line-container {
+  overflow: hidden;
+  width: 300px;
+}
+
+.line-container .arrow {
+  width: 0;
+  height: auto;
+  display: block;
+  transition: none;
+}
+
+.test .arrow {
+  position: absolute;
+}
+
+.arrow-head {
+  position: absolute;
+  transform: translate(50%, -50%);
+  opacity: 0;
+}
+
+#arrow-head-1 {
+  top: 19%;
+  right: 34.9;
+  transform: rotate(-14deg);
+}
+
+#arrow-head-2 {
+  top: 90%;
+  right: 40%;
+  transform: rotate(90deg);
+}
+#arrow-head-3 {
+  top: 46%;
+  right: 67.8%;
+  transform: rotate(210deg);
+}
+
+.test #arrow-1 {
+  top: 13%;
+  right: 40%;
+  transform: translate(50%, -50%) rotate(-14deg);
+}
+.arrow path {
+  stroke-dasharray: 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+    8 3000;
+  stroke-dashoffset: 3000;
+}
+
+.test #arrow-2 {
+  top: 80%;
+  right: 36.5%;
+  transform: translate(50%, -50%) rotate(83.5deg);
+}
+
+.test #arrow-3 {
+  top: 60%;
+  left: 25%;
+  transform: translate(50%, -50%) rotate(210deg);
+}
+
+.ttest {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 999px;
+}
+
+.ttest img {
+  object-fit: contain;
+}
+
+.label-1 {
+  position: absolute;
+  top: 43%;
+  right: 14%;
+  transform: translate(-50%, -50%);
+}
+
+.label-lowfood {
+  position: absolute;
+  top: 93%;
+  right: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.label-kal {
+  position: absolute;
+  top: 26%;
+  right: 50%;
+  transform: translate(-50%, -50%);
 }

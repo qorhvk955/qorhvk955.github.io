@@ -24,7 +24,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(0, 1.65, 4);
+camera.position.set(0, 0, 4); // 카메라가 정면에서 보기
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById("three-canvas"),
@@ -45,7 +45,6 @@ ScrollTrigger.create({
   end: "+=1",
   onLeave: () => {
     if (model) {
-      console.log("1111111111111");
       gsap.set(".vivid_sauce, .mask, .shadow", { opacity: 0 });
       model.visible = true;
       document.getElementById("three-canvas").style.zIndex = "1000";
@@ -53,7 +52,6 @@ ScrollTrigger.create({
   },
   onEnterBack: () => {
     if (model) {
-      console.log("2222");
       gsap.set(".vivid_sauce, .mask, .shadow", { opacity: 1 });
       model.visible = false;
     }
@@ -72,7 +70,13 @@ new RGBELoader().load(
       "/file/vivid_sauce.glb",
       (gltf) => {
         model = gltf.scene;
-        model.position.set(0, 1.5, 0);
+
+        // ✅ 모델 중심 계산 후 원점에 정렬
+        const box = new THREE.Box3().setFromObject(model);
+        const center = new THREE.Vector3();
+        box.getCenter(center);
+        model.position.sub(center); // 중심이 (0,0,0)이 되게 이동
+
         model.scale.set(1, 1, 1);
         model.rotation.order = "ZXY";
         model.visible = false;
@@ -87,6 +91,9 @@ new RGBELoader().load(
         });
 
         scene.add(model);
+
+        // ✅ 모델을 정면에서 바라보게 카메라 설정
+        camera.lookAt(0, 0, 0);
 
         const deg = (d) => d * (Math.PI / 180);
 
@@ -115,39 +122,6 @@ new RGBELoader().load(
         tl.to(model.rotation, { x: deg(0), y: deg(180), z: deg(140) });
         tl.to(model.rotation, { x: deg(-180), y: deg(180), z: deg(180) });
 
-        let hasScrolled = false;
-
-        // ScrollTrigger.create({
-        //   trigger: "#point",
-        //   start: "top top",
-        //   end: "bottom top+=10px",
-
-        //   onEnter: () => {
-        //     console.log("onEnter");
-        //     if (model) {
-        //       model.visible = true;
-        //       document.getElementById("three-canvas").style.zIndex = "1000";
-        //     }
-        //   },
-        //   onEnterBack: () => {
-        //     console.log("onEnterBack");
-        //     if (model) {
-        //       model.visible = true;
-        //     }
-        //   },
-        //   onLeaveBack: () => {
-        //     console.log("onLeaveBack");
-        //     if (model) {
-        //       model.visible = true;
-        //     }
-        //   },
-        //   onLeave: (self) => {
-        //     if (model) {
-        //       model.visible = false;
-        //     }
-        //   },
-        // });
-
         let hasEnteredBrandAbout = false;
 
         ScrollTrigger.create({
@@ -157,28 +131,9 @@ new RGBELoader().load(
           onEnter: (self) => {
             if (hasEnteredBrandAbout) return;
             hasEnteredBrandAbout = true;
-
-            console.log("brandAbout onEnter");
-
-            // const brandAboutTop =
-            //   self.trigger.getBoundingClientRect().top + window.scrollY;
-
-            // window.scrollTo({
-            //   top: brandAboutTop + 1,
-            //   behavior: "instant",
-            // });
-
-            // lockScroll();
-
-            // setTimeout(() => {
-            //   unlockScroll();
-            //   console.log("unlockScroll 완료");
-            //   ScrollTrigger.refresh();
-            // }, 1000);
           },
           onEnterBack: () => {
             hasEnteredBrandAbout = false;
-            console.log("brandAbout onEnterBack - 플래그 초기화");
           },
         });
       },
