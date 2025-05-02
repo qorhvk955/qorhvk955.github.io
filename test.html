@@ -1,32 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>SVG Line Animation</title>
     <style>
       body {
-        margin: 0 auto;
-      }
-      .test {
-        width: 100%;
+        margin: 0;
+        padding: 0;
         height: 300vh;
-        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      .box {
-        width: 50px;
-        height: 50vh;
-        background-color: blue;
-        position: sticky;
-        top: 0;
+      svg {
+        width: 300px;
+        height: auto;
+      }
+
+      path {
+        stroke: #4e9546;
+        stroke-width: 2;
+        fill: none;
       }
     </style>
   </head>
   <body>
-    <section class="test">
-      <div class="box"></div>
+    <section id="point">
+      <svg viewBox="0 0 200 200">
+        <path
+          id="animatedPath"
+          d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
+        />
+      </svg>
     </section>
+
+    <script type="module">
+      import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm";
+      import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.12.2/ScrollTrigger.min.js";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const path = document.querySelector("#animatedPath");
+      const length = path.getTotalLength();
+
+      // 초기 세팅
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+
+      // 애니메이션
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#point",
+          start: "top center",
+          toggleActions: "play none none none",
+        },
+      });
+    </script>
   </body>
 </html>
