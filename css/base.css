@@ -19,9 +19,9 @@ body {
   -ms-overflow-style: none;
   width: 100vw;
 }
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 section {
   width: 100%;
