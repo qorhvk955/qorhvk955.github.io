@@ -1,5 +1,322 @@
+
+
+
 #product {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+}
+#product * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#product span{
+  display: inline-block;
+}
+
+#product img {
+  -webkit-user-drag: none;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/file/background.png);
+  /* background-color: black; */
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-position: top, top;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#product .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 100px;
+}
+
+#product h1 {
+  font-family: 'DynaPuff';
+  font-size: 36px;
+  font-weight: 500;
+  color: #162A14;
+}
+
+#product h2 {
+  font-family: 'GmarketSans';
+  font-size: 24px;
+  font-weight: 500;
+  color: #244521;
+}
+
+#category {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 24px 0;
+  margin-top: 16px;
+}
+
+#product .category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#product .category-item img {
+  width: 80px;
+  height: 80px;
+}
+
+#product .category-item p {
+  font-family: 'GmarketSans';
+}
+
+#drag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 20px;
+  cursor: grab;
+  width: 100vw;
+  height: 100%;
+  padding-left: 40px;
+}
+
+#drag:active {
+  cursor: grabbing;
+}
+
+#product ::-webkit-scrollbar {
+  display: none;
+}
+
+
+#product .drag-item {
+  width: 80vw;
+  max-width: clamp(40vh, 25vw, 474px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  margin: 40px;
+}
+
+#product .box {
+  position: relative;
+  width: clamp(43vh, 25vw, 474px);
+  height: clamp(38vh, 42vh, 428px);
+  aspect-ratio: 4 / 3;
+  background-color: #fff;
+  padding-left: 7.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#product .box-container {
+  width: auto;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#product .item-number {
+  position: absolute;
+  /* box 기준 */
+  top: -32px;
+  left: -16px;
+  display: inline-block;
+  /* 이미지 크기만큼만 영역 차지 */
+}
+
+#product .item-number p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'DynaPuff';
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  pointer-events: none;
+}
+
+#product .text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: clamp(18vh, 12vw, 184px);
+  gap: 12px;
+  z-index: 2;
+}
+
+#product .text h3 {
+  font-family: 'GmarketSans';
+  font-size: 30px;
+  font-weight: 500;
+  color: #244521;
+}
+
+#product .text h4 {
+  font-family: 'Pretendard', 'GmarketSans';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+  color: #666666;
+}
+
+#product .link-button {
+  position: relative;
+  /* bottom: 64px;
+  left: 36px; */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5%;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 500px;
+  background-color: transparent;
+  cursor: pointer;
+  width: fit-content;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#product .link-button a {
+  font-family: 'DynaPuff';
+  font-size: 16px;
+  font-weight: 400;
+  color: #244521;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#product .link-button:hover {
+  background-color: #244521;
+  border: 1px solid #244521;
+}
+
+#product .link-button:hover a {
+  color: #ffffff;
+}
+
+#product .link-button:hover svg {
+  stroke: #ffffff;
+}
+
+#product .img-group {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* width: fit-content;
+  height: fit-content; */
+  width: 100%;
+  height: 100%;
+}
+
+#product .main-img,
+#product .sub-img {
+  width: clamp(120px, 30vw, 300px);
+  height: auto;
+  position: absolute;
+  z-index: 1;
+}
+
+#product .main-img {
+  z-index: 2;
+  top: 50%;
+  right: 7%;
+  transform: translateY( -50%);
+}
+
+#product .sub-img {
+  z-index: 1;
+  top: 50%;
+  right: 7%;
+  transform: translate(30%, -50%) rotate(-9deg);
+}
+
+#product .more-button {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+#product .more-btn {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  background-color: #4E9546;
+  color: #fff;
+  font-family: 'GmarketSans';
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+#product .more-btn:active {
+  background-color: #366831;
+  transform: scale(0.95);
+  /* 버튼 크기 약간 줄어드는 효과 */
+}
+
+@media (max-width: 1450px) {
+  #product .drag-item {
+    width: 90vw;
+  }
+
+  #product .text h3 {
+    font-size: 24px;
+  }
+
+  #product .text h4 {
+    font-size: 14px;
+  }
+
+  #product .link-button {
+    padding: 6px 12px;
+  }
+
+  #product .more-button {
+    width: 150px;
+    height: 150px;
+  }
+
+  #product .more-btn {
+    font-size: 18px;
+    gap: 12px;
+  }
 }

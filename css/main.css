@@ -148,7 +148,7 @@ canvas {
 #main .back .sauce .dishs{
   position: absolute;
   width: clamp(200px, 25vw, 380px);
-  height: clamp(200px, 25vw, 380px);;
+  height: clamp(200px, 25vw, 380px);
   transform: translate(-50%,-50%);
 }
 #main .back .sauce .dish1{
