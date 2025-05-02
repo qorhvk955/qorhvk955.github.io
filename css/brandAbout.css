@@ -87,12 +87,12 @@
   font-size: clamp(20px, 2vw, 40px);
   font-weight: 500;
   color: white;
-  transition: transform 0.7s ease-out
+  transition: transform 0.35s ease-out
 }
 #brandAbout .plan .stainBack{
   display: block;
   transform: translate(-50%,-50%) rotateY(0deg);
-  transition: transform 0.5s linear
+  transition: transform 0.25s linear
 }
 #brandAbout .plan .plans *{
   pointer-events: auto;
