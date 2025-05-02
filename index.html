@@ -46,6 +46,7 @@
     <script src="js/main.js" defer></script>
     <script src="js/brand.js" defer></script>
     <script type="module" src="js/scrollAnimation.js" defer></script>
+    <script type="module" src="js/recipe.js" defer></script>
     <script src="js/product.js" defer></script>
   </head>
   <body>
@@ -573,7 +574,27 @@
         </div>
       </section>
       <section id="recipe">
-        <p>레시피</p>
+        <div class="wrapper">
+          <h1 class="recipe-main-title">VIVID RECIPT</h1>
+          <h3 class="recipe-subtitle">소스의 활용이 무궁무진한 비비드 키친!</h3>
+          <div class="cards">
+            <div class="card">
+              <img src="file/recipe1.png" alt="Recipe 1" />
+            </div>
+            <div class="card">
+              <img src="file/recipe2.png" alt="Recipe 2" />
+            </div>
+            <div class="card">
+              <img src="file/recipe3.png" alt="Recipe 3" />
+            </div>
+            <div class="card">
+              <img src="file/recipe4.png" alt="Recipe 4" />
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay" id="cardOverlay">
+          <img id="overlayImage" src="" alt="클릭된 이미지" />
+        </div>
       </section>
       <section id="sns">
         <div class="sns-header">
