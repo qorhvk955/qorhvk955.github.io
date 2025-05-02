@@ -2,11 +2,6 @@ const sound = document.getElementById("shutterSound");
 const prompt = document.getElementById("soundPrompt");
 let soundUnlocked = false;
 
-console.log("sns.js");
-
-console.log(sound);
-console.log(prompt);
-
 document.body.addEventListener("click", () => {
   if (!soundUnlocked) {
     sound
@@ -25,14 +20,12 @@ document.body.addEventListener("click", () => {
 });
 
 document.querySelectorAll(".image-box").forEach((box) => {
-  console.log("이미지 확인");
   box.addEventListener("mouseenter", () => {
     if (soundUnlocked) {
       sound.currentTime = 0;
       sound.play();
     }
     box.classList.add("hovering");
-    console.log("마우스엔터");
   });
 
   box.addEventListener("mouseleave", () => {
