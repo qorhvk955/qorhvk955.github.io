@@ -9,6 +9,8 @@
       type="module"
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
     ></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" /> -->
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/font.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -18,8 +20,13 @@
     <link rel="stylesheet" href="css/product.css" />
     <link rel="stylesheet" href="css/recipe.css" />
     <link rel="stylesheet" href="css/sns.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
-    <!-- <script src="js/intro.js"></script> -->
+    <!-- <script src="js/intro.js" defer></script> -->
+
+    <script src="js/menu.js" defer></script>
+
+    <script src="js/sns.js" defer></script>
 
     <script type="importmap">
       {
@@ -419,64 +426,80 @@
                 <div class="stainFront">
                   <p>한결같이</p>
                 </div>
-                <object
-                  type="image/svg+xml"
-                  data="file/line1.svg"
-                  class="line"
-                ></object>
-                <object
-                  type="image/svg+xml"
-                  data="file/arrow1.svg"
-                  class="arrow"
-                ></object>
+                <div class="lineBox">
+                  <object
+                    type="image/svg+xml"
+                    data="file/line1.svg"
+                    class="line"
+                  ></object>
+                  <div class="arrowBox">
+                    <object
+                      type="image/svg+xml"
+                      data="file/arrow1.svg"
+                      class="arrow btm"
+                    ></object>
+                  </div>
+                </div>
               </div>
               <div class="plans plan2">
                 <div class="stainBack"></div>
                 <div class="stainFront">
                   <p>맛있게!</p>
                 </div>
-                <object
-                  type="image/svg+xml"
-                  data="file/line2.svg"
-                  class="line"
-                ></object>
-                <object
-                  type="image/svg+xml"
-                  data="file/arrow2.svg"
-                  class="arrow"
-                ></object>
+                <div class="lineBox">
+                  <object
+                    type="image/svg+xml"
+                    data="file/line2.svg"
+                    class="line"
+                  ></object>
+                  <div class="arrowBox">
+                    <object
+                      type="image/svg+xml"
+                      data="file/arrow2.svg"
+                      class="arrow btm"
+                    ></object>
+                  </div>
+                </div>
               </div>
               <div class="plans plan3">
                 <div class="stainBack"></div>
                 <div class="stainFront">
                   <p>즐겁게!</p>
                 </div>
-                <object
-                  type="image/svg+xml"
-                  data="file/line3.svg"
-                  class="line"
-                ></object>
-                <object
-                  type="image/svg+xml"
-                  data="file/arrow3.svg"
-                  class="arrow"
-                ></object>
+                <div class="lineBox">
+                  <object
+                    type="image/svg+xml"
+                    data="file/line3.svg"
+                    class="line"
+                  ></object>
+                  <div class="arrowBox">
+                    <object
+                      type="image/svg+xml"
+                      data="file/arrow3.svg"
+                      class="arrow top"
+                    ></object>
+                  </div>
+                </div>
               </div>
               <div class="plans plan4">
                 <div class="stainBack"></div>
                 <div class="stainFront">
                   <p>건강하게!</p>
                 </div>
-                <object
-                  type="image/svg+xml"
-                  data="file/line4.svg"
-                  class="line"
-                ></object>
-                <object
-                  type="image/svg+xml"
-                  data="file/arrow4.svg"
-                  class="arrow"
-                ></object>
+                <div class="lineBox">
+                  <object
+                    type="image/svg+xml"
+                    data="file/line4.svg"
+                    class="line"
+                  ></object>
+                  <div class="arrowBox">
+                    <object
+                      type="image/svg+xml"
+                      data="file/arrow4.svg"
+                      class="arrow top"
+                    ></object>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="background">
@@ -632,7 +655,52 @@
         preload="auto"
       ></audio>
 
-      <div id="btm"></div>
+      <div id="btm">
+        <div class="mainbox">
+          <div class="content flex">
+            <img class="logo" src="file/logo_w.png" alt="로고" />
+            <div class="info flex">
+              <div class="left flex">
+                <div class="top flex">
+                  <span>개인정보처리방침</span>
+                  <span>이메일무단수집거부</span>
+                  <span>온라인 문의</span>
+                  <span>사이트맵</span>
+                </div>
+                <div class="btm flex">
+                  <span>상호명: 비비드키친</span>
+                  <span>고객센터: 02-589-6200</span>
+                  <span>Fax: 02-589-4810</span>
+                  <span>주소: 서울시 서초구 마방로 68 (양재동 275)</span>
+                </div>
+              </div>
+              <div class="right">
+                COPYRIGHT ⓒ 2014 by DONGWON HOME FOOD. ALL RIGHTS RESERVED
+              </div>
+            </div>
+            <div class="sns flex">
+              <a
+                href="https://www.instagram.com/vividkitchen_official/ "
+                target="_blank"
+              >
+                <img src="file/instagram.svg" alt="인스타그램" />
+              </a>
+              <a
+                href="https://www.youtube.com/@user-vividkitchen"
+                target="_blank"
+              >
+                <img src="file/youtube.svg" alt="유튜브" />
+              </a>
+              <a
+                href="https://www.facebook.com/people/%EB%B9%84%EB%B9%84%EB%93%9C%ED%82%A4%EC%B9%9C/100083806682602/"
+                target="_blank"
+              >
+                <img src="file/facebook.svg" alt="페이스북" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

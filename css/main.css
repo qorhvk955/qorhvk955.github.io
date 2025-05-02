@@ -37,6 +37,7 @@ canvas {
 }
 
 #main .mask{
+  pointer-events: none;
   z-index: 10;
   position: absolute;
   top: 0;
@@ -61,6 +62,7 @@ canvas {
   left: 0;
 }
 #main .mask .box .boxs {
+  pointer-events: auto;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -75,16 +77,7 @@ canvas {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-/* 테스트용 */
-/* #main .mask .box1{
-    background: black;
-}
-#main .mask .box2{
-    background: purple;
-}
-#main .mask .box3{
-    background: white;
-} */
+
 #main .sImg{
   display: none;
   position: absolute;
@@ -94,6 +87,7 @@ canvas {
   object-fit: contain;
 }
 #main .shadow{
+  pointer-events: none;
   z-index: 1;
   position: relative;
   width: 1000%;
@@ -111,6 +105,7 @@ canvas {
   bottom: 50px;
 }
 #main .bar{
+  cursor: pointer;
   width: 15px;
   height: 15px;
   border-radius: 15px;
@@ -134,6 +129,7 @@ canvas {
 }
 #main .back .backs{
   position: relative;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
 }
@@ -144,12 +140,15 @@ canvas {
 }
 #main .back .sauce .mid{
   position: absolute;
+  height: clamp(300px, 25vw, 481px);
   left: 50%;
   top: 48%;
   transform: translate(-50%,-50%);
 }
 #main .back .sauce .dishs{
   position: absolute;
+  width: clamp(200px, 25vw, 380px);
+  height: clamp(200px, 25vw, 380px);;
   transform: translate(-50%,-50%);
 }
 #main .back .sauce .dish1{
@@ -180,14 +179,19 @@ canvas {
 
 #main .text{
   position: absolute;
-  width: max-content;
-  font-size: 320px;
+  /* width: max-content; */
+  width: 100%;
+  text-align: center;
+  font-size: clamp(100px, 16.67vw, 320px);
   color: #EB9E8C;
   font-family: "MYArirang", serif;
   letter-spacing: 26px;
-  left: 50%;
+  left: 52%;
   top: 55.5%;
   transform: translate(-50%, -50%);
+}
+#main .text span{
+  display: inline-block;
 }
 /* #main .back .back1{
   background: #FEFAEB;
