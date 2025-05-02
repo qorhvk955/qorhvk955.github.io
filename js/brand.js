@@ -217,4 +217,48 @@ $(function () {
 
     arrow.css({ display: "none" });
   }
+
+  // 선 크기 조절
+  function lineReset() {
+    $('#brandAbout .plans').each(function () {
+      var $plan = $(this);
+      var $line = $plan.find('.lineBox .line');
+      var lineHeight = $line[0]?.offsetHeight || 0; // jQuery의 outerHeight는 로딩 전엔 0일 수 있음
+      $plan.find('.lineBox').height(lineHeight);
+    });
+  }
+  
+  function initLineResize() {
+    const $lines = $('#brandAbout .plans .lineBox .line');
+    let loadedCount = 0;
+    const totalLines = $lines.length;
+  
+    $lines.each(function () {
+      const obj = this;
+  
+      // load 이벤트는 jQuery에서 잘 작동하지 않으므로 순수 JS로 처리
+      obj.addEventListener('load', function () {
+        loadedCount++;
+        if (loadedCount === totalLines) {
+          lineReset();
+        }
+      }, false);
+  
+      // 혹시 이미 로드된 상태일 경우
+      if (obj.contentDocument) {
+        loadedCount++;
+        if (loadedCount === totalLines) {
+          lineReset();
+        }
+      }
+    });
+  }
+  
+  $(document).ready(function () {
+    initLineResize();
+    $(window).on('resize', function () {
+      lineReset();
+    });
+  });
+  
 });

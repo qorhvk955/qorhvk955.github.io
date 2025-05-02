@@ -44,6 +44,7 @@
   position: absolute;
   left: 50%;
   top: 11.7%;
+  width: max-content;
   transform: translateX(-50%);
   text-align: center;
 }
@@ -71,8 +72,9 @@
 }
 #brandAbout .plan .stainBack, #brandAbout .plan .stainFront{
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: clamp(100px, 20vw, 400px);
+  height: clamp(100px, 20vw, 400px);
+  background-size: contain;
 }
 #brandAbout .plan .stainFront{
   /* display: none; */
@@ -82,7 +84,7 @@
   align-items: center;
   text-align: center;
   font-family: "GmarketSans", serif;
-  font-size: 40px;
+  font-size: clamp(20px, 2vw, 40px);
   font-weight: 500;
   color: white;
   transition: transform 0.7s ease-out
@@ -95,30 +97,55 @@
 #brandAbout .plan .plans *{
   pointer-events: auto;
 }
-#brandAbout .plan .line, #brandAbout .plan .arrow{
+#brandAbout .plan .lineBox{
+  position: absolute;
   transform: translate(-50%,-50%);
+  width: max-content;
+  height: max-content;
 }
+#brandAbout .plan .arrowBox{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#brandAbout .plan .line{
+  position: relative;
+}
+#brandAbout .plan .arrow{
+  position: absolute;
+  display: none;
+}
+/* #brandAbout .plan .arrowBox .top{
+  transform: translateY(-50%);
+}
+#brandAbout .plan .arrowBox .btm{
+  transform: translateY(50%);
+} */
 
 #brandAbout .plan1 .stainBack, #brandAbout .plan1 .stainFront{
   top: 36.3%;
   left: 26.35%;
 }
 #brandAbout .plan1 .stainBack{
-  background: url(/file/stain1.png);
+  background-image: url(/file/stain1.png);
 }
 #brandAbout .plan1 .stainFront{
-  background: url(/file/stain_front1.png);
+  background-image: url(/file/stain_front1.png);
 }
-#brandAbout .plan1 .line{
-  position: absolute;
+#brandAbout .plan1 .lineBox{
   left: 38.5%;
   top: 53%;
 }
+#brandAbout .plan1 .line{
+  height: clamp(20px, 4vw, 85px);
+}
 #brandAbout .plan1 .arrow{
-  position: absolute;
-  display: none;
-  left: 42.4%;
-  top: 56.5%;
+  right: 0;
+  bottom: 0;
+  height: clamp(10px, 2vw, 41px);
+  transform: translateY(45%)
 }
 
 #brandAbout .plan2 .stainBack, #brandAbout .plan2 .stainFront{
@@ -126,21 +153,23 @@
   left: 73.55%;
 }
 #brandAbout .plan2 .stainBack{
-  background: url(/file/stain2.png);
+  background-image: url(/file/stain2.png);
 }
 #brandAbout .plan2 .stainFront{
-  background: url(/file/stain_front2.png);
+  background-image: url(/file/stain_front2.png);
 }
-#brandAbout .plan2 .line{
-  position: absolute;
+#brandAbout .plan2 .lineBox{
   left: 61%;
   top: 53%;
 }
+#brandAbout .plan2 .line{
+  height: clamp(20px, 4vw, 85px);
+}
 #brandAbout .plan2 .arrow{
-  position: absolute;
-  display: none;
-  left: 57.1%;
-  top: 56.5%;
+  left: 0;
+  bottom: 0;
+  height: clamp(10px, 2vw, 41px);
+  transform: translateY(45%)
 }
 
 #brandAbout .plan3 .stainBack, #brandAbout .plan3 .stainFront{
@@ -148,21 +177,23 @@
   left: 26.35%;
 }
 #brandAbout .plan3 .stainBack{
-  background: url(/file/stain3.png);
+  background-image: url(/file/stain3.png);
 }
 #brandAbout .plan3 .stainFront{
-  background: url(/file/stain_front3.png);
+  background-image: url(/file/stain_front3.png);
 }
-#brandAbout .plan3 .line{
-  position: absolute;
+#brandAbout .plan3 .lineBox{
   left: 38.6%;
   top: 82%;
 }
+#brandAbout .plan3 .line{
+  height: clamp(20px, 3.67vw, 78px);
+}
 #brandAbout .plan3 .arrow{
-  position: absolute;
-  display: none;
-  left: 42.1%;
-  top: 79.5%;
+  right: -2%;
+  top: 0;
+  height: clamp(10px, 1.36vw, 28px);
+  transform: translateY(10%)
 }
 
 #brandAbout .plan4 .stainBack, #brandAbout .plan4 .stainFront{
@@ -170,21 +201,23 @@
   left: 73.55%;
 }
 #brandAbout .plan4 .stainBack{
-  background: url(/file/stain4.png);
+  background-image: url(/file/stain4.png);
 }
 #brandAbout .plan4 .stainFront{
-  background: url(/file/stain_front4.png);
+  background-image: url(/file/stain_front4.png);
 }
-#brandAbout .plan4 .line{
-  position: absolute;
+#brandAbout .plan4 .lineBox{
   left: 61.3%;
   top: 82%;
 }
+#brandAbout .plan4 .line{
+  height: clamp(20px, 2.73vw, 58px);
+}
 #brandAbout .plan4 .arrow{
-  position: absolute;
-  display: none;
-  left: 58%;
-  top: 80.5%;
+  left: -3%;
+  top: 0;
+  height: clamp(10px, 1.36vw, 28px);
+  transform: translateY(-10%)
 }
 
 #brandAbout .background{
@@ -206,4 +239,95 @@
   width: 100%;
   height: 0%;
   background: #FFFAEF;
+}
+@media screen and (max-width:1100px) and (min-width:320px){
+  #brandAbout .plan1 .lineBox{
+    left: 35.5%;
+    top: 53%;
+  }
+  #brandAbout .plan2 .lineBox{
+    left: 65%;
+    top: 53%;
+  }
+  #brandAbout .plan3 .lineBox{
+    left: 36.6%;
+    top: 85%;
+  }
+  #brandAbout .plan4 .lineBox{
+    left: 63.3%;
+    top: 84%;
+  }
+}
+@media screen and (max-width:1000px) and (min-width:320px){
+  #brandAbout .plan1 .lineBox{
+    top: 51%;
+  }
+  #brandAbout .plan2 .lineBox{
+    top: 51%;
+  }
+}
+@media screen and (max-width:800px) and (min-width:320px){
+  #brandAbout .plan1 .lineBox{
+    left: 32.5%;
+    top: 50%;
+  }
+  #brandAbout .plan2 .lineBox{
+    left: 68%;
+    top: 50%;
+  }
+  #brandAbout .plan3 .lineBox{
+    left: 33.6%;
+  }
+  #brandAbout .plan4 .lineBox{
+    left: 66.3%;
+    top: 85%;
+  }
+}
+@media screen and (max-width:700px) and (min-width:320px){
+  #brandAbout .plan1 .stainBack, #brandAbout .plan1 .stainFront {
+    top: 36.3%;
+    left: 25.35%;
+  }
+  #brandAbout .plan2 .stainBack, #brandAbout .plan2 .stainFront {
+    top: 36.3%;
+    left: 75.55%;
+  }
+  #brandAbout .plan3 .stainBack, #brandAbout .plan3 .stainFront {
+    top: 78.3%;
+    left: 20.35%;
+  }
+  #brandAbout .plan4 .stainBack, #brandAbout .plan4 .stainFront {
+    top: 78.3%;
+    left: 79.55%;
+  }
+  #brandAbout .plan1 .lineBox{
+    left: 32.5%;
+    top: 47%;
+  }
+  #brandAbout .plan2 .lineBox{
+    left: 68%;
+    top: 47%;
+  }
+  #brandAbout .plan3 .lineBox{
+    left: 30.6%;
+  }
+  #brandAbout .plan4 .lineBox{
+    left: 69.3%;
+  }
+}
+@media screen and (max-width:600px) and (min-width:320px){
+  #brandAbout .plan1 .lineBox{
+    left: 30.5%;
+    top: 46%;
+  }
+  #brandAbout .plan2 .lineBox{
+    left: 70%;
+    top: 46%;
+  }
+  #brandAbout .plan3 .lineBox{
+    left: 28.6%;
+  }
+  #brandAbout .plan4 .lineBox{
+    left: 71.3%;
+  }
 }
