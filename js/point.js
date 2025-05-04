@@ -4,8 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 window.addEventListener("DOMContentLoaded", () => {
-  const path1 = document.querySelector("#arrow-1 path");
-  const head1 = document.querySelector("#arrow-head-1");
+  const path1 = document.querySelector(".arrow-line-1");
+  const head1 = document.querySelector(".arrow-head-1");
   const img1 = document.querySelector(".label-1");
 
   const path2 = document.querySelector("#arrow-2 path");
