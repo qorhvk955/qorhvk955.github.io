@@ -32,7 +32,8 @@
   display: flex;
 }
 #top .mainbox .menu li{
-  margin: 0px 60px;
+  /* margin: 0px 60px; */
+  margin: 0px 50px;
   cursor: pointer;
 }
 
@@ -43,7 +44,7 @@
   margin: 0 10px;
 }
 
-@media screen and (max-width:1350px) and (min-width:320px){
+/* @media screen and (max-width:1350px) and (min-width:320px){
   #top .mainbox{
     padding: 0px 8vw;
   }
@@ -52,6 +53,22 @@
   }
   #top .mainbox .menu li{
     margin: 0px 5vw;
+  }
+} */
+@media screen and (max-width:1500px) and (min-width:320px){
+  #top .mainbox{
+    padding: 0px 8vw;
+  }
+  #top .mainbox .account{
+      display: none;
+  }
+  #top .mainbox .menu li{
+    margin: 0px 4.5vw;
+  }
+}
+@media screen and (max-width:1240px) and (min-width:320px){
+  #top .mainbox .menu li{
+    margin: 0px 3.6vw;
   }
 }
 @media screen and (max-width:940px) and (min-width:320px){
@@ -66,12 +83,12 @@
     margin-right: 3vw;
   }
   #top .mainbox .menu li{
-    margin: 0px 3vw;
+    margin: 0px 2.5vw;
   }
 }
 @media screen and (max-width:680px) and (min-width:320px){
   #top .mainbox{
-    font-size: clamp(16px, 3vw, 22px);
+    font-size: clamp(16px, 2.5vw, 22px);
   }
   #top .mainbox .logo{
     width: 15vw;
