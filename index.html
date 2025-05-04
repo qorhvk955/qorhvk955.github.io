@@ -48,17 +48,18 @@
     <script type="module" src="js/scrollAnimation.js" defer></script>
     <script type="module" src="js/recipe.js" defer></script>
     <script src="js/product.js" defer></script>
+    <!-- <script src="js/navi.js" defer></script> -->
   </head>
   <body>
     <div id="all">
       <div id="top">
         <div class="mainbox">
-          <img class="logo" src="file/logo.png" alt="로고" />
+          <a href="#main"><img class="logo" src="file/logo.png" alt="로고" /></a>
           <ul class="menu">
-            <li>ABOUT</li>
-            <li>PRODUCTS</li>
-            <li>RECIPE</li>
-            <li>SNS</li>
+            <a href="#brandAbout"><li data-target="#brandAbout">ABOUT</li></a>
+            <a href="#product"><li data-target="#product">PRODUCTS</li></a>
+            <a href="#recipe"><li data-target="#recipe">RECIPE</li></a>
+            <a href="#sns"><li data-target="#sns">SNS</li></a>
           </ul>
           <div class="account">
             <span class="login">LOGIN</span>
@@ -67,6 +68,7 @@
           </div>
         </div>
       </div>
+      
       <!-- <section id="intro">
                 <div class="mainbox">
                     <div class="content">

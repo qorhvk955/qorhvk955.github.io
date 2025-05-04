@@ -25,6 +25,7 @@
 }
 #top .mainbox .logo{
   width: 106px;
+  cursor: pointer;
 }
 
 #top .mainbox .menu{
@@ -32,6 +33,7 @@
 }
 #top .mainbox .menu li{
   margin: 0px 60px;
+  cursor: pointer;
 }
 
 #top .mainbox .account{
