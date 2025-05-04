@@ -8,13 +8,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const head1 = document.querySelector(".arrow-head-1");
   const img1 = document.querySelector(".label-1");
 
-  const path2 = document.querySelector("#arrow-2 path");
-  const head2 = document.querySelector("#arrow-head-2");
+  const path2 = document.querySelector(".arrow-line-2");
+  const head2 = document.querySelector(".arrow-head-2");
   const img2 = document.querySelector(".label-lowfood");
 
-  const path3 = document.querySelector("#arrow-3 path");
-  const head3 = document.querySelector("#arrow-head-3");
+  const path3 = document.querySelector(".arrow-line-3");
+  const head3 = document.querySelector(".arrow-head-3");
   const img3 = document.querySelector(".label-kal");
+
+  gsap.set([head1, head2, head3], { opacity: 0 });
 
   gsap.set([img1, img2, img3], { opacity: 0 });
 
