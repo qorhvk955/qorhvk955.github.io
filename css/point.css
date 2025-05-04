@@ -244,21 +244,21 @@
 
 .label-1 {
   position: absolute;
-  top: 43%;
-  right: 14%;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.label-kal {
+  position: absolute;
+  top: 50%;
+  left: 0;
   transform: translate(-50%, -50%);
 }
 
 .label-lowfood {
   position: absolute;
-  top: 93%;
-  right: 35%;
-  transform: translate(-50%, -50%);
-}
-
-.label-kal {
-  position: absolute;
-  top: 26%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
