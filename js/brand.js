@@ -119,10 +119,10 @@ $(function () {
                   $('#brandAbout .plans .stainBack').css({
                     transform: "translate(-50%,-50%) rotateY(0deg)"
                   });
-                },700)
+                },350)
               }
             }
-          }, 700);
+          }, 350);
         }
       }
     }
@@ -140,8 +140,8 @@ $(function () {
     } else {
       if (hasShownBackStain) {
         hasShownBackStain = false;
-        $("#brandAbout .backStain").stop().animate({ top: "-100%" }, 500);
-        $("#brandAbout .overlay").stop().animate({ height: "0%" }, 500);
+        $("#brandAbout .backStain").stop().animate({ top: "-100%" }, 250);
+        $("#brandAbout .overlay").stop().animate({ height: "0%" }, 250);
       }
     }
   }
@@ -164,7 +164,7 @@ $(function () {
         transform: "translate(-50%,-50%) rotateY(0deg)"
       });
       if (typeof callback === "function") callback();
-    }, 500);
+    }, 250);
   }
 
   // line 애니메이션을 하나의 함수로 통합

@@ -18,10 +18,11 @@ $(function () {
   }
 
   function updateBackground() {
+    updateHeaderHeight()
     if (isAtTop) {
-      $('#top').css('background', 'none');
+      $('#top').css({background: 'none',height: 130});
     } else {
-      $('#top').css('background', '#fefaebd5');
+      $('#top').css({background: '#fefaebd5',height: 80});
     }
   }
 

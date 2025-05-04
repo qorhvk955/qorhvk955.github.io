@@ -1,5 +1,178 @@
 #recipe {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: white;
+  /* background: #FEFAEB; */
+}
+
+#recipe .wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#recipe .recipe-main-title {
+  position: absolute;
+  width: max-content;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: #162a14;
+  pointer-events: none;
+  z-index: 100;
+  font-family: "DynaPuff", cursive;
+}
+
+#recipe .recipe-subtitle {
+  position: absolute;
+  top: 135px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: #6c7a5d;
+  font-family: "GmarketSans", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+#recipe .cards {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 100%;
+  height: auto;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+#recipe .card {
+  position: absolute;
+  scale: 1 !important;
+  width: 440px;
+  height: 580px;
+  transform: translateY(100px);
+  opacity: 0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: auto;
+  background: white;
+}
+
+#recipe .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+#recipe .card:hover {
+  width: 480px; /* 더 커지게 */
+  height: 620px;
+  transform: translateY(-20px) scale(1.05); /* 부드럽고 약간 튕기는 느낌 */
+  box-shadow: 0 25px 60px rgba(173, 127, 2, 0.4), 0 15px 30px rgba(0, 0, 0, 0.1); /* 반짝이는 느낌 추가 */
+  z-index: 999;
+}
+
+#recipe .card:hover img {
+  filter: brightness(1.05); /* ✨ 살짝 밝게 반짝이는 느낌 */
+}
+
+#recipe .card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#recipe .card-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#recipe .card-overlay img {
+  width: 600px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(100vh) scale(0.8);
+  transition: all 0.5s ease;
+}
+
+#recipe .card-overlay.active img {
+  opacity: 1;
+  scale: 1 !important;
+  transform: translateY(0) scale(1);
+}
+
+@media screen and (max-width:1700px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.6 !important;
+  }
+  #recipe .card-overlay.active img{
+    scale: 0.9 !important;
+  }
+}
+@media screen and (max-width:1050px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.55 !important;
+  }
+  #recipe .card-overlay.active img{
+    scale: 0.85 !important;
+  }
+}
+@media screen and (max-width:950px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.5 !important;
+  }
+  #recipe .card-overlay.active img{
+    scale: 0.8 !important;
+  }
+}
+@media screen and (max-width:850px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.45 !important;
+  }
+  #recipe .card-overlay.active img{
+    scale: 0.75 !important;
+  }
+}
+@media screen and (max-width:750px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.4 !important;
+  }
+}
+@media screen and (max-width:650px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.35 !important;
+  }
+  #recipe .card-overlay.active img{
+    scale: 0.7 !important;
+  }
+}
+@media screen and (max-width:550px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.3 !important;
+  }
+}
+@media screen and (max-width:450px) and (min-width:320px){
+  #recipe .card {
+    scale: 0.25 !important;
+  }
 }

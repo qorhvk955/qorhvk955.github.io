@@ -46,6 +46,8 @@
     <script src="js/main.js" defer></script>
     <script src="js/brand.js" defer></script>
     <script type="module" src="js/scrollAnimation.js" defer></script>
+    <script type="module" src="js/recipe.js" defer></script>
+    <script src="js/product.js" defer></script>
   </head>
   <body>
     <div id="all">
@@ -514,10 +516,85 @@
         </div>
       </section>
       <section id="product">
-        <p>프로덕트</p>
+        <div id="container">
+          <div id="wrap">
+            <div class="title">
+              <h1>VIVID PRODUCT</h1>
+              <h2>비비드 키친의 여러 제품을 만나보세요.</h2>
+            </div>
+  
+            <!-- 카테고리 필터 -->
+            <div id="category">
+              <div class="category-item" data-category="sauce">
+                <img src="./file/button/button_off_sauce.svg" alt="button-sauce">
+                <p>소스</p>
+              </div>
+              <div class="category-item" data-category="dressing">
+                <img src="./file/button/button_off_dressing.svg" alt="button-dressing">
+                <p>드레싱</p>
+              </div>
+              <div class="category-item" data-category="food">
+                <img src="./file/button/button_off_food.svg" alt="button-food">
+                <p>간편식</p>
+              </div>
+              <div class="category-item" data-category="drink">
+                <img src="./file/button/button_off_drink.svg" alt="button-drink">
+                <p>음료</p>
+              </div>
+            </div>
+          </div>
+          <div id="drag">
+            <div class="drag-item template" style="display: none">
+              <div class="box">
+                <div class="item-number">
+                  <img src="./file/ItemNum.png" alt="ItemNum">
+                  <p class="item-index">No.1</p>
+                </div>
+                <div class="box-container">
+                  <div class="text">
+                    <h3></h3>
+                    <h4></h4>
+                  </div>
+                  <div class="link-button">
+                    <a href="#" target='_blank'>
+                      Buy Now
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#244521" viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="img-group">
+                  <img class="main-img" src="" alt="main image">
+                  <img class="sub-img" src="" alt="sub image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="recipe">
-        <p>레시피</p>
+        <div class="wrapper">
+          <h1 class="recipe-main-title">VIVID RECIPT</h1>
+          <h3 class="recipe-subtitle">소스의 활용이 무궁무진한 비비드 키친!</h3>
+          <div class="cards">
+            <div class="card">
+              <img src="file/recipe1.png" alt="Recipe 1" />
+            </div>
+            <div class="card">
+              <img src="file/recipe2.png" alt="Recipe 2" />
+            </div>
+            <div class="card">
+              <img src="file/recipe3.png" alt="Recipe 3" />
+            </div>
+            <div class="card">
+              <img src="file/recipe4.png" alt="Recipe 4" />
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay" id="cardOverlay">
+          <img id="overlayImage" src="" alt="클릭된 이미지" />
+        </div>
       </section>
       <section id="sns">
         <div class="sns-header">
