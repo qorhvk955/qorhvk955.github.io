@@ -54,6 +54,7 @@
 #recipe .card {
   position: absolute;
   scale: 1 !important;
+  cursor: pointer;
   width: 440px;
   height: 580px;
   transform: translateY(100px);
