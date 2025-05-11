@@ -52,12 +52,15 @@
   font-family: "DynaPuff", serif;
   font-size: 40px;
   font-weight: 500;
-  margin-bottom: 20px;
+  color: #162A14;
+  /* margin-bottom: 20px; */
+  margin-bottom: 12px;
 }
 #brandAbout .title .btm{
   font-family: "GmarketSans", serif;
   font-size: 24px;
   font-weight: 500;
+  color: #6c7a5d;
 }
 
 #brandAbout .plan{
