@@ -26,7 +26,8 @@
   color: #6c7a5d;
   font-family: "GmarketSans", cursive;
   font-weight: 500;
-  margin: 8px 0 0 0;
+  /* margin: 8px 0 0 0; */
+  margin-top: 12px;
 }
 
 /* 갤러리 */

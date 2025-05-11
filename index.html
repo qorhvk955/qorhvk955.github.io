@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/sns.css" />
     <link rel="stylesheet" href="css/footer.css" />
 
-    <!-- <script src="js/intro.js" defer></script> -->
+    <script src="js/intro.js" defer></script>
 
     <script src="js/menu.js" defer></script>
 
@@ -62,24 +62,24 @@
             <a href="#recipe"><li data-target="#recipe">RECIPE</li></a>
             <a href="#sns"><li data-target="#sns">SNS</li></a>
           </ul>
-          <div class="account">
+          <!-- <div class="account">
             <span class="login">LOGIN</span>
             <div class="block">|</div>
             <span class="login">CART ( 0 )</span>
-          </div>
+          </div> -->
         </div>
       </div>
       
-      <!-- <section id="intro">
-                <div class="mainbox">
-                    <div class="content">
-                        <video class="intro" autoplay muted>
-                            <source src="file/VIVID KITCHEN-opacity-non.webm" type="video/webm">
-                            브라우저가 비디오를 지원하지 않습니다.
-                        </video>
-                    </div>
-                </div>
-            </section> -->
+      <section id="intro">
+        <div class="mainbox">
+          <div class="content">
+            <video class="intro" autoplay muted>
+              <source src="file/VIVID KITCHEN-opacity-non.webm" type="video/webm">
+              브라우저가 비디오를 지원하지 않습니다.
+            </video>
+          </div>
+        </div>
+      </section>
       <section id="main">
         <canvas id="three-canvas"></canvas>
 
@@ -499,8 +499,8 @@
         <div id="container">
           <div id="wrap">
             <div class="title">
-              <h1>VIVID PRODUCT</h1>
-              <h2>비비드 키친의 여러 제품을 만나보세요.</h2>
+              <h1 class="titleHead">VIVID PRODUCT</h1>
+              <h2 class="titleInfo">비비드 키친의 여러 제품을 만나보세요.</h2>
             </div>
   
             <!-- 카테고리 필터 -->
@@ -555,8 +555,10 @@
       </section>
       <section id="recipe">
         <div class="wrapper">
-          <h1 class="recipe-main-title">VIVID RECIPT</h1>
-          <h3 class="recipe-subtitle">소스의 활용이 무궁무진한 비비드 키친!</h3>
+          <div class="title">
+            <h1 class="recipe-main-title titleHead">VIVID RECIPT</h1>
+            <h3 class="recipe-subtitle titleInfo">소스의 활용이 무궁무진한 비비드 키친!</h3>
+          </div>
           <div class="cards">
             <div class="card">
               <img src="file/recipe1.png" alt="Recipe 1" />
@@ -578,8 +580,8 @@
       </section>
       <section id="sns">
         <div class="sns-header">
-          <h2 class="sns-title">SNS</h2>
-          <p class="sns-subtitle">다양한 소스 레시피의 세계로!!</p>
+          <h2 class="sns-title titleHead">SNS</h2>
+          <p class="sns-subtitle titleInfo">다양한 소스 레시피의 세계로!!</p>
         </div>
         <!-- SNS 갤러리 영역 -->
         <div class="sns-gallery">

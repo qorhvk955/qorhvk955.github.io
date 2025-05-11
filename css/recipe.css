@@ -12,24 +12,35 @@
   position: relative;
 }
 
-#recipe .recipe-main-title {
+#recipe .title{
   position: absolute;
-  width: max-content;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#recipe .recipe-main-title {
+  /* position: absolute; */
+  width: max-content;
+  top: 80px;
+  /* left: 50%;
+  transform: translateX(-50%); */
   font-size: 3rem;
   color: #162a14;
   pointer-events: none;
   z-index: 100;
   font-family: "DynaPuff", cursive;
+  margin-bottom: 12px;
 }
 
 #recipe .recipe-subtitle {
-  position: absolute;
+  /* position: absolute; */
   top: 135px;
-  left: 50%;
-  transform: translateX(-50%);
+  /* left: 50%;
+  transform: translateX(-50%); */
   font-size: 1.1rem;
   color: #6c7a5d;
   font-family: "GmarketSans", sans-serif;
