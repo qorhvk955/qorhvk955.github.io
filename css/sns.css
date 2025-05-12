@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: #fdf6e7;
 }
 
 /* 타이틀, 서브타이틀 */
@@ -70,7 +71,7 @@
 /* ========== 이미지 박스 영역========== */
 .image-box {
   width: clamp(100px, 39vh, 421px);
-  height: clamp(100px, 39vh, 421px);;
+  height: clamp(100px, 39vh, 421px);
   overflow: hidden;
   position: relative;
   background: #fff;
@@ -169,26 +170,26 @@
 /* ========== 이미지 박스 영역 끝 ========== */
 
 /* 반응형 */
-@media screen and (max-width:1700px) and (min-width:320px){
+@media screen and (max-width: 1700px) and (min-width: 320px) {
   .sns-gallery {
     grid-template-columns: repeat(4, clamp(20vh, 18vw, 35vh));
   }
   .image-box {
     width: clamp(20vh, 18vw, 35vh);
-    height: clamp(20vh, 18vw, 35vh);;
+    height: clamp(20vh, 18vw, 35vh);
   }
 }
-@media screen and (max-width:900px) and (min-width:320px){
+@media screen and (max-width: 900px) and (min-width: 320px) {
   .sns-gallery {
     grid-template-columns: repeat(3, clamp(20vh, 18vw, 35vh));
   }
 }
-@media screen and (max-width:700px) and (min-width:320px){
+@media screen and (max-width: 700px) and (min-width: 320px) {
   .sns-gallery {
     grid-template-columns: repeat(2, clamp(18vh, 16.5vw, 32vh));
   }
   .image-box {
     width: clamp(18vh, 16.5vw, 32vh);
-    height: clamp(18vh, 16.5vw, 32vh);;
+    height: clamp(18vh, 16.5vw, 32vh);
   }
 }
