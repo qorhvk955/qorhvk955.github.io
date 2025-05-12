@@ -3,7 +3,8 @@
   height: 100vh;
   overflow: hidden;
   background: white;
-  /* background: #FEFAEB; */
+  /* background: #fffaef; */
+  /* background-image: url(/file/background.png); */
 }
 
 #recipe .wrapper {
@@ -12,7 +13,7 @@
   position: relative;
 }
 
-#recipe .title{
+#recipe .title {
   position: absolute;
   top: 80px;
   left: 50%;
@@ -133,57 +134,57 @@
   transform: translateY(0) scale(1);
 }
 
-@media screen and (max-width:1700px) and (min-width:320px){
+@media screen and (max-width: 1700px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.6 !important;
   }
-  #recipe .card-overlay.active img{
+  #recipe .card-overlay.active img {
     scale: 0.9 !important;
   }
 }
-@media screen and (max-width:1050px) and (min-width:320px){
+@media screen and (max-width: 1050px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.55 !important;
   }
-  #recipe .card-overlay.active img{
+  #recipe .card-overlay.active img {
     scale: 0.85 !important;
   }
 }
-@media screen and (max-width:950px) and (min-width:320px){
+@media screen and (max-width: 950px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.5 !important;
   }
-  #recipe .card-overlay.active img{
+  #recipe .card-overlay.active img {
     scale: 0.8 !important;
   }
 }
-@media screen and (max-width:850px) and (min-width:320px){
+@media screen and (max-width: 850px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.45 !important;
   }
-  #recipe .card-overlay.active img{
+  #recipe .card-overlay.active img {
     scale: 0.75 !important;
   }
 }
-@media screen and (max-width:750px) and (min-width:320px){
+@media screen and (max-width: 750px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.4 !important;
   }
 }
-@media screen and (max-width:650px) and (min-width:320px){
+@media screen and (max-width: 650px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.35 !important;
   }
-  #recipe .card-overlay.active img{
+  #recipe .card-overlay.active img {
     scale: 0.7 !important;
   }
 }
-@media screen and (max-width:550px) and (min-width:320px){
+@media screen and (max-width: 550px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.3 !important;
   }
 }
-@media screen and (max-width:450px) and (min-width:320px){
+@media screen and (max-width: 450px) and (min-width: 320px) {
   #recipe .card {
     scale: 0.25 !important;
   }
