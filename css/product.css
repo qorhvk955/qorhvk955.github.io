@@ -1,11 +1,12 @@
-
-
-
 #product {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 #product * {
   margin: 0;
@@ -15,7 +16,7 @@
   -ms-overflow-style: none;
 }
 
-#product span{
+#product span {
   display: inline-block;
 }
 
@@ -46,14 +47,14 @@
 }
 
 #product h1 {
-  font-family: 'DynaPuff';
+  font-family: "DynaPuff";
   font-size: 36px;
   font-weight: 500;
-  color: #162A14;
+  color: #162a14;
 }
 
 #product h2 {
-  font-family: 'GmarketSans';
+  font-family: "GmarketSans";
   font-size: 24px;
   font-weight: 500;
   color: #244521;
@@ -81,7 +82,7 @@
 }
 
 #product .category-item p {
-  font-family: 'GmarketSans';
+  font-family: "GmarketSans";
 }
 
 #drag {
@@ -105,7 +106,6 @@
 #product ::-webkit-scrollbar {
   display: none;
 }
-
 
 #product .drag-item {
   width: 80vw;
@@ -154,7 +154,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'DynaPuff';
+  font-family: "DynaPuff";
   font-size: 24px;
   font-weight: 500;
   color: #fff;
@@ -172,14 +172,14 @@
 }
 
 #product .text h3 {
-  font-family: 'GmarketSans';
+  font-family: "GmarketSans";
   font-size: 30px;
   font-weight: 500;
   color: #244521;
 }
 
 #product .text h4 {
-  font-family: 'Pretendard', 'GmarketSans';
+  font-family: "Pretendard", "GmarketSans";
   font-size: 16px;
   font-weight: 400;
   line-height: 130%;
@@ -203,7 +203,7 @@
 }
 
 #product .link-button a {
-  font-family: 'DynaPuff';
+  font-family: "DynaPuff";
   font-size: 16px;
   font-weight: 400;
   color: #244521;
@@ -248,7 +248,7 @@
   z-index: 2;
   top: 50%;
   right: 7%;
-  transform: translateY( -50%);
+  transform: translateY(-50%);
 }
 
 #product .sub-img {
@@ -274,9 +274,9 @@
   height: 100%;
   border-radius: 50%;
   border: none;
-  background-color: #4E9546;
+  background-color: #4e9546;
   color: #fff;
-  font-family: 'GmarketSans';
+  font-family: "GmarketSans";
   font-size: 24px;
   font-weight: 500;
   display: flex;
